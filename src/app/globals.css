@@ -267,6 +267,64 @@
   font-size: .75rem;
 }
 
+/* Shared motion language across all pages and controls. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled),
+a,
+[role="button"] {
+  transition-property: color, background-color, border-color, box-shadow, opacity, filter, transform;
+  transition-duration: 220ms;
+  transition-timing-function: cubic-bezier(.2, .75, .25, 1);
+}
+
+button:not(:disabled):active,
+[role="button"]:active {
+  transform: scale(.985);
+}
+
+[data-scroll-state="hidden"] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 650ms cubic-bezier(.2, .7, .2, 1), transform 650ms cubic-bezier(.2, .7, .2, 1);
+  will-change: opacity, transform;
+}
+
+[data-scroll-state="visible"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 650ms cubic-bezier(.2, .7, .2, 1), transform 650ms cubic-bezier(.2, .7, .2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  [data-scroll-state="hidden"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Same specificity as the forms plugin's base styles, declared after them; utilities still win. */
 @layer base {
   :where(.stitch-no-forms)

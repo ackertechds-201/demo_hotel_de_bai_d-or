@@ -518,10 +518,30 @@ function initRooms(params: URLSearchParams) {
     "click",
     (e) => {
       const target = e.target as HTMLElement;
-      const discover = target.closest(".room-card button");
-      if (discover && /Découvrir/.test(discover.textContent || "")) {
+      const discover = target.closest<HTMLButtonElement>(".room-card .open-details-btn");
+      if (discover) {
         e.stopPropagation();
-        goTo("/suite");
+        e.preventDefault();
+        const card = discover.closest<HTMLElement>(".room-card");
+        if (!card) return;
+        const roomId = discover.dataset.roomId;
+        if (!roomId) return;
+        const roomTitle = card.querySelector("h2")?.textContent?.trim() || "Hébergement";
+        const image = card.querySelector<HTMLImageElement>("img");
+        const roomData = {
+          title: roomTitle,
+          price: card.querySelector(".font-headline-sm")?.textContent?.trim() || "Tarif sur demande",
+          area: card.querySelector(".flex.items-baseline.justify-between > span:last-child")?.textContent?.trim() || "",
+          location: card.querySelector("h2 + p")?.textContent?.trim() || "Diego-Suarez • Madagascar",
+          description: card.querySelector(".line-clamp-2")?.textContent?.trim() || "",
+          image: image?.currentSrc || image?.src || "",
+          imageAlt: image?.alt || roomTitle,
+          amenities: Array.from(card.querySelectorAll(".flex.flex-wrap.items-center > span"))
+            .map((item) => item.textContent?.trim() || "")
+            .filter((item) => item && item !== "•"),
+        };
+        sessionStorage.setItem(`baiedor:room-detail:${roomId}`, JSON.stringify(roomData));
+        goTo(`/suite?room=${encodeURIComponent(roomId)}`);
         return;
       }
       if (target.closest("#confirm-simulation-btn")) {
@@ -537,7 +557,20 @@ function initRooms(params: URLSearchParams) {
   );
 }
 
-function initSuite() {
+type RoomDetail = {
+  title: string;
+  price: string;
+  area: string;
+  location: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  amenities: string[];
+};
+
+function initSuite(params: URLSearchParams) {
+  const roomId = params.get("room");
+  if (roomId && roomId !== "emeraude") renderRoomDetail(roomId);
   const btn = $("#btn-simulate-booking");
   if (!btn) return;
   btn.addEventListener("click", () => {
@@ -560,6 +593,47 @@ function initSuite() {
     });
     goTo("/confirmation", 1200);
   });
+}
+
+function renderRoomDetail(roomId: string) {
+  let room: RoomDetail | null = null;
+  try {
+    const saved = sessionStorage.getItem(`baiedor:room-detail:${roomId}`);
+    room = saved ? (JSON.parse(saved) as RoomDetail) : null;
+  } catch {
+    room = null;
+  }
+  if (!room) return;
+
+  const main = $("main");
+  if (!main) return;
+  document.title = `${room.title} | Hôtel Baie d'Or`;
+  const esc = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char] || char);
+  const features = room.amenities.map((item) => `<li class="flex items-center gap-2 rounded-full bg-[#FAF5EB] px-4 py-2 text-sm text-[#504536]"><span class="text-[#805600]">✦</span>${esc(item)}</li>`).join("");
+  main.innerHTML = `
+    <div class="flex w-full flex-col bg-[#FAF5EB]">
+      <section class="w-full border-b border-[#E8DCBE] bg-[#FFFBF2]"><div class="mx-auto flex max-w-[1240px] flex-wrap items-center gap-3 px-6 py-3 text-[13px] text-[#6f5a4f]">
+        <a class="font-medium hover:text-[#805600]" href="/">Accueil</a><span>›</span><a class="font-medium hover:text-[#805600]" href="/chambres">Chambres &amp; Suites</a><span>›</span><span class="font-semibold text-[#1F1610]">${esc(room.title)}</span>
+      </div></section>
+      <section class="w-full py-8"><div class="mx-auto flex max-w-[1240px] flex-col gap-5 px-6">
+        <div class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+          <div class="flex max-w-3xl flex-col gap-3"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full border border-[#E5A93C]/40 bg-[#E5A93C]/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#614000]">Hébergement de la Baie d'Or</span><span class="rounded-full border border-[#E8DCBE] bg-[#F5EAD6] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#564338]">${esc(room.location)}</span></div>
+            <h1 class="font-serif text-3xl font-medium leading-tight tracking-tight text-[#1F1610] sm:text-4xl lg:text-5xl">${esc(room.title)}</h1>
+            <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#6f5a4f]"><span>${esc(room.area)}</span><span>•</span><span>${esc(room.amenities[0] || "Séjour de charme")}</span></div>
+          </div><div class="flex items-baseline gap-2 self-start rounded-2xl border border-[#E8DCBE] bg-[#FFFBF2] px-5 py-3 shadow-sm lg:self-end"><span class="text-[11px] font-bold uppercase tracking-wider text-[#6f5a4f]">Tarif indicatif</span><span class="font-serif text-3xl font-bold tracking-tight text-[#1F1610]">${esc(room.price)}</span></div>
+        </div>
+      </div></section>
+      <section class="w-full pb-10"><div class="mx-auto max-w-[1240px] px-6"><div class="group relative h-[320px] overflow-hidden rounded-3xl border border-[#E8DCBE] bg-[#F2EDE3] shadow-[0_12px_32px_rgba(31,22,16,0.08)] sm:h-[420px] md:h-[540px]"><img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="${esc(room.image)}" alt="${esc(room.imageAlt)}"/><div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div><span class="absolute bottom-5 left-5 rounded-full border border-[#E8DCBE]/60 bg-[#FFFBF2]/90 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#1F1610]">${esc(room.location)}</span></div></div></section>
+      <section class="w-full pb-20"><div class="mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-8 px-6 lg:grid-cols-12">
+        <article class="flex flex-col gap-6 rounded-3xl border border-[#E8DCBE] bg-[#FFFBF2] p-7 shadow-sm md:p-10 lg:col-span-8">
+          <div><span class="text-[12px] font-bold uppercase tracking-widest text-[#805600]">Atmosphère &amp; Concept</span><h2 class="mt-2 font-serif text-2xl font-medium text-[#1F1610] sm:text-3xl">${esc(room.title)}</h2></div>
+          <p class="text-[17px] leading-relaxed text-[#504536]">${esc(room.description)}</p><p class="text-[15px] leading-relaxed text-[#6f5a4f]">${esc(room.location)} • Un hébergement pensé pour profiter pleinement du confort, de la nature et des paysages du nord de Madagascar.</p>
+          <div class="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-3"><div class="rounded-2xl border border-[#E8DCBE] bg-[#FAF5EB] p-4"><span class="text-[11px] font-bold uppercase tracking-wider text-[#6f5a4f]">Superficie</span><p class="mt-1 font-serif text-lg font-bold text-[#1F1610]">${esc(room.area)}</p></div><div class="rounded-2xl border border-[#E8DCBE] bg-[#FAF5EB] p-4"><span class="text-[11px] font-bold uppercase tracking-wider text-[#6f5a4f]">Emplacement</span><p class="mt-1 font-serif text-lg font-bold text-[#1F1610]">${esc(room.location.split("•")[0].trim())}</p></div><div class="rounded-2xl border border-[#E8DCBE] bg-[#FAF5EB] p-4"><span class="text-[11px] font-bold uppercase tracking-wider text-[#6f5a4f]">Tarif</span><p class="mt-1 font-serif text-lg font-bold text-[#1F1610]">${esc(room.price)}</p></div></div>
+          <div class="pt-2"><h3 class="font-serif text-2xl font-medium text-[#1F1610]">Équipements &amp; points forts</h3><ul class="mt-4 flex flex-wrap gap-2">${features}</ul></div>
+        </article>
+        <aside class="sticky top-28 flex flex-col gap-4 rounded-3xl border border-[#E8DCBE] bg-[#FFFBF2] p-6 shadow-sm lg:col-span-4"><span class="text-[12px] font-bold uppercase tracking-widest text-[#805600]">Votre séjour</span><h2 class="font-serif text-2xl font-medium text-[#1F1610]">${esc(room.title)}</h2><p class="text-sm text-[#6f5a4f]">${esc(room.price)} / nuitée</p><a href="/reservation" class="mt-2 inline-flex justify-center rounded-full bg-[#261A13] px-6 py-3 font-semibold text-[#FFFBF2] transition hover:bg-[#835425]">Réserver ce séjour</a><a href="/chambres" class="text-center text-sm font-semibold text-[#805600] hover:underline">Retour aux hébergements</a></aside>
+      </div></section>
+    </div>`;
 }
 
 function initReservation(params: URLSearchParams) {
@@ -741,6 +815,44 @@ function initGallery() {
   });
 }
 
+function initScrollMotion() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  const selector = [
+    "main > section",
+    "main > div > section",
+    "main > div > div > section",
+    "main > div > div > div > section",
+    ".room-card",
+    ".faq-item",
+    ".faq-card",
+    ".gallery-item",
+    ".service-card",
+    "#explore .group.flex.flex-col",
+  ].join(",");
+  const elements = Array.from(new Set($all<HTMLElement>(selector))).filter(
+    (element) => !element.closest("[aria-hidden='true'], .fixed[role='dialog']") && !element.hasAttribute("data-scroll-state"),
+  );
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const element = entry.target as HTMLElement;
+        element.dataset.scrollState = entry.isIntersecting ? "visible" : "hidden";
+      });
+    },
+    { rootMargin: "-5% 0px -8% 0px", threshold: 0.02 },
+  );
+
+  elements.forEach((element, index) => {
+    element.style.transitionDelay = `${(index % 4) * 65}ms`;
+    element.dataset.scrollState = "hidden";
+    observer.observe(element);
+  });
+}
+
 export function initSite(page: string) {
   const params = new URLSearchParams(window.location.search);
   initImageFallbacks();
@@ -748,10 +860,11 @@ export function initSite(page: string) {
   if (page === "index") initHome();
   else if (page === "chambres") initRooms(params);
   else if (page === "suite") {
-    initSuite();
+    initSuite(params);
     initShare();
   } else if (page === "galerie") initGallery();
   else if (page === "reservation") initReservation(params);
   else if (page === "legal") initLegal(params);
   else if (page === "confirmation") initConfirmation();
+  initScrollMotion();
 }
