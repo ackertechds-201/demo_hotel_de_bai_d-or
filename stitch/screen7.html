@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "secondary": "#6f5a4f",
+        "on-tertiary": "#ffffff",
+        "outline": "#837563",
+        "tertiary-fixed": "#ffdcc0",
+        "surface-bright": "#fef9ef",
+        "on-tertiary-container": "#5f3609",
+        "surface": "#FFFBF2",
+        "secondary-fixed": "#f9ddce",
+        "pale-vanilla": "#FFFBF2",
+        "background": "#FFFBF2",
+        "surface-container-highest": "#e7e2d8",
+        "surface-container-low": "#f8f3e9",
+        "on-surface": "#261A13",
+        "on-tertiary-fixed-variant": "#673d10",
+        "inverse-primary": "#fdba4d",
+        "on-secondary-fixed-variant": "#564338",
+        "inverse-surface": "#261A13",
+        "primary-container": "#dfa035",
+        "sun-gold": "#E5A93C",
+        "espresso-dark": "#261A13",
+        "tertiary-fixed-dim": "#f8ba82",
+        "on-tertiary-fixed": "#2d1600",
+        "error": "#ba1a1a",
+        "inverse-on-surface": "#f5f0e6",
+        "on-primary-fixed-variant": "#614000",
+        "secondary-fixed-dim": "#dcc1b3",
+        "on-primary": "#ffffff",
+        "on-secondary": "#ffffff",
+        "primary-fixed": "#ffddb0",
+        "on-error-container": "#93000a",
+        "primary-fixed-dim": "#fdba4d",
+        "surface-tint": "#805600",
+        "on-surface-variant": "#504536",
+        "surface-container-high": "#ece8de",
+        "tertiary-container": "#dba06a",
+        "warm-border": "#E8DCBE",
+        "surface-dim": "#dedad0",
+        "on-secondary-container": "#735e53",
+        "surface-variant": "#e7e2d8",
+        "error-container": "#ffdad6",
+        "on-primary-container": "#583a00",
+        "on-background": "#261A13",
+        "surface-container": "#f2ede3",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#835425",
+        "outline-variant": "#d5c4b0",
+        "on-secondary-fixed": "#27180f",
+        "on-primary-fixed": "#281800",
+        "secondary-container": "#f6dacb",
+        "on-error": "#ffffff",
+        "soft-sand": "#F5EAD6",
+        "primary": "#805600"
+      },
+      "borderRadius": {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "2.5rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-xl": "2.5rem",
+        "margin-mobile": "1.25rem",
+        "gutter-sm": "1rem",
+        "space-3xl": "6rem",
+        "margin": "2rem",
+        "margin-desktop": "5rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-2xl": "4rem",
+        "space-md": "1rem",
+        "gutter": "1.5rem",
+        "gutter-lg": "2.5rem"
+      },
+      "fontFamily": {
+        "label-sm": ["DM Sans"],
+        "headline-sm": ["Newsreader", "serif"],
+        "display-lg-mobile": ["Newsreader", "serif"],
+        "body-md": ["DM Sans", "sans-serif"],
+        "label-md": ["DM Sans"],
+        "headline-lg": ["Newsreader", "serif"],
+        "headline-xl": ["Newsreader", "serif"],
+        "headline-xl-mobile": ["Newsreader", "serif"],
+        "display-lg": ["Newsreader", "serif"],
+        "body-lg": ["DM Sans", "sans-serif"],
+        "body-sm": ["DM Sans", "sans-serif"]
+      }
+    }
+  }
+}</script></head><body class="bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30"><div class="fixed top-0 left-0 right-0 z-50 flex flex-col"><div class="w-full bg-espresso-dark text-[#F5EAD6] py-1.5 px-gutter text-center font-label-md text-label-sm tracking-wider flex items-center justify-center gap-space-sm shadow-sm"><span class="material-symbols-outlined text-[15px] text-sun-gold">info</span><span>PROJET DE DÉMONSTRATION FICTIF - ACKER TECH DS | Retraite Éco-Luxe Diego-Suarez</span></div><header class="w-full bg-[#FFFBF2]/90 backdrop-blur-xl border-b border-warm-border/60 transition-all"><div class="h-20 max-w-[1240px] mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container/30 text-primary"><span class="material-symbols-outlined text-[22px] text-primary">spa</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-espresso-dark leading-none">Hôtel Baie d'Or</span><span class="font-label-md text-[10px] tracking-widest uppercase text-secondary mt-0.5">Diego-Suarez • Madagascar</span></div></div><nav class="hidden xl:flex items-center gap-space-xs"><a class="px-space-md py- space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="accueil" href="#">Accueil</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="chambres-et-suites" href="#">Chambres &amp; Suites</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="services-et-experiences" href="#">Services &amp; Expériences</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="galerie" href="#">Galerie</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="a-propos" href="#">À Propos</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="faq" href="#">FAQ</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md text-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_4px_16px_rgba(38,26,19,0.18)]" data-path="reservation" href="#booking-container">Réserver un séjour</a><div class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header></div><main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Banner & Breadcrumb Context -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin pt-space-md pb-space-lg">
+<!-- Breadcrumb -->
+<nav aria-label="Fil d'Ariane" class="flex items-center gap-space-xs text-secondary font-label-md text-label-sm tracking-widest uppercase mb-space-md">
+<a class="hover:text-espresso-dark transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[15px]">home</span>
+        Accueil
+      </a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold">Foire Aux Questions &amp; Guide de Séjour</span>
+</nav>
+<!-- Header Block with Asymmetric Editorial Balance -->
+<div class="relative bg-surface rounded-xl p-space-lg md:p-space-xl lg:p-space-2xl shadow-sm overflow-hidden">
+<div class="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-sun-gold/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px- space-md py-1.5 rounded-full bg-soft-sand text-espresso-dark font-label-md text-label-sm mb-space-md tracking-wider">
+<span class="material-symbols-outlined text-[16px] text-sun-gold" style="font-variation-settings: 'FILL' 1;">verified</span>
+          ASSISTANCE &amp; CONSEILS VOYAGEURS • ANTSIRANANA
+        </div>
+<h1 class="font-headline-xl text-headline-xl text-espresso-dark mb-space-sm leading-tight tracking-tight">
+          Foire Aux Questions &amp; Guide de Séjour
+        </h1>
+<p class="font-headline-sm text-headline-sm text-secondary italic font-serif">
+          Anticiper la douceur de votre arrivée au bout du monde, entre alizés bienveillants et lagons de sable blond.
+        </p>
+</div>
+<!-- Quick Search Bar inside Hero Header -->
+<div class="relative z-10 mt-space-xl max-w-2xl">
+<div class="flex flex-col sm:flex-row items-center gap-space-xs bg-surface-container-lowest p-2 rounded-full shadow-md">
+<div class="flex items-center gap-space-xs px-space-md w-full">
+<span class="material-symbols-outlined text-secondary text-[22px]">search</span>
+<input class="w-full bg-transparent border-0 focus:ring-0 text-on-surface placeholder:text-secondary/70 font-body-md text-body-md py-2 px-1 focus:outline-none" id="faq-search-input" placeholder="Rechercher un transfert, Starlink, bagages, climat..." type="text"/>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-xl py-3 rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-md hover:bg-espresso-dark/90 transition-all shrink-0 cursor-pointer shadow-sm" id="faq-search-btn" type="button">
+<span>Explorer</span>
+<span class="material-symbols-outlined text-[18px] text-sun-gold">east</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-2 px-space-sm">
+<span class="font-label-md text-label-sm text-secondary uppercase tracking-widest">Recherches fréquentes :</span>
+<button class="quick-chip font-body-sm text-body-sm text-primary hover:underline" data-term="Starlink" type="button">Starlink</button>
+<span class="text-outline-variant">•</span>
+<button class="quick-chip font-body-sm text-body-sm text-primary hover:underline" data-term="Aéroport" type="button">Transfert DIE</button>
+<span class="text-outline-variant">•</span>
+<button class="quick-chip font-body-sm text-body-sm text-primary hover:underline" data-term="Enfants" type="button">Familles</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4 Quick Key Information Cards -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin py-space-md">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm hover:translate-y-[-2px] transition-transform flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">flight_land</span>
+</div>
+<span class="font-label-md text-label-sm text-secondary bg-surface-container px-2.5 py-1 rounded-full">Aéroport (DIE)</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark mb-1">Aéroport Arrachart</h3>
+<p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+            25 min en navette VIP privatisée climatisée ou 10 min en transfert héliporté direct vers la Baie d'Or.
+          </p>
+</div>
+<div class="pt-space-xs font-label-md text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>Prise en charge personnalisée</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm hover:translate-y-[-2px] transition-transform flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">wifi</span>
+</div>
+<span class="font-label-md text-label-sm text-secondary bg-surface-container px-2.5 py-1 rounded-full">250 Mbps</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark mb-1">Starlink Haut Débit</h3>
+<p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+            Réseau satellite maillé de dernière génération couvrant toutes les villas, les piscines et les salons de plage.
+          </p>
+</div>
+<div class="pt-space-xs font-label-md text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>Idéal pour le travail nomade</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm hover:translate-y-[-2px] transition-transform flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</div>
+<span class="font-label-md text-label-sm text-secondary bg-surface-container px-2.5 py-1 rounded-full">Climat Marin</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark mb-1">Alizé Varatraza</h3>
+<p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+            Vent régulier et doux de mai à novembre. Températures idéales de 26°C à 30°C avec ensoleillement permanent.
+          </p>
+</div>
+<div class="pt-space-xs font-label-md text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>Navigation &amp; farniente</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm hover:translate-y-[-2px] transition-transform flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">energy_savings_leaf</span>
+</div>
+<span class="font-label-md text-label-sm text-secondary bg-surface-container px-2.5 py-1 rounded-full">100% Éco</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark mb-1">Éco-Luxe Raisonné</h3>
+<p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+            Centrale solaire photovoltaïque couplée à des batteries, zéro plastique à usage unique et potagers permacoles.
+          </p>
+</div>
+<div class="pt-space-xs font-label-md text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>Charte environnementale</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Filter Tabs -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin pt-space-lg pb-space-sm">
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="faq-filter-container">
+<button class="faq-pill-btn active px- space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-espresso-dark text-pale-vanilla transition-all cursor-pointer" data-filter="all" type="button">
+        Toutes les questions
+      </button>
+<button class="faq-pill-btn px-space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-surface hover:bg-soft-sand text-secondary hover:text-espresso-dark transition-all cursor-pointer" data-filter="reservation" type="button">
+        Réservations &amp; Modalités Fictives
+      </button>
+<button class="faq-pill-btn px-space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-surface hover:bg-soft-sand text-secondary hover:text-espresso-dark transition-all cursor-pointer" data-filter="transport" type="button">
+        Accès &amp; Transferts (DIE)
+      </button>
+<button class="faq-pill-btn px-space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-surface hover:bg-soft-sand text-secondary hover:text-espresso-dark transition-all cursor-pointer" data-filter="stay" type="button">
+        Séjour &amp; Prestations
+      </button>
+<button class="faq-pill-btn px-space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-surface hover:bg-soft-sand text-secondary hover:text-espresso-dark transition-all cursor-pointer" data-filter="ecology" type="button">
+        Éco-Engagement &amp; Climat
+      </button>
+<button class="faq-pill-btn px-space-md py-2 rounded-full font-label-md text-label-sm tracking-wider uppercase whitespace-nowrap bg-surface hover:bg-soft-sand text-secondary hover:text-espresso-dark transition-all cursor-pointer" data-filter="dining" type="button">
+        Restauration
+      </button>
+</div>
+</section>
+<!-- Main Content Layout: Accordions + Sticky Concierge Sidebar -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- FAQ Accordions Column (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl" id="faq-list">
+<!-- CATEGORY 1: Réservations & Cadre Démonstratif Fictif -->
+<div class="faq-category-group" data-category="reservation">
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+</span>
+<h2 class="font-headline-lg text-headline-lg text-espresso-dark">
+              Réservations &amp; Cadre Démonstratif Fictif
+            </h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- FAQ Item 1 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="fonctionne plateforme reservation demonstratif acker tech">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Comment fonctionne cette plateforme de réservation ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Le présent site est un <strong>projet de démonstration et d'exploration technologique</strong> conçu et développé par l'agence technologique <strong>Acker Tech DS</strong> basée à Diego-Suarez (Antsiranana).
+                </p>
+<p>
+                  Les réservations effectuées sur la plateforme sont <em>entièrement simulées</em> : elles vous permettent d'expérimenter le parcours client ultra-fluide, la sélection des suites sur plan interactif, les options de transferts personnalisés et l'estimation tarifaire sans aucun débit financier réel ni engagement contractuel.
+                </p>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="reglement simulation carte bancaire paiement monnaie">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Quels sont les modes de règlement acceptés pour une simulation ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Dans le cadre de cette vitrine interactive, le moteur de réservation accepte des identifiants bancaires de test standardisés (cartes fictives Sandbox).
+                </p>
+<p>
+                  Dans l'exploitation opérationnelle équivalente d'un éco-resort à Madagascar, les règlements sont pris en charge par cartes de prestige internationales (Visa Premier, Mastercard Infinite, American Express) ainsi que par virements bancaires internationaux sécurisés en EUR, USD ou Ariary (MGA).
+                </p>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="annulation simulateur politique flexibilite villas">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Quelle est la politique d'annulation simulée pour les villas ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Les conditions de séjour modélisées sur l'Hôtel Baie d'Or prévoient une annulation sans frais jusqu'à <strong>14 jours avant la date d'arrivée</strong> prévue.
+                </p>
+<p>
+                  En deçà de cette période, 50% du montant du séjour simulé est conservé à titre de dédommagement d'immobilisation de la villa. Une garantie multirisque météo et report alizé est systématiquement intégrée pour les séjours de plus de 5 nuitées consécutives.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- CATEGORY 2: Accès, Transport & Situation Géographique -->
+<div class="faq-category-group" data-category="transport">
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+</span>
+<h2 class="font-headline-lg text-headline-lg text-espresso-dark">
+              Accès, Transport &amp; Situation Géographique
+            </h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- FAQ Item 4 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="aeroport arrachart die rejoindre route bateau helicoptere">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Comment rejoindre l'Hôtel Baie d'Or depuis l'Aéroport d'Arrachart (DIE) ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Dès votre atterrissage à Diego-Suarez (Arrachart - DIE), notre équipe d'accueil vous escorte jusqu'au salon privé d'attente. Trois options exclusives s'offrent à vous :
+                </p>
+<ul class="list-disc pl-5 space-y-2 mb-3">
+<li><strong>Navette Privée Land Cruiser :</strong> Trajet panoramique de 25 minutes traversant la végétation endémique et longeant la rade naturelle.</li>
+<li><strong>Liaison Hélicoptère Écureuil :</strong> Survol spectaculaire du Pain de Sucre (Nosy Lonjo) et atterrissage sur notre hélisurface privative en 8 minutes chrono.</li>
+<li><strong>Transfert Nautique depuis Ramena :</strong> Embarquement sur notre catamaran lounge pour une traversée apaisante des eaux turquoise de la baie.</li>
+</ul>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="saison meilleure diego-suarez mer emeraude climat vent varatraza kitesurf">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Quelle est la meilleure saison pour visiter Diego-Suarez et la Mer d'Émeraude ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  La pointe septentrionale de Madagascar bénéficie d'un microclimat exceptionnel avec plus de <strong>300 jours d'ensoleillement par an</strong>.
+                </p>
+<p class="mb-2">
+                  • <strong>D'avril à novembre (Saison de l'Alizé Varatraza) :</strong> Climat sec, températures douces oscillant entre 24°C et 28°C, conditions idéales pour le kitesurf, la planche à voile et les croisières privées vers la Mer d'Émeraude.
+                </p>
+<p>
+                  • <strong>De décembre à mars (Saison estivale tropicale) :</strong> Températures plus chaudes (30°C-32°C), mer d'huile transparente, parfait pour la plongée sous-marine autonome et l'observation des fonds marins préservés.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- CATEGORY 3: Vie à l'Hôtel, Services & Éco-Hospitalité -->
+<div class="faq-category-group" data-category="stay">
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">hotel</span>
+</span>
+<h2 class="font-headline-lg text-headline-lg text-espresso-dark">
+              Vie à l'Hôtel, Services &amp; Éco-Hospitalité
+            </h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- FAQ Item 6 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="enfants familles bienvenus kids club club enfant equipements">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Les enfants et les familles sont-ils les bienvenus ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Absolument. Bien que l'Hôtel Baie d'Or cultive une atmosphère de sérénité intimiste propice aux couples, nos <em>Villas Royales et Pavillons Rivage</em> sont parfaitement adaptés aux tribus et aux familles intergénérationnelles.
+                </p>
+<p>
+                  Nous mettons à disposition des équipements de puériculture écologiques en bois local, des menus enfants concoctés par notre Chef, ainsi qu'un programme d'éveil marin animé par des guides naturalistes malgaches (découverte des tortues, fabrication de maquettes de pirogues à balancier).
+                </p>
+</div>
+</div>
+<!-- FAQ Item 7 -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-keywords="internet connexion starlink teletravail nomade visio visioconference wifi">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">La connexion internet permet-elle le travail à distance ou les visioconférences ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Oui, sans aucune restriction. Grâce à notre double terminal satellite <strong>Starlink Haute Priorité</strong> et un maillage Wi-Fi 6 de l'ensemble du domaine, vous disposez d'un débit moyen descendant de <strong>200 à 280 Mbps</strong> avec une latence inférieure à 35 ms.
+                </p>
+<p>
+                  Les appels vidéo HD (Zoom, Teams, Meet), le partage de fichiers volumineux et les sessions de streaming s'effectuent avec la même réactivité que dans une métropole internationale, tout en travaillant face à la mer.
+                </p>
+</div>
+</div>
+<!-- FAQ Item 8 (Dining Category) -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-category="dining" data-keywords="restaurant vegetarien sans gluten halal gastronomie chef vanille fruits de mer">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Le restaurant propose-t-il des options végétariennes, sans gluten ou halales ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  Notre table d'hôtes gastronomique <em>L'Éphémère Baie d'Or</em> célèbre la biodiversité culinaire du Nord malgache avec une attention personnalisée à chaque régime :
+                </p>
+<p class="mb-2">
+                  • Menus végétaux et vegans élaborés à partir des récoltes de notre potager biologique et des coopératives paysannes de Joffreville.
+                </p>
+<p class="mb-2">
+                  • Pains et pâtisseries sans gluten confectionnés sur place à partir de farines de manioc local et de riz parfumé d'Ambilobe.
+                </p>
+<p>
+                  • Viandes certifiées et fruits de mer issus de la pêche durable artisanale à la ligne livrés chaque matin par les pêcheurs du village voisin.
+                </p>
+</div>
+</div>
+<!-- FAQ Item 9 (Ecology Category) -->
+<div class="faq-item bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm transition-all" data-category="ecology" data-keywords="demarches eco responsables ecologie solaire eau plastique dechets durabilite">
+<button class="faq-toggle w-full flex items-center justify-between text-left gap-space-md cursor-pointer" type="button">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">Quelles sont les démarches éco-responsables mises en place sur le site ?</span>
+<span class="faq-icon w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark shrink-0 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</button>
+<div class="faq-content hidden pt-space-md text-secondary font-body-md text-body-md border-t border-warm-border/60 mt-space-md">
+<p class="mb-3">
+                  L'engagement écologique est au cœur de l'ADN de Baie d'Or. Nos infrastructures intègrent des solutions de pointe pour minimiser notre empreinte environnementale :
+                </p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Autonomie Énergétique Propre :</strong> Parc de 380 panneaux solaires avec stockage lithium de dernière génération assurant 92% des besoins quotidiens.</li>
+<li><strong>Gestion de l'Eau :</strong> Station de phyto-épuration naturelle pour le recyclage des eaux grises destinées aux jardins et désalinisation solaire basse pression.</li>
+<li><strong>Zéro Déchet &amp; Économie Circulaire :</strong> Bouteilles d'eau en verre capsulées sur place, élimination intégrale des plastiques jetables et compostage systématique.</li>
+<li><strong>Impact Communautaire :</strong> 85% de nos équipes sont issues des communautés locales de Diego-Suarez et de Ramena, formées aux standards hôteliers de luxe.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- No Results Empty State -->
+<div class="hidden bg-surface rounded-xl p-space-2xl text-center shadow-sm" id="faq-empty-state">
+<div class="w-16 h-16 rounded-full bg-soft-sand mx-auto mb-space-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">manage_search</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark mb-1">Aucune réponse ne correspond à votre recherche</h3>
+<p class="font-body-md text-body-md text-secondary max-w-md mx-auto mb-space-lg">
+            Notre équipe de conciergerie privée se tient à votre entière disposition pour répondre à vos demandes spécifiques.
+          </p>
+<button class="inline-flex items-center gap-2 px-space-lg py-2.5 rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-md hover:bg-espresso-dark/90 transition-all cursor-pointer" id="reset-search-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+            Réinitialiser les filtres
+          </button>
+</div>
+</div>
+<!-- Sticky Concierge Sidebar Column (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Private Concierge Card -->
+<div class="sticky top-32 bg-surface rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-warm-border/60">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-md text-label-sm uppercase tracking-wider text-primary font-bold">Conciergerie Privée</span>
+</div>
+<span class="font-label-md text-label-sm text-secondary bg-soft-sand px-2 py-0.5 rounded-full">24/7 Disponible</span>
+</div>
+<div class="flex items-center gap-space-md mb-space-lg">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-sm" data-alt="Portrait of an elegant head concierge in warm linen tailored suit, warm atmospheric lighting, luxury resort lobby in Diego Suarez Madagascar, subtle sun flare, golden ochre tones, gentle smile, professional hotelier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMD4I-XXJu6d4XAtaHl-96CqpZJoCTu5n0HWwlOof1lC-mZRHpcG39q4Vq2s4tbXtByklM9qoXdQ036CSioz8k4ikUP4Mz8cu8OE8-iwEPBQbymSDEfbWPW92ywoJUH8BBh2E0SANBMstfOlbW5DOCawueG6HbrOYM7Vn94lX2l_CGdnOAlt7fg8SNCQw4YWBkzuOIk5sQrBMBvjmwWriWiPvg3MpS1lzruN8P8JnOUhd_xZ6j_Qc"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary border-2 border-surface"></span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark leading-tight">Miora Razafy</h4>
+<p class="font-body-sm text-body-sm text-secondary">Cheffe Concierge &amp; Majordome</p>
+<p class="font-label-md text-label-sm text-primary">Baie d'Or Sanctuary</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mb-space-lg">
+            « Chaque voyage vers Diego-Suarez est un périple précieux. Que vous ayez besoin d'un transfert sur-mesure, d'un régime alimentaire spécifique ou de recommandations nautiques, nous veillons sur votre sérénité avant même votre décollage. »
+          </p>
+<!-- Metrics Pods -->
+<div class="grid grid-cols-2 gap-space-xs mb-space-lg">
+<div class="bg-surface-container-low p-3 rounded-lg text-center">
+<span class="block font-headline-sm text-headline-sm text-espresso-dark font-semibold">&lt; 15 min</span>
+<span class="font-label-md text-[10px] text-secondary tracking-widest uppercase">Temps de réponse</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg text-center">
+<span class="block font-headline-sm text-headline-sm text-espresso-dark font-semibold">FR • EN • MG</span>
+<span class="font-label-md text-[10px] text-secondary tracking-widest uppercase">Langues parlées</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-space-xs">
+<a class="w-full inline-flex items-center justify-center gap-2 py-3 px-space-md rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-md hover:bg-espresso-dark/90 transition-all text-center shadow-sm cursor-pointer" href="#contact">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">chat</span>
+              Échanger avec la Conciergerie
+            </a>
+<a class="w-full inline-flex items-center justify-center gap-2 py-3 px-space-md rounded-full bg-soft-sand text-espresso-dark font-label-md text-label-sm hover:bg-soft-sand/80 transition-all text-center cursor-pointer" href="tel:+261320000000">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span>
+              Ligne VIP : +261 32 00 000 00
+            </a>
+</div>
+<!-- Micro Location note -->
+<div class="mt-space-lg pt-space-md border-t border-warm-border/60 flex items-center justify-between text-secondary font-label-md text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+              Heure locale : UTC+3 (EAT)
+            </span>
+<span class="flex items-center gap-1 font-semibold text-espresso-dark">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">wb_sunny</span>
+              28°C Varatraza
+            </span>
+</div>
+</div>
+<!-- Practical Fact Sheet Pod -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm text-espresso-dark">
+<span class="material-symbols-outlined text-primary">policy</span>
+<h4 class="font-headline-sm text-headline-sm">Informations Sanitaires &amp; Formalités</h4>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
+<span><strong>Visa touristique :</strong> Délivré facilement à l'arrivée à l'Aéroport de Diego ou via le service national e-Visa.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
+<span><strong>Santé :</strong> Traitement antipaludique recommandé en saison des pluies. L'hôtel est équipé d'une trousse médicale avancée et médecin conventionné 24/7.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
+<span><strong>Électricité :</strong> Prises standard européennes (Type C &amp; E), 220V alimenté en continu par notre micro-grid solaire.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Map / Location Callout -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin py-space-xl">
+<div class="relative bg-surface rounded-xl overflow-hidden shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+<div class="lg:col-span-5 p-space-lg md:p-space-xl lg:p-space-2xl">
+<span class="font-label-md text-label-sm text-primary uppercase tracking-widest font-bold mb-space-xs block">
+            Position Géographique Privilégiée
+          </span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark mb-space-sm">
+            Niché au cœur de la baie, préservé du tumulte
+          </h3>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+            Situé sur un promontoire naturel face à l'Océan Indien, l'Hôtel Baie d'Or garantit une quiétude absolue tout en restant à proximité immédiate de la route des Trois Baies et de Ramena.
+          </p>
+<div class="space-y-3 font-body-sm text-body-sm text-espresso-dark">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-soft-sand text-primary flex items-center justify-center font-bold text-xs">1</span>
+<span><strong>Baie des Sakalava :</strong> 12 minutes (Spot kite &amp; windsurf)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-soft-sand text-primary flex items-center justify-center font-bold text-xs">2</span>
+<span><strong>Mer d'Émeraude :</strong> 20 minutes en bateau rapide privatif</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-soft-sand text-primary flex items-center justify-center font-bold text-xs">3</span>
+<span><strong>Montagne d'Ambre :</strong> 45 minutes d'excursion botanique</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 h-80 lg:h-[440px] relative">
+<!-- Google Maps Static pipeline div container -->
+<div class="w-full h-full bg-cover bg-center" data-location="Diego-Suarez, Antsiranana, Madagascar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYMJvDeqEqNzM7H8enQMxuG2ITy9a1BbFGSCNXZtxaQuyX6saTZbWD7f5-Byg_3IaoNWWrsGqBDO27AnRFQRNegZkUGRPYJrYz_Y6m2mFAWuTA8JonFFK4U2Ff6syQdtKnTU5GcKEsa0DGEQLE9jsqRLL0K2gA9WA7BoC-oQv2aO75wiKaYuOrzXjAOX6_qXZ4bpR8UdTXe1_qai_JdIRpAMeRJb8jotnqHvlUYFixa08TvHac5oGc')">
+</div>
+<div class="absolute bottom-space-md right-space-md bg-espresso-dark/90 backdrop-blur-md text-pale-vanilla px- space-md py-2 rounded-full font-label-md text-label-sm flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sun-gold text-[16px]">pin_drop</span>
+            Antsiranana 201 • Madagascar
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA: Prenez le large sur la Baie Dorée -->
+<section class="w-full max-w-[1280px] mx-auto px-gutter-sm sm:px-gutter lg:px-margin pb-space-3xl">
+<div class="relative rounded-xl overflow-hidden p-space-lg sm:p-space-2xl md:p-space-3xl text-center flex flex-col items-center justify-center bg-espresso-dark text-pale-vanilla shadow-xl">
+<!-- Ambient Image Texture with Scrim -->
+<div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay" data-alt="Cinematic aerial panoramic view of a calm golden sea bay in Diego Suarez Madagascar at late sunset, warm vanilla and ochre reflections on the water, luxury catamaran sailing gently in the distance, minimalist organic serenity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVrTprFkvBs2e4WiBfwgiPx4JVNUQlSoNd7vrkPECFcoV-fXZvcY-DXWTYe_E0OKoTF_n84ch3iX2Ln-RfkYndl4F8fijCf-NX1cWLTjR8SAnVRhRtLoNs705fjcNe2_09tnD4jYtUK_5XVTOA-rVXH5YbSSVWcVsxIpXH5CDKzqyrAhayMis2wf1gsL5gVevD2AA42Pgu-YjWx87fGcLIKHuGjOZPTMqKW_z8x0n1FlR7OnS9ek66')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark via-espresso-dark/80 to-transparent"></div>
+<!-- Content -->
+<div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+<span class="px-space-md py-1 rounded-full bg-primary-container text-espresso-dark font-label-md text-label-sm tracking-widest uppercase mb-space-md font-bold">
+          IMMERSION BAIE D'OR
+        </span>
+<h2 class="font-headline-xl text-headline-xl mb-space-sm font-serif">
+          Prêt à concevoir votre escapade sur la baie dorée ?
+        </h2>
+<p class="font-body-lg text-body-lg text-soft-sand/90 mb-space-xl">
+          Sélectionnez vos dates, choisissez votre villa avec piscine à débordement et laissez notre conciergerie orchestrer chaque détail de votre traversée.
+        </p>
+<div class="flex flex-col sm:flex-row items-center gap-space-md w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md text-label-md hover:bg-sun-gold/90 transition-all font-bold shadow-md cursor-pointer" data-path="reservation" href="#booking-container">
+<span>Simuler ma réservation</span>
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-full bg-surface-container/20 backdrop-blur-md text-pale-vanilla border border-soft-sand/40 hover:bg-surface-container/40 transition-all font-label-md text-label-md cursor-pointer" data-path="chambres-et-suites" href="#chambres">
+<span>Explorer les Villas &amp; Suites</span>
+<span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Vanilla Interactive Client-Side Logic for Filtering, Search & Accordions -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Accordion Toggling
+    const accordions = document.querySelectorAll('.faq-item');
+    accordions.forEach((item) => {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+
+      if (toggle && content) {
+        toggle.addEventListener('click', () => {
+          const isOpen = !content.classList.contains('hidden');
+          
+          // Close others in same category for a polished accordion feeling
+          const parentGroup = item.closest('.faq-category-group');
+          if (parentGroup) {
+            parentGroup.querySelectorAll('.faq-item').forEach(other => {
+              if (other !== item) {
+                const otherContent = other.querySelector('.faq-content');
+                const otherIcon = other.querySelector('.faq-icon');
+                if (otherContent) otherContent.classList.add('hidden');
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+              }
+            });
+          }
+
+          if (isOpen) {
+            content.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+          } else {
+            content.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      }
+    });
+
+    // 2. Category Pill Filter Logic
+    const filterButtons = document.querySelectorAll('.faq-pill-btn');
+    const categoryGroups = document.querySelectorAll('.faq-category-group');
+    const searchInput = document.getElementById('faq-search-input');
+    const emptyState = document.getElementById('faq-empty-state');
+
+    function applyFilter(filter) {
+      filterButtons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.classList.add('bg-espresso-dark', 'text-pale-vanilla');
+          btn.classList.remove('bg-surface', 'text-secondary');
+        } else {
+          btn.classList.remove('bg-espresso-dark', 'text-pale-vanilla');
+          btn.classList.add('bg-surface', 'text-secondary');
+        }
+      });
+
+      let visibleCount = 0;
+      categoryGroups.forEach(group => {
+        const groupCat = group.getAttribute('data-category');
+        const items = group.querySelectorAll('.faq-item');
+
+        if (filter === 'all' || groupCat === filter) {
+          group.classList.remove('hidden');
+          items.forEach(it => {
+            it.classList.remove('hidden');
+            visibleCount++;
+          });
+        } else {
+          // Check if any individual item matches (e.g. dining or ecology inside stay)
+          let hasMatchingChild = false;
+          items.forEach(it => {
+            const itemCat = it.getAttribute('data-category');
+            if (itemCat === filter) {
+              it.classList.remove('hidden');
+              hasMatchingChild = true;
+              visibleCount++;
+            } else {
+              it.classList.add('hidden');
+            }
+          });
+
+          if (hasMatchingChild) {
+            group.classList.remove('hidden');
+          } else {
+            group.classList.add('hidden');
+          }
+        }
+      });
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        applyFilter(filter);
+        if (searchInput) searchInput.value = '';
+      });
+    });
+
+    // 3. Search Field Logic
+    function performSearch(term) {
+      const q = term.toLowerCase().trim();
+      let totalFound = 0;
+
+      // Reset pill states to 'all' visually
+      filterButtons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === 'all') {
+          btn.classList.add('bg-espresso-dark', 'text-pale-vanilla');
+          btn.classList.remove('bg-surface', 'text-secondary');
+        } else {
+          btn.classList.remove('bg-espresso-dark', 'text-pale-vanilla');
+          btn.classList.add('bg-surface', 'text-secondary');
+        }
+      });
+
+      categoryGroups.forEach(group => {
+        let groupHasMatch = false;
+        const items = group.querySelectorAll('.faq-item');
+
+        items.forEach(item => {
+          const text = (item.textContent || '').toLowerCase();
+          const keywords = (item.getAttribute('data-keywords') || '').toLowerCase();
+          
+          if (!q || text.includes(q) || keywords.includes(q)) {
+            item.classList.remove('hidden');
+            groupHasMatch = true;
+            totalFound++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        if (groupHasMatch) {
+          group.classList.remove('hidden');
+        } else {
+          group.classList.add('hidden');
+        }
+      });
+
+      if (emptyState) {
+        if (totalFound === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        performSearch(e.target.value);
+      });
+    }
+
+    const searchBtn = document.getElementById('faq-search-btn');
+    if (searchBtn && searchInput) {
+      searchBtn.addEventListener('click', () => {
+        performSearch(searchInput.value);
+      });
+    }
+
+    // Quick chip buttons
+    const quickChips = document.querySelectorAll('.quick-chip');
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const term = chip.getAttribute('data-term') || '';
+        if (searchInput) {
+          searchInput.value = term;
+          performSearch(term);
+        }
+      });
+    });
+
+    // Reset button in empty state
+    const resetBtn = document.getElementById('reset-search-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        applyFilter('all');
+      });
+    }
+  });
+</script></main><footer class="w-full bg-[#f8f3e9] pt-space-3xl pb-space-xl border-t border-warm-border"><div class="max-w-[1240px] mx-auto px-gutter"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter pb-space-2xl"><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Destinations</h4><p class="font-label-md text-label-sm text-primary font-bold">Diego-Suarez &amp; Baie de Diego</p><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors">Baie des Dunes &amp; Sakalava</li><li class="hover:text-espresso-dark transition-colors">Mer d'Émeraude Privée</li><li class="hover:text-espresso-dark transition-colors">Presqu'île de Ramena</li><li class="hover:text-espresso-dark transition-colors">Pain de Sucre (Nosy Lonjo)</li><li class="hover:text-espresso-dark transition-colors">Parc de la Montagne d'Ambre</li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Menu Rapide</h4><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors"><a data-path="accueil" href="#">Accueil &amp; Panorama</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="chambres-et-suites" href="#">Villas &amp; Résidences</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="services-et-experiences" href="#">Haute Gastronomie</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="galerie" href="#">Portfolio Architectural</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="reservation" href="#">Disponibilités en Ligne</a></li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Expériences</h4><p class="font-label-md text-label-sm text-primary font-bold">Évasion Océan Indien</p><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors">Catamaran Privé &amp; Kitesurf</li><li class="hover:text-espresso-dark transition-colors">Spa &amp; Rituels Botaniques</li><li class="hover:text-espresso-dark transition-colors">Dîner Céleste sous les Étoiles</li><li class="hover:text-espresso-dark transition-colors">Excursions aux Tsingy Rouges</li><li class="hover:text-espresso-dark transition-colors">Navette Hélicoptère &amp; Bateau</li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Légal &amp; Séjour</h4><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors"><a data-path="mentions-legales" href="#">Mentions Légales</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="confidentialite" href="#">Politique de Confidentialité</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="conditions-generales" href="#">Conditions de Réservation</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="charte-environnementale" href="#">Charte Environnementale</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="cookies" href="#">Gestion des Cookies</a></li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Assistance &amp; Démo</h4><p class="font-body-sm text-body-sm text-secondary">Conception haut de gamme réalisée par l'agence technologique d'Antsiranana.</p><div class="flex flex-col gap-space-xs pt-space-xs font-label-md text-label-md text-espresso-dark"><span class="flex items-center gap-space-xs text-primary font-semibold"><span class="material-symbols-outlined text-[16px] text-sun-gold">corporate_fare</span>Acker Tech DS</span><span class="text-secondary text-sm">Diego-Suarez, Madagascar</span></div><div class="flex items-center gap-space-sm pt-space-sm"><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">language</span></span><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">mail</span></span><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">call</span></span></div></div></div><div class="w-full pt-space-lg border-t border-warm-border/60 flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left"><p class="font-body-sm text-body-sm text-secondary">Hôtel Baie d'Or © 2025 - Projet de démonstration conçu par Acker Tech DS. Liens : Mentions légales, Politique de confidentialité, Cookies, Conditions d'utilisation.</p><div class="flex items-center gap-space-lg font-label-md text-label-md text-secondary"><span class="hover:text-espresso-dark transition-colors cursor-pointer font-semibold">FR</span><span class="text-outline-variant">•</span><span class="hover:text-espresso-dark transition-colors cursor-pointer">EN</span><span class="text-outline-variant">•</span><span class="hover:text-espresso-dark transition-colors cursor-pointer">MG</span></div></div></div></footer><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div></body></html>

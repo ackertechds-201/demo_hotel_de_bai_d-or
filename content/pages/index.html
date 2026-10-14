@@ -1,0 +1,403 @@
+<main class="w-full pt-28 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION (Warm Ochre Graphic Curve Inspired by Reference Image) -->
+<section class="relative w-full -mt-28 bg-pale-vanilla pb-16 border-b border-warm-border">
+<div class="relative w-full min-h-[640px] lg:min-h-[720px] flex items-end bg-cover bg-center" data-alt="Luxurious beachfront architectural resort at dusk in Diego-Suarez Madagascar, warm ambient golden lighting illuminating timber terraces, sleek stone pavilions, turquoise ocean lagoon under an indigo twilight sky with gentle silhouettes of the famous bay, 8k architectural photography" data-lazy-background="https://lh3.googleusercontent.com/aida-public/AB6AXuAeNAuS7y_fLDJV-TAshPMeDJf6d0GPb3Lw-rtQlK1dmJQv9v_nyhqehc-2Y2ny4q-RyYn6yFngaL2G1YIZkXgKz4HWi8XxYruN8uHlYOtmZAMJCHFDi2Y6wGiJRKLfrsGrwwuexhynz1stV1_v-mSZbtJ70apzkgiVe0wsibvMVPTGRzN8mkv53Fi5MZGattFHLAo1bBEmEhtPB-0FpqD22aDOv2GLclmmLZCWHL0iWDWoeKpCQzi7=w2400">
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/90 via-espresso-dark/40 to-espresso-dark/60"></div>
+<div class="relative z-10 max-w-[1240px] w-full mx-auto px-gutter pt-44 pb-28">
+<div class="inline-flex items-center gap-space-xs bg-pale-vanilla/15 backdrop-blur-md border border-pale-vanilla/25 px-4 py-1.5 rounded-full w-fit mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">eco</span>
+<span class="font-label-sm text-[11px] text-[#FFFBF2] uppercase tracking-widest">Havre de Sérénité Tropicale • Antsiranana</span>
+</div>
+<h1 class="font-serif text-[42px] leading-[1.08] md:text-[64px] lg:text-[76px] lg:leading-[1.04] text-[#FFFBF2] max-w-3xl tracking-tight mb-space-md drop-shadow-sm">Trouvez Votre Évasion d'Exception.</h1>
+<p class="font-body-lg text-body-lg text-[#FFFBF2]/85 max-w-2xl leading-relaxed mb-space-lg">L'Hôtel Baie d'Or vous invite à contempler l'une des plus belles baies du monde. Villas exclusives, gastronomie insulaire et bien-être absolu face à l'Océan Indien.</p>
+<div class="flex flex-wrap items-center gap-space-md">
+<a class="px-7 py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md flex items-center gap-2 hover:brightness-95 transition-all shadow-lg group" href="#reservation">
+<span>Réserver un Séjour</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="px-6 py-3.5 rounded-full bg-pale-vanilla/15 backdrop-blur-md border border-pale-vanilla/30 text-[#FFFBF2] font-label-md flex items-center gap-2 hover:bg-pale-vanilla/25 transition-colors" href="/chambres">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">explore</span>
+<span>Explorer le domaine</span>
+</a>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-3 pt-space-lg mt-space-lg border-t border-pale-vanilla/20 max-w-2xl">
+<div class="flex items-center gap-2 text-[#FFFBF2]/80 font-label-sm uppercase tracking-wider text-[11px]"><span class="w-2 h-2 rounded-full bg-sun-gold"></span><span>Vue Baie Imprenable</span></div>
+<div class="flex items-center gap-2 text-[#FFFBF2]/80 font-label-sm uppercase tracking-wider text-[11px]"><span class="w-2 h-2 rounded-full bg-sun-gold"></span><span>Accès Lagon Privé</span></div>
+<div class="flex items-center gap-2 text-[#FFFBF2]/80 font-label-sm uppercase tracking-wider text-[11px]"><span class="w-2 h-2 rounded-full bg-sun-gold"></span><span>Éco-Sanctuaire 100%</span></div>
+<div class="flex items-center gap-2 text-[#FFFBF2]/80 font-label-sm uppercase tracking-wider text-[11px]"><span class="w-2 h-2 rounded-full bg-sun-gold"></span><span>Conciergerie 24/7</span></div>
+</div>
+</div>
+</div>
+<div class="relative max-w-[1140px] mx-auto px-gutter -mt-14 z-30 w-full" id="reservation">
+<div class="bg-pale-vanilla rounded-3xl p-space-md lg:p-space-lg shadow-xl border border-warm-border text-espresso-dark">
+<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-md items-end" onsubmit="event.preventDefault();">
+<!-- Field 1: Type de Séjour -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] text-secondary uppercase tracking-wider">Type de séjour</label>
+<div class="relative">
+<select id="booking-stay" class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3.5 py-2.5 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary cursor-pointer">
+<option class="text-espresso-dark" value="tout-inclus">Séjour Tout Inclus</option>
+<option class="text-espresso-dark" value="nuitee">Nuitée Simple</option>
+<option class="text-espresso-dark" value="lune-miel">Suite Lune de Miel</option>
+<option class="text-espresso-dark" value="villa-privee">Villa Privée Exclusive</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-[20px] text-outline">expand_more</span>
+</div>
+</div>
+<!-- Field 2: Catégorie d'hébergement -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] text-secondary uppercase tracking-wider">Hébergement</label>
+<div class="relative">
+<select id="booking-lodging" class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3.5 py-2.5 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary cursor-pointer">
+<option class="text-espresso-dark" value="toutes">Toutes les Suites</option>
+<option class="text-espresso-dark" value="deluxe">Chambre Deluxe Lagon</option>
+<option class="text-espresso-dark" value="suite-ocean">Suite Océan Panoramique</option>
+<option class="text-espresso-dark" value="villa-privee">Villa Signature Baie</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-[20px] text-outline">expand_more</span>
+</div>
+</div>
+<!-- Field 3: Arrivée / Départ -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] text-secondary uppercase tracking-wider">Dates de Séjour</label>
+<div class="relative">
+<button id="booking-dates-trigger" aria-label="Dates de séjour" aria-expanded="false" aria-haspopup="dialog" class="w-full relative flex items-center text-left bg-soft-sand border border-warm-border px-3.5 py-2.5 rounded-2xl text-espresso-dark font-body-sm hover:border-primary focus:outline-none focus:border-primary transition-colors" type="button">
+<span id="booking-dates-label" class="flex-1">Choisir vos dates</span>
+<span class="site-date-icon" aria-hidden="true"></span>
+</button>
+<div id="booking-dates-popover" class="booking-calendar hidden" role="dialog" aria-label="Choisir les dates du séjour">
+<div class="booking-calendar-heading"><button type="button" data-calendar-shift="-1" aria-label="Mois précédent">‹</button><strong></strong><button type="button" data-calendar-shift="1" aria-label="Mois suivant">›</button></div>
+<div class="booking-calendar-weekdays"><span>Lu</span><span>Ma</span><span>Me</span><span>Je</span><span>Ve</span><span>Sa</span><span>Di</span></div>
+<div class="booking-calendar-days"></div>
+<p class="booking-calendar-hint">Sélectionnez votre arrivée, puis votre départ.</p>
+</div>
+<input id="booking-arrival" type="hidden"/><input id="booking-departure" type="hidden"/>
+</div>
+</div>
+<!-- Field 4: Voyageurs & Tarifs -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-[11px] text-secondary uppercase tracking-wider">Voyageurs</label>
+<div class="relative">
+<select id="booking-guests" class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3.5 py-2.5 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary cursor-pointer">
+<option class="text-espresso-dark" value="2-adultes">2 Adultes (Idéal couple)</option>
+<option class="text-espresso-dark" value="1-adulte">1 Voyageur individuel</option>
+<option class="text-espresso-dark" value="famille-4">Famille (2 Adultes, 2 Enfants)</option>
+<option class="text-espresso-dark" value="groupe">Groupe Privatif (6+ pers)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-[20px] text-outline">expand_more</span>
+</div>
+</div>
+<!-- Field 5: Action Button -->
+<div class="flex items-center">
+<button class="w-full h-[46px] rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md flex items-center justify-center gap-space-xs hover:bg-primary transition-all shadow-md group" type="submit">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">search</span>
+<span>Rechercher</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+
+</section>
+<!-- 2. NOTRE HISTOIRE / CONCEPT SECTION (Newsreader Serif + Warm Sand Architecture Framing) -->
+<section class="w-full max-w-[1240px] mx-auto px-gutter pt-24 pb-20">
+<div class="flex flex-col gap-space-xs mb-space-xl">
+<span class="font-label-sm uppercase tracking-widest text-primary font-bold">Notre Histoire</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark max-w-4xl tracking-tight leading-snug font-serif">
+        Votre havre de paix au cœur de la baie de Diego-Suarez. Que vous recherchiez le ressourcement, l'aventure ou un séjour d'exception, nous guidons chaque instant de votre voyage.
+      </h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Arch-Corner Framed Photo on the left -->
+<div class="lg:col-span-7 overflow-hidden rounded-t-[120px] rounded-b-3xl border border-warm-border shadow-md bg-surface-container">
+<img class="w-full h-[420px] lg:h-[480px] object-cover hover:scale-105 transition-transform duration-700" data-alt="Modern architectural coastal hotel building at twilight in Diego-Suarez Madagascar with warm ambient porch light, clean symmetry, natural wood facade, manicured tropical gardens, serene luxury resort ambiance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl3dbYUxFzmVibwSz14LKxsb_xxcXTOqNXDto9yxfFwN4Paf_f3wNNSNAJAxrMCe0a7fXWVHDnh47PplEHmfcv0aSGSsxOgg2YPRDnQzcrmiOLbICs-wj2Ghg_P81y3Lu5byeLfhj2pFa98UTir8teIb2ODTySN_6egPxEZlThCoKqzZT_3yL7VHyL5nYpdwHMLFL-I0s59mkmDmW-EJPyVg9X2jfOQVVyuzJ2vILFRgH_A80VbZyg=w2400" loading="lazy" decoding="async"/>
+</div>
+<!-- Narrative columns on the right -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg text-on-surface-variant">
+<p class="font-body-lg text-body-lg leading-relaxed font-normal text-on-surface">
+          Avec un ancrage profond dans la beauté naturelle du Nord de Madagascar, l'Hôtel Baie d'Or a été conçu comme un sanctuaire où l'architecture contemporaine dialogue avec la sérénité des alizés et le bleu profond du lagon d'Antsiranana.
+        </p>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+          Notre équipe dévouée et nos concierges insulaires veillent à anticiper chacun de vos désirs : excursions privatives vers la Mer d'Émeraude, rituels botaniques malgaches et gastronomie d'auteur célébrant la richesse des terroirs locaux.
+        </p>
+<div class="pt-2 flex items-center gap-space-lg">
+<div class="flex flex-col">
+<span class="font-headline-xl text-display-lg-mobile text-primary font-serif font-bold leading-none">99.4%</span>
+<span class="font-body-sm text-secondary mt-1">Satisfaction client certifiée</span>
+</div>
+<div class="w-px h-12 bg-warm-border"></div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-display-lg-mobile text-primary font-serif font-bold leading-none">100%</span>
+<span class="font-body-sm text-secondary mt-1">Éco-responsabilité locale</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. EXPLORE OUR FEATURED LISTINGS (Warm Ochre Section with Pill/Circular Framing) -->
+<section class="w-full bg-soft-sand/70 py-space-3xl border-y border-warm-border" id="explore">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<!-- Section Title Centered -->
+<div class="text-center mb-space-2xl">
+<span class="font-label-sm uppercase tracking-widest text-primary font-bold">Nos Pavillons &amp; Suites</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mt-1">Explorez Nos Hébergements Vedettes</h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs max-w-xl mx-auto">Une immersion architecturale au bord de l'eau pensée pour votre plénitude.</p>
+</div>
+<!-- 3 Featured Showcase Cards with Organic Arched/Pill framing inspired by reference -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-center">
+<!-- Left Showcase Card: Pavillons Tropicaux -->
+<div class="group flex flex-col bg-pale-vanilla p-4 rounded-[40px] border border-warm-border shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full h-[360px] lg:h-[390px] rounded-[32px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tropical luxury eco pavilion bungalow nestled among lush palm trees and Madagascar flora, warm natural wood balustrades and thatched organic roof in Diego-Suarez" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg0TrrCAw2AFaTzbck8SYjB069TeLYw7YioaTeW78YrcH7OxAK3Wyo_IAWqYOtxxaLBv-obhBNx0UE_RQwuGaADrFL8r81mVPPyGU18FWyGlT_y3Zsk06ZvFE5sFu6lR-Zkk2k8c1pRPmsWGysNN3FgQ7O_INn2BseCmOxVeh_CDsh1XdOnm4_reSUVN6z8Ve5qE_N-6HnKxrkD14DiM7PTb9EfqIfqURQLsFFXTbr0-fVj9s8qaxA=w2400" loading="lazy" decoding="async"/>
+<span class="absolute top-3 left-3 bg-espresso-dark/80 backdrop-blur-md text-[#FFFBF2] text-[10px] font-label-sm uppercase tracking-wider px-3 py-1 rounded-full">Pavillon Jardin</span>
+</div>
+<div class="pt-space-md text-center px-2">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif font-bold">Pavillons Tropicaux</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Immersion végétale intime au cœur de nos jardins de vanille et d'ylang-ylang.</p>
+</div>
+</div>
+<!-- Center Showcase Card (Primary Focus with Explore Amber Circular Badge like reference) -->
+<div class="group flex flex-col bg-pale-vanilla p-4 rounded-[48px] border-2 border-sun-gold/50 shadow-xl relative scale-100 lg:-translate-y-2">
+<div class="relative w-full h-[400px] lg:h-[440px] rounded-[40px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Luxury modern beach villa with illuminated swimming pool at sunset, warm amber lights glowing through expansive sliding glass doors, reflection on pool in Diego-Suarez Madagascar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL9g7KIo5Kdk5lLI8N9pyPQGPMVh87y22UO1knkAZf7QD-zNjdDbe99lQskliDo3OzYyE-Qu3aEMnKXvbRL2Hidp6jJX-Kot2Lwyx1u5Ben2WQKTHrFeVDufoMHCCP9uaAkeD_cq0SDf5tznyG9KQ39wkDw-qiSkdDISe2dKqNfpOUeFwrpKsWwLQNUrGB70M8o0H9vL4uC-rMrB-eGtdQYvxKgzURf7e1pOUjjXgxoLHI31Tslj2O=w2400" loading="lazy" decoding="async"/>
+<!-- Circular Explore Badge in center in warm honey amber -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<a class="pointer-events-auto w-24 h-24 rounded-full bg-sun-gold text-espresso-dark font-headline-sm text-[16px] flex items-center justify-center font-bold shadow-2xl hover:scale-110 hover:bg-espresso-dark hover:text-[#FFFBF2] transition-all duration-300 border-4 border-pale-vanilla" href="/chambres">
+                Explorer
+              </a>
+</div>
+</div>
+<div class="pt-space-md text-center px-2">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif font-bold">Villas d'Exception Vue Baie</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Spacieuses, modernes et idéalement situées face au Pain de Sucre.</p>
+</div>
+</div>
+<!-- Right Showcase Card: Accessible / Suites Océan -->
+<div class="group flex flex-col bg-pale-vanilla p-4 rounded-[40px] border border-warm-border shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full h-[360px] lg:h-[390px] rounded-[32px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Oceanfront luxury suite with open terrace overlooking the emerald calm ocean waters of Diego-Suarez bay, clean minimal designer furniture, morning bright light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT0CF8534BJS9xv8bjxzkpXLVPBzvOKZOscF6oFxXdpjcBFpmkrJtIxHFKFM6rs9tBSPIAOtIhnIMGfPh_GoX5TleS0nWURa7cEZ4wWAx6PPvsiggzRHHG1IpKdQGzKZouSxTIsypVVA7nhDs_JIpkJsLr9IbNaT5JapaMUmeMdLmdZtD94Kh9WgPDZN5pIqkjLI-Y6FoXtkBJ3UCK2yAIUuAP0IBRrLX5nRFcZ8EZyv3nAXVg1dkb=w2400" loading="lazy" decoding="async"/>
+<span class="absolute top-3 left-3 bg-espresso-dark/80 backdrop-blur-md text-[#FFFBF2] text-[10px] font-label-sm uppercase tracking-wider px-3 py-1 rounded-full">Accès Privatif</span>
+</div>
+<div class="pt-space-md text-center px-2">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif font-bold">Suites Pieds dans l'Eau</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Accès direct au lagon privé avec terrasse panoramique suspendue.</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<!-- 4. FEATURED PROPERTIES GRID & PILL FILTERS (Restyled in Warm Ochre and Vanilla) -->
+
+<!-- 5. WHY CHOOSE OUR RESORT (Restyled in Warm Amber / Sand with Organic Pill Cards) -->
+<section class="w-full max-w-[1240px] mx-auto px-gutter py-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+<!-- Left: Full Height Architecture Image with Arched Top -->
+<div class="lg:col-span-6 overflow-hidden rounded-t-[140px] rounded-b-3xl border border-warm-border shadow-md bg-surface-container">
+<img class="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-700" data-alt="Stately modern architectural resort facade with clean vertical limestone and wood panels, illuminated by soft golden hour sun against clear blue tropical sky in Antsiranana" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6drSz4ooH1qC_kKCDB6HDaxwaJbU8Za6KOkyBRjJ5fgHNw0XEkkh9E-XABEaTJVbhS9xLj-AI1pWBpwSejqJOm4wFrUOo_xLdz4sUZAStEucro3zPlbhPzIz4knS1fsUWCw32SeBkbFgxVy5Io0cXVKOK72M-ur5-7mzRm1HvkNqAPpS-_pvk_DA4roRjkmIe8H1AcGuCNw-CieQ0YSKrtmHG9wuGmzodTVvwJenIkjKFOizgjdAc=w2400" loading="lazy" decoding="async"/>
+</div>
+<!-- Right: Why Choose Bullet Points -->
+<div class="lg:col-span-6 flex flex-col">
+<span class="font-label-sm uppercase tracking-widest text-primary font-bold mb-2">Hospitalité Singulière</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight mb-space-lg font-serif">
+          Pourquoi Choisir l'Hôtel Baie d'Or ?
+        </h2>
+<div class="flex flex-col gap-space-md">
+<!-- Item 1 (Pill-inspired container like reference approach block) -->
+<div class="p-space-md rounded-2xl bg-pale-vanilla border border-warm-border flex items-start gap-space-md">
+<span class="w-10 h-10 rounded-full bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">villa</span>
+</span>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[18px] text-espresso-dark font-serif font-bold">Emplacement Incomparable sur la Baie</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                Installé sur les rivages les plus calmes d'Antsiranana, l'hôtel offre une vue imprenable sur le Pain de Sucre (Nosy Lonjo) et des couchers de soleil dorés inoubliables.
+              </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-md rounded-2xl bg-pale-vanilla border border-warm-border flex items-start gap-space-md">
+<span class="w-10 h-10 rounded-full bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">sailing</span>
+</span>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[18px] text-espresso-dark font-serif font-bold">Expéditions Privées &amp; Sur-Mesure</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                Nous orchestrons des échappées maritimes exclusives en catamaran vers la Mer d'Émeraude, des randonnées dans la Montagne d'Ambre et l'exploration des Tsingy Rouges.
+              </p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-md rounded-2xl bg-pale-vanilla border border-warm-border flex items-start gap-space-md">
+<span class="w-10 h-10 rounded-full bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">room_service</span>
+</span>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[18px] text-espresso-dark font-serif font-bold">Haute Hospitalité &amp; Bien-Être Absolu</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                Savourez une cuisine gastronomique aux influences vanille et baies roses, complétée par un spa d'exception et un service de conciergerie disponible 24h/24.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. TESTIMONIALS (Restyled with Alder Vet Reference Large Pill Portrait Frame & Warm Tone) -->
+<section class="w-full bg-soft-sand/70 border-y border-warm-border py-space-3xl">
+<div class="max-w-[1000px] mx-auto px-gutter flex flex-col items-center">
+<!-- Label & Title -->
+<span class="font-label-sm uppercase tracking-widest text-primary font-bold mb-2">Expériences Vécues</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight mb-space-2xl text-center font-serif">
+        Témoignages de nos Hôtes
+      </h2>
+<!-- Testimonial Content Block (Matches reference pill portrait layout) -->
+<div class="w-full flex flex-col md:flex-row items-center md:items-center gap-space-xl">
+<!-- Author Profile in Large Arched Pill Frame (Reference Direct Match) -->
+<div class="flex flex-col items-center text-center gap-3 flex-shrink-0">
+<div class="w-32 h-44 rounded-full overflow-hidden border-4 border-pale-vanilla shadow-lg">
+<img class="w-full h-full object-cover" data-alt="Refined traveler portrait smiling, warm sunlit outdoor background in Madagascar, casual luxury resort attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMWUdEEAj7Kgedrv03OXrKEs62ulDB72QIM6G3901_7E5aXCXWk46qZOzsYXLtDW2DFoEsy32e5Y908qmnPS4MavMdRBrW7fhnsQPFyJD0eymugC4E7LlLk0bJeaGU0-7oS00F1RSFHksWmKzQd7l0jE3xGia-nAiLtcTehgcuBwP83uAoziWEwwtNAHB6kHUlFb_Q9TgX08IAV4IKRW2XDp_AFsECnjgnGEGHiSqxgTnGrP1tPcEM=w2400" loading="lazy" decoding="async"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[18px] text-espresso-dark font-serif font-bold">Marc L. &amp; Élodie</span>
+<span class="font-body-sm text-[13px] text-secondary">Séjour Lune de Miel • France</span>
+</div>
+</div>
+<!-- Big Quote on Right -->
+<div class="flex-1 flex flex-col">
+<p class="font-headline-sm text-headline-sm text-espresso-dark leading-relaxed font-serif italic">
+            “En tant que voyageurs passionnés, ce séjour à Diego-Suarez a surpassé toutes nos espérances. Le confort de la suite face au lagon, la bienveillance du personnel et la sérénité des couchers de soleil sont tout simplement magiques. Une adresse incontournable à Madagascar.”
+          </p>
+
+</div>
+</div>
+</div>
+</section>
+<!-- 7. FAQ ACCORDION (Restyled in Vanilla / Espresso + Warm Golden Icons) -->
+<section class="w-full max-w-[840px] mx-auto px-gutter py-space-3xl">
+<div class="text-center mb-space-2xl">
+<span class="font-label-sm uppercase tracking-widest text-primary font-bold">Questions Fréquentes</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mt-1">Toutes les Réponses Avant de Réserver</h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs">
+        Retrouvez les réponses aux questions les plus courantes pour préparer sereinement votre venue à Antsiranana.
+      </p>
+</div>
+<!-- Accordion List -->
+<div class="flex flex-col gap-space-sm" id="resort-faq">
+<!-- FAQ 1 (Active by default) -->
+<div class="bg-pale-vanilla rounded-3xl p-space-lg border border-warm-border shadow-sm">
+<button class="w-full flex items-center justify-between text-left cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden');">
+<span class="font-headline-sm text-[20px] text-espresso-dark font-serif font-bold">Comment s'effectue la réservation de notre hébergement ?</span>
+<span class="w-8 h-8 rounded-full bg-espresso-dark text-[#FFFBF2] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">expand_less</span>
+</span>
+</button>
+<div class="pt-space-md text-secondary font-body-md text-body-md leading-relaxed border-t border-warm-border/60 mt-space-sm">
+          Vous pouvez simuler votre réservation en ligne ou contacter directement notre conciergerie. Dans ce projet de démonstration fictif réalisé par Acker Tech DS, aucune transaction bancaire réelle n'est requise.
+        </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-pale-vanilla rounded-3xl p-space-lg border border-warm-border shadow-sm">
+<button class="w-full flex items-center justify-between text-left cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden');">
+<span class="font-headline-sm text-[20px] text-espresso-dark font-serif font-bold hover:text-primary transition-colors">Organisez-vous les transferts depuis l'Aéroport d'Arrachart (DIE) ?</span>
+<span class="w-8 h-8 rounded-full bg-soft-sand border border-warm-border text-espresso-dark flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</span>
+</button>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed border-t border-warm-border/60 mt-space-sm">
+          Oui, notre navette privatisée climatisée ou notre service d'hélicoptère accueille chaque hôte dès sa descente d'avion à Diego-Suarez pour un trajet tout confort jusqu'à l'hôtel.
+        </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-pale-vanilla rounded-3xl p-space-lg border border-warm-border shadow-sm">
+<button class="w-full flex items-center justify-between text-left cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden');">
+<span class="font-headline-sm text-[20px] text-espresso-dark font-serif font-bold hover:text-primary transition-colors">Quels sont les équipements et services inclus dans les suites ?</span>
+<span class="w-8 h-8 rounded-full bg-soft-sand border border-warm-border text-espresso-dark flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</span>
+</button>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed border-t border-warm-border/60 mt-space-sm">
+          Toutes nos suites comprennent le petit-déjeuner gastronomique, l'accès illimité à la piscine d'eau de mer chauffée, le Wi-Fi très haut débit par satellite, et la conciergerie 24h/24.
+        </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-pale-vanilla rounded-3xl p-space-lg border border-warm-border shadow-sm">
+<button class="w-full flex items-center justify-between text-left cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden');">
+<span class="font-headline-sm text-[20px] text-espresso-dark font-serif font-bold hover:text-primary transition-colors">Peut-on organiser des événements ou mariages privatifs ?</span>
+<span class="w-8 h-8 rounded-full bg-soft-sand border border-warm-border text-espresso-dark flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</span>
+</button>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed border-t border-warm-border/60 mt-space-sm">
+          Absolument. Nous proposons la privatisation intégrale de nos pavillons bord de mer et organisons des cérémonies mémorables pieds dans le sable avec nos chefs et décorateurs dédiés.
+        </div>
+</div>
+</div>
+</section>
+<!-- 8. BOTTOM SEARCH BANNER CTA (Warm Amber Sunlit Banner Inspired by Alder Vet Footer CTA) -->
+<section class="w-full max-w-[1240px] mx-auto px-gutter mb-space-3xl">
+<div class="relative w-full rounded-[48px] overflow-hidden bg-gradient-to-br from-sun-gold via-primary-container to-[#C98822] p-space-lg md:p-space-2xl flex flex-col lg:flex-row items-center justify-between gap-space-2xl shadow-xl border border-warm-border">
+<!-- Background Graphic Accents -->
+<div class="absolute -right-16 -bottom-16 w-96 h-96 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+<!-- Left Text -->
+<div class="relative z-10 max-w-md flex flex-col text-espresso-dark">
+<div class="inline-flex items-center gap-1.5 bg-espresso-dark/10 backdrop-blur-sm px-3.5 py-1 rounded-full w-fit mb-3 text-espresso-dark text-[11px] font-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">sunny</span>
+<span>Sanctuaire Diego-Suarez</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight leading-tight font-serif font-bold">
+          Commencez Votre Voyage Dès Aujourd'hui
+        </h2>
+<p class="font-body-md text-body-md text-espresso-dark/90 mt-space-sm leading-relaxed">
+          Votre séjour inoubliable à Antsiranana vous attend. Découvrez les disponibilités de nos villas et suites pour une expérience d'exception à Madagascar.
+        </p>
+</div>
+<!-- Right Embedded Form (Warm Pale Vanilla Floating Card) -->
+<div class="relative z-10 w-full max-w-lg bg-pale-vanilla p-space-lg rounded-3xl shadow-xl border border-warm-border">
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Row 1 Left -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary uppercase">Type de Séjour</label>
+<select class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3 py-2 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary">
+<option class="text-espresso-dark">Séjour Tout Inclus</option>
+<option class="text-espresso-dark">Escapade Week-end</option>
+</select>
+</div>
+<!-- Row 1 Right -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary uppercase">Hébergement</label>
+<select class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3 py-2 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary">
+<option class="text-espresso-dark">Villa Lagon</option>
+<option class="text-espresso-dark">Suite Royale</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Row 2 Left -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary uppercase">Destination</label>
+<select class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3 py-2 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary">
+<option class="text-espresso-dark">Diego-Suarez (Baie)</option>
+<option class="text-espresso-dark">Ramena Plage</option>
+</select>
+</div>
+<!-- Row 2 Right -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary uppercase">Tarif Souhaité</label>
+<select class="w-full bg-soft-sand border border-warm-border text-espresso-dark px-3 py-2 rounded-2xl appearance-none font-body-sm focus:outline-none focus:border-primary">
+<option class="text-espresso-dark">De 40 700 Ar à 101 700 Ar</option>
+<option class="text-espresso-dark">Plus de 101 700 Ar</option>
+</select>
+</div>
+</div>
+<!-- Submit Button in Espresso Dark Pill -->
+<button class="w-full py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md flex items-center justify-center gap-space-xs hover:bg-primary transition-all shadow-md mt-2 group" type="submit">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">calendar_month</span>
+<span>Simuler ma réservation</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</div></main><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div>

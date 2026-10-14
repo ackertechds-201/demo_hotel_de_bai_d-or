@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "secondary": "#6f5a4f",
+        "on-tertiary": "#ffffff",
+        "outline": "#837563",
+        "tertiary-fixed": "#ffdcc0",
+        "surface-bright": "#fef9ef",
+        "on-tertiary-container": "#5f3609",
+        "surface": "#FFFBF2",
+        "secondary-fixed": "#f9ddce",
+        "pale-vanilla": "#FFFBF2",
+        "background": "#FFFBF2",
+        "surface-container-highest": "#e7e2d8",
+        "surface-container-low": "#f8f3e9",
+        "on-surface": "#261A13",
+        "on-tertiary-fixed-variant": "#673d10",
+        "inverse-primary": "#fdba4d",
+        "on-secondary-fixed-variant": "#564338",
+        "inverse-surface": "#261A13",
+        "primary-container": "#dfa035",
+        "sun-gold": "#E5A93C",
+        "espresso-dark": "#261A13",
+        "tertiary-fixed-dim": "#f8ba82",
+        "on-tertiary-fixed": "#2d1600",
+        "error": "#ba1a1a",
+        "inverse-on-surface": "#f5f0e6",
+        "on-primary-fixed-variant": "#614000",
+        "secondary-fixed-dim": "#dcc1b3",
+        "on-primary": "#ffffff",
+        "on-secondary": "#ffffff",
+        "primary-fixed": "#ffddb0",
+        "on-error-container": "#93000a",
+        "primary-fixed-dim": "#fdba4d",
+        "surface-tint": "#805600",
+        "on-surface-variant": "#504536",
+        "surface-container-high": "#ece8de",
+        "tertiary-container": "#dba06a",
+        "warm-border": "#E8DCBE",
+        "surface-dim": "#dedad0",
+        "on-secondary-container": "#735e53",
+        "surface-variant": "#e7e2d8",
+        "error-container": "#ffdad6",
+        "on-primary-container": "#583a00",
+        "on-background": "#261A13",
+        "surface-container": "#f2ede3",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#835425",
+        "outline-variant": "#d5c4b0",
+        "on-secondary-fixed": "#27180f",
+        "on-primary-fixed": "#281800",
+        "secondary-container": "#f6dacb",
+        "on-error": "#ffffff",
+        "soft-sand": "#F5EAD6",
+        "primary": "#805600"
+      },
+      "borderRadius": {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "2.5rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-xl": "2.5rem",
+        "margin-mobile": "1.25rem",
+        "gutter-sm": "1rem",
+        "space-3xl": "6rem",
+        "margin": "2rem",
+        "margin-desktop": "5rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-2xl": "4rem",
+        "space-md": "1rem",
+        "gutter": "1.5rem",
+        "gutter-lg": "2.5rem"
+      },
+      "fontFamily": {
+        "label-sm": ["DM Sans"],
+        "headline-sm": ["Newsreader", "serif"],
+        "display-lg-mobile": ["Newsreader", "serif"],
+        "body-md": ["DM Sans", "sans-serif"],
+        "label-md": ["DM Sans"],
+        "headline-lg": ["Newsreader", "serif"],
+        "headline-xl": ["Newsreader", "serif"],
+        "headline-xl-mobile": ["Newsreader", "serif"],
+        "display-lg": ["Newsreader", "serif"],
+        "body-lg": ["DM Sans", "sans-serif"],
+        "body-sm": ["DM Sans", "sans-serif"]
+      }
+    }
+  }
+}</script></head><body class="bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30"><div class="fixed top-0 left-0 right-0 z-50 flex flex-col"><div class="w-full bg-espresso-dark text-[#F5EAD6] py-1.5 px-gutter text-center font-label-md text-label-sm tracking-wider flex items-center justify-center gap-space-sm shadow-sm"><span class="material-symbols-outlined text-[15px] text-sun-gold">info</span><span>PROJET DE DÉMONSTRATION FICTIF - ACKER TECH DS | Retraite Éco-Luxe Diego-Suarez</span></div><header class="w-full bg-[#FFFBF2]/90 backdrop-blur-xl border-b border-warm-border/60 transition-all"><div class="h-20 max-w-[1240px] mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container/30 text-primary"><span class="material-symbols-outlined text-[22px] text-primary">spa</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-espresso-dark leading-none">Hôtel Baie d'Or</span><span class="font-label-md text-[10px] tracking-widest uppercase text-secondary mt-0.5">Diego-Suarez • Madagascar</span></div></div><nav class="hidden xl:flex items-center gap-space-xs"><a class="px-space-md py- space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="accueil" href="#">Accueil</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="chambres-et-suites" href="#">Chambres &amp; Suites</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="services-et-experiences" href="#">Services &amp; Expériences</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="galerie" href="#">Galerie</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="a-propos" href="#">À Propos</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="faq" href="#">FAQ</a><a class="px-space-md py-space-xs font-label-md text-label-md text-secondary hover:text-espresso-dark transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md text-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_4px_16px_rgba(38,26,19,0.18)]" data-path="reservation" href="#booking-container">Réserver un séjour</a><div class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header></div><main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
+<!-- 404 SECTION: ARCHITECTURAL SANCTUARY -->
+<section class="relative w-full px-gutter lg:px-margin-desktop py-space-xl lg:py-space-3xl overflow-hidden">
+<!-- Subtle Ambient Ochre Aura (No hard borders) -->
+<div class="absolute -top-32 right-1/4 w-[500px] h-[500px] bg-sun-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 -left-20 w-96 h-96 bg-secondary-container/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-gutter-lg items-center relative z-10">
+<!-- Narrative Left Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start gap-space-md lg:pr-space-lg">
+<!-- Status Pill Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-soft-sand text-espresso-dark shadow-sm">
+<span class="w-2 h-2 rounded-full bg-sun-gold animate-pulse"></span>
+<span class="font-label-md text-label-sm tracking-widest uppercase text-tertiary">
+            Erreur 404 • Escale introuvable dans la baie
+          </span>
+</div>
+<!-- Watermark Number & Coordinates -->
+<div class="relative w-full flex items-baseline select-none">
+<span class="font-headline-xl text-[110px] lg:text-[140px] leading-none text-outline-variant/35 tracking-tighter">
+            404
+          </span>
+<div class="ml-space-md -translate-y-4 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-sm flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">explore_off</span>
+<span>Coordonnées maritimes inaccessibles</span>
+</div>
+</div>
+<!-- Headline & Poetic Copy -->
+<div class="flex flex-col gap-space-sm -mt-6">
+<h1 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight">
+            Cette crique semble avoir disparu avec la marée...
+          </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+            La page que vous recherchez n'existe pas ou a été déplacée lors de la rénovation de nos suites numériques. Laissez le vent d'est de Diego-Suarez réorienter votre traversée vers nos plus beaux panoramas.
+          </p>
+</div>
+<!-- Action CTAs: Full Pill Palette Standards -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-sm w-full">
+<a class="inline-flex items-center gap-space-xs px-space-xl py-3.5 rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-md hover:bg-espresso-dark/90 transition-all transform hover:-translate-y-0.5 shadow-md" data-path="accueil" href="#">
+<span>Retourner à l'Accueil</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md text-label-md hover:bg-primary-container transition-all transform hover:-translate-y-0.5 shadow-sm" data-path="chambres-et-suites" href="#">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span>Découvrir nos Chambres &amp; Suites</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-3.5 rounded-full bg-surface-container-low text-espresso-dark font-label-md text-label-md hover:bg-surface-container transition-all" href="#faq-section">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Consulter la FAQ</span>
+</a>
+</div>
+<!-- Quick Maritime Waypoints -->
+<div class="w-full pt-space-lg mt-space-md flex flex-col gap-space-xs">
+<span class="font-label-md text-label-sm uppercase tracking-wider text-outline">Escales immédiates suggérées :</span>
+<div class="flex flex-wrap items-center gap-space-sm text-secondary font-label-md text-label-md">
+<a class="hover:text-espresso-dark flex items-center gap-1 transition-colors" data-path="services-et-experiences" href="#">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">sailing</span>
+              Catamaran &amp; Lagon
+            </a>
+<span class="text-outline-variant">•</span>
+<a class="hover:text-espresso-dark flex items-center gap-1 transition-colors" data-path="galerie" href="#">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">photo_camera</span>
+              Galerie &amp; Vues
+            </a>
+<span class="text-outline-variant">•</span>
+<a class="hover:text-espresso-dark flex items-center gap-1 transition-colors" data-path="contact" href="#">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">support_agent</span>
+              Conciergerie
+            </a>
+</div>
+</div>
+</div>
+<!-- Substitution Oasis Card (5 cols) -->
+<div class="lg:col-span-5 relative mt-space-lg lg:mt-0">
+<!-- Floating Backdrop Accent Card -->
+<div class="relative rounded-xl overflow-hidden bg-surface-container-low shadow-xl transition-transform hover:scale-[1.01] duration-500">
+<!-- Arched Architectural Hero Vignette -->
+<div class="relative h-80 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sunlit aerial panorama of Diego-Suarez sugar loaf island Nosy Lonjo with pristine turquoise waters, warm golden sandy shoals, and serene tropical coastal foliage bathed in morning amber sunlight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgIbd_YojTckzxd9R72nFmCllp8CREipJdPHdubQy-LuQ0LaQXvmEIUwaUQvhcTUJC4mfkNx6wkc90CXc2zJPJhz3ym8ueaQG8eb-6oukwWNmF93RGGSLRon0EXShuqvTcS6l19X9MyVb_yESLpdWEaXI1YEP0TgXnoovCBB4qGLDsQt5RXK4kUpdchFurKO1tFBwQoLdd7ZLrdmgJjLsR5xuPyOeLrj1pw-741Rz-U4maUJO7LBxg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-espresso-dark/20 to-transparent"></div>
+<!-- Live Marine Indicator Badge -->
+<div class="absolute top-space-md left-space-md px-space-md py-1 rounded-full bg-pale-vanilla/90 backdrop-blur-md text-espresso-dark font-label-md text-label-sm shadow-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>Marée basse • Ciel dégagé 29°C</span>
+</div>
+<!-- Compass Overlay Tag -->
+<div class="absolute bottom-space-md left-space-md right-space-md text-pale-vanilla">
+<span class="font-label-md text-label-sm tracking-widest uppercase text-sun-gold">Refuge de substitution</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold">Le Cap d'Ambre &amp; Nosy Lonjo</h3>
+</div>
+</div>
+<!-- Card Content / Marine Telemetry -->
+<div class="p-space-lg flex flex-col gap-space-md bg-surface-container-lowest">
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">navigation</span>
+                Baie de Diego, 12°16'S 49°17'E
+              </span>
+<span class="px-2.5 py-0.5 rounded-full bg-soft-sand text-tertiary font-label-md text-label-sm">Zone Préservée</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Pendant que nos gardiens restaurent le tracé vers votre requête, embarquez pour notre exploration contemplative des criques protégées de la Grande Passe.
+            </p>
+<!-- Inline SVG Tide & Wind Waveform Graphic -->
+<div class="w-full pt-space-xs">
+<div class="flex items-center justify-between text-outline font-label-md text-[11px] mb-1">
+<span>FLUX DES MARÉES (NOEUD CONTINU)</span>
+<span>VENT ALIZÉ : 14 NDS</span>
+</div>
+<svg class="w-full h-10 text-sun-gold/80" fill="none" viewbox="0 0 300 40">
+<path d="M0 20 C 30 5, 60 35, 90 20 C 120 5, 150 35, 180 20 C 210 5, 240 35, 270 20 C 285 12, 295 16, 300 20" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 25 C 30 15, 60 38, 90 26 C 120 14, 150 38, 180 26 C 210 14, 240 38, 270 26 L 300 26" opacity="0.4" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1"></path>
+</svg>
+</div>
+<a class="w-full text-center py-2.5 rounded-full bg-soft-sand text-espresso-dark font-label-md text-label-md hover:bg-primary-container/30 transition-colors flex items-center justify-center gap-1.5" data-path="galerie" href="#">
+<span>Voir la galerie panoramique</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LEGAL & REGULATORY FRAMEWORK HUB -->
+<section class="w-full bg-surface-container-low px-gutter lg:px-margin-desktop py-space-3xl mt-space-xl">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header & Pill Switcher -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-pale-vanilla text-primary font-label-md text-label-sm w-fit shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-sun-gold">gavel</span>
+<span>Transparence, Déontologie &amp; Rigueur</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark">
+            Hub des Mentions Légales &amp; Politiques Réglementaires
+          </h2>
+<p class="font-body-lg text-body-lg text-secondary">
+            Consultez en toute clarté l'encadrement juridique, les engagements de protection des données et le statut d'expérimentation du domaine Hôtel Baie d'Or.
+          </p>
+</div>
+<!-- Pill Nav Filter (Simulated interactive tab pills) -->
+<div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-pale-vanilla shadow-sm self-start md:self-auto" id="legal-tab-container">
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-label-sm bg-espresso-dark text-pale-vanilla shadow-sm transition-all" id="tab-mentions" onclick="switchLegalTab('mentions')" type="button">
+            Mentions Légales
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-label-sm text-secondary hover:text-espresso-dark transition-all" id="tab-confidentialite" onclick="switchLegalTab('confidentialite')" type="button">
+            Confidentialité
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-label-sm text-secondary hover:text-espresso-dark transition-all" id="tab-cookies" onclick="switchLegalTab('cookies')" type="button">
+            Cookies
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-label-sm text-secondary hover:text-espresso-dark transition-all" id="tab-cgu" onclick="switchLegalTab('cgu')" type="button">
+            Conditions CGU
+          </button>
+</div>
+</div>
+<!-- Tri-Card Bento Architecture for Legal Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Mentions & Editeur -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">apartment</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-sm tracking-wider uppercase text-outline">Éditeur &amp; Ingénierie</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Mentions Légales &amp; Éditeur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Éditeur Responsable :</strong><br/>
+                Acker Tech DS — Agence de Création Digitale &amp; Ingénierie Web Nord-Madagascar.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Siège Technologique :</strong><br/>
+                Route de Ramena, Antsiranana (Diego-Suarez) 201, Madagascar.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Immatriculation Démonstrateur :</strong><br/>
+                RCS Antsiranana n° DS-2025-DEV-0089. Projet créé à titre de prototype immersif de design d'hospitalité éco-responsable.
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md text-label-sm">
+<span>Certification Logicielle</span>
+<span class="text-primary font-bold">DS-SPEC 2025</span>
+</div>
+</div>
+<!-- Card 2: Statut du Projet -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container/60 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-sm tracking-wider uppercase text-outline">Gouvernance Éditoriale</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Statut du Projet &amp; Directeur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Directeur de Publication :</strong><br/>
+                Direction des Systèmes Numériques, Acker Tech DS Innovation Lab.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Nature de la Plateforme :</strong><br/>
+                Vitrine technique de haut vol présentant une chaîne complète de réservation hôtelière de luxe sans transaction financière réelle requise.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Contact Déontologie :</strong><br/>
+                compliance@ackertech-ds.mg • +261 32 00 000 00
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md text-label-sm">
+<span>Indice de Conformité</span>
+<span class="text-primary font-bold">100% Éthique</span>
+</div>
+</div>
+<!-- Card 3: Hébergement & Propriété Intellectuelle -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-sun-gold/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">cloud_done</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-sm tracking-wider uppercase text-outline">Infrastructure &amp; Droits</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Hébergement &amp; Droits Auteur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Infrastructure Démonstrateur :</strong><br/>
+                Datacenters éco-alimentés en énergie solaire certifiée PUE &lt; 1.15, zone Océan Indien &amp; Europe occidentale.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Propriété Intellectuelle :</strong><br/>
+                L'ensemble des visuels conceptuels, micro-typographies et agencements interactifs sont la propriété intellectuelle exclusive d'Acker Tech DS.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Reproduction &amp; Réutilisation :</strong><br/>
+                Interdite sans autorisation préalable écrite du studio de design.
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md text-label-sm">
+<span>Énergie Serveurs</span>
+<span class="text-primary font-bold">100% Renouvelable</span>
+</div>
+</div>
+</div>
+<!-- Content Views for Tabs (Interactive Container) -->
+<div class="p-space-xl rounded-xl bg-pale-vanilla shadow-sm" id="tab-content-panel">
+<div class="legal-panel flex flex-col gap-space-md" id="panel-mentions">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">policy</span>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark">Avertissement Démonstrateur Technologique Officiel</h4>
+</div>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+            Ce site web est un démonstrateur d'expérience utilisateur haut de gamme commandité pour exposer l'art de vivre et les savoir-faire hôteliers du littoral de Diego-Suarez (Antsiranana). Les tarifs, disponibilités des suites et descriptions d'itinéraires maritimes sont configurés dans un but d'illustration esthétique et fonctionnelle. Aucune somme d'argent ne sera prélevée sur votre moyen de paiement au terme de la simulation de réservation.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-confidentialite">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">lock</span>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark">Engagement de Confidentialité &amp; Traitement des Données</h4>
+</div>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+            Dans le respect strict du RGPD et des réglementations internationales sur la vie privée, aucune donnée personnelle saisie dans les formulaires de démonstration n'est vendue, louée ou exploitée commercialement. Vos données de test sont conservées temporairement dans la mémoire locale de votre navigateur et peuvent être supprimées à tout moment via les paramètres de votre session.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-cookies">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">cookie</span>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark">Gestion Raisonnée des Témoins de Connexion (Cookies)</h4>
+</div>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+            Hôtel Baie d'Or applique une politique zéro traçage intrusif : seuls les cookies techniques de premier niveau essentiels à la mémorisation de votre panier de simulation et à l'affichage optimal des polices Newsreader et DM Sans sont utilisés. Aucun pixel publicitaire tiers n'est déployé sur cette démonstration.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-cgu">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">description</span>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark">Conditions Générales d'Utilisation du Démonstrateur (CGU)</h4>
+</div>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+            L'utilisateur accédant à cette plateforme reconnaît naviguer sur un environnement de démonstration d'architecture d'interface. La navigation implique l'acceptation sans réserve des présentes conditions. Pour toute demande d'intégration commerciale ou d'achat de licence du design system, l'équipe d'Acker Tech DS se tient à votre entière écoute via nos formulaires dédiés.
+          </p>
+</div>
+</div>
+<!-- Interactive Accordion: Cadre Réglementaire -->
+<div class="flex flex-col gap-space-md pt-space-lg" id="faq-section">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-sm uppercase tracking-wider text-outline">Éclaircissements immédats</span>
+<h3 class="font-headline-lg text-headline-lg text-espresso-dark">
+            Questions Rapides sur le Cadre Réglementaire
+          </h3>
+</div>
+<div class="flex flex-col gap-space-sm w-full">
+<!-- Accordion Item 1 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-1')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">
+                Puis-je effectuer une vraie réservation de suite pour mon voyage à Diego-Suarez ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-1">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed" id="body-faq-1">
+              Cette plateforme est un démonstrateur interactif conçu par l'agence technologique Acker Tech DS afin de valoriser l'éco-tourisme et les capacités digitales d'Antsiranana. Les réservations effectuées via cette maquette ne sont pas traitées par un véritable établissement hôtelier et n'engagent aucun prélèvement bancaire réel. Pour visiter Diego-Suarez, nous vous invitons à solliciter les réceptifs agréés de la région.
+            </div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-2')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">
+                Mes données de navigation sont-elles transmises à des tiers publicitaires ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed" id="body-faq-2">
+              Absolument aucune donnée n'est cédée, monétisée ou partagée avec des réseaux tiers. Fidèle aux préceptes de sobriété et de respect de l'intimité numérique, l'infrastructure n'héberge aucun tracker commercial tiers. Vos sélections de filtres restent confinées à la session active de votre écran.
+            </div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-3')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-espresso-dark">
+                Comment contacter l'équipe de développement Acker Tech DS ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-3">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md text-body-md leading-relaxed" id="body-faq-3">
+              Vous pouvez échanger avec nos concepteurs et directeurs artistiques via l'adresse officielle contact@ackertech-ds.mg ou visiter le bureau de représentation situé à Antsiranana, Madagascar. Nous accompagnons les projets hôteliers haut de gamme dans la création de leurs identités visuelles et plateformes numériques.
+            </div>
+</div>
+</div>
+</div>
+<!-- Eco-Responsible Digital Architecture Banner -->
+<div class="rounded-xl bg-gradient-to-r from-espresso-dark to-[#2c1d14] text-pale-vanilla p-space-xl lg:p-space-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-lg">
+<div class="w-16 h-16 rounded-full bg-sun-gold/20 flex items-center justify-center shrink-0 text-sun-gold">
+<span class="material-symbols-outlined text-[36px]">energy_savings_leaf</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-sm uppercase tracking-widest text-sun-gold">Engagement Numérique Bas-Carbone</span>
+<h4 class="font-headline-sm text-headline-sm text-pale-vanilla">Conception Éco-Responsable &amp; Respect de l'Écosystème</h4>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim max-w-xl">
+              Cette interface émet moins de 0.18g de CO₂ par page consultée grâce à une optimisation fine des flux SVG, l'absence de scripts lourds superflus et un hébergement alimenté aux énergies douces.
+            </p>
+</div>
+</div>
+<button class="shrink-0 px-space-xl py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md text-label-md hover:bg-primary-container transition-all shadow-md flex items-center gap-2" onclick="showAuditNotice()" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Vérifier l'empreinte numérique</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function switchLegalTab(tabId) {
+    const tabs = ['mentions', 'confidentialite', 'cookies', 'cgu'];
+    tabs.forEach(t => {
+      const btn = document.getElementById('tab-' + t);
+      const panel = document.getElementById('panel-' + t);
+      if (t === tabId) {
+        btn.classList.remove('text-secondary');
+        btn.classList.add('bg-espresso-dark', 'text-pale-vanilla', 'shadow-sm');
+        panel.classList.remove('hidden');
+        panel.classList.add('flex');
+      } else {
+        btn.classList.remove('bg-espresso-dark', 'text-pale-vanilla', 'shadow-sm');
+        btn.classList.add('text-secondary');
+        panel.classList.add('hidden');
+        panel.classList.remove('flex');
+      }
+    });
+  }
+
+  function toggleAccordion(id) {
+    const body = document.getElementById('body-' + id);
+    const icon = document.getElementById('icon-' + id);
+    if (!body || !icon) return;
+
+    const isHidden = body.classList.contains('hidden');
+    if (isHidden) {
+      body.classList.remove('hidden');
+      icon.innerHTML = '<span class="material-symbols-outlined text-[20px]">remove</span>';
+      icon.classList.add('rotate-180');
+    } else {
+      body.classList.add('hidden');
+      icon.innerHTML = '<span class="material-symbols-outlined text-[20px]">add</span>';
+      icon.classList.remove('rotate-180');
+    }
+  }
+
+  function showAuditNotice() {
+    const toast = document.createElement('div');
+    toast.className = 'px-space-lg py-3 rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-sm shadow-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
+    toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[18px]">eco</span><span>Audit Certifié : Empreinte A+ • 0.14g CO₂/vue • Score d\'accessibilité 98/100</span>';
+    
+    const container = document.getElementById('notification-container');
+    if (container) {
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 50);
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 400);
+      }, 4000);
+    }
+  }
+</script></main><footer class="w-full bg-[#f8f3e9] pt-space-3xl pb-space-xl border-t border-warm-border"><div class="max-w-[1240px] mx-auto px-gutter"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter pb-space-2xl"><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Destinations</h4><p class="font-label-md text-label-sm text-primary font-bold">Diego-Suarez &amp; Baie de Diego</p><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors">Baie des Dunes &amp; Sakalava</li><li class="hover:text-espresso-dark transition-colors">Mer d'Émeraude Privée</li><li class="hover:text-espresso-dark transition-colors">Presqu'île de Ramena</li><li class="hover:text-espresso-dark transition-colors">Pain de Sucre (Nosy Lonjo)</li><li class="hover:text-espresso-dark transition-colors">Parc de la Montagne d'Ambre</li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Menu Rapide</h4><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors"><a data-path="accueil" href="#">Accueil &amp; Panorama</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="chambres-et-suites" href="#">Villas &amp; Résidences</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="services-et-experiences" href="#">Haute Gastronomie</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="galerie" href="#">Portfolio Architectural</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="reservation" href="#">Disponibilités en Ligne</a></li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Expériences</h4><p class="font-label-md text-label-sm text-primary font-bold">Évasion Océan Indien</p><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors">Catamaran Privé &amp; Kitesurf</li><li class="hover:text-espresso-dark transition-colors">Spa &amp; Rituels Botaniques</li><li class="hover:text-espresso-dark transition-colors">Dîner Céleste sous les Étoiles</li><li class="hover:text-espresso-dark transition-colors">Excursions aux Tsingy Rouges</li><li class="hover:text-espresso-dark transition-colors">Navette Hélicoptère &amp; Bateau</li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Légal &amp; Séjour</h4><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-espresso-dark transition-colors"><a data-path="mentions-legales" href="#">Mentions Légales</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="confidentialite" href="#">Politique de Confidentialité</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="conditions-generales" href="#">Conditions de Réservation</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="charte-environnementale" href="#">Charte Environnementale</a></li><li class="hover:text-espresso-dark transition-colors"><a data-path="cookies" href="#">Gestion des Cookies</a></li></ul></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Assistance &amp; Démo</h4><p class="font-body-sm text-body-sm text-secondary">Conception haut de gamme réalisée par l'agence technologique d'Antsiranana.</p><div class="flex flex-col gap-space-xs pt-space-xs font-label-md text-label-md text-espresso-dark"><span class="flex items-center gap-space-xs text-primary font-semibold"><span class="material-symbols-outlined text-[16px] text-sun-gold">corporate_fare</span>Acker Tech DS</span><span class="text-secondary text-sm">Diego-Suarez, Madagascar</span></div><div class="flex items-center gap-space-sm pt-space-sm"><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">language</span></span><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">mail</span></span><span class="w-9 h-9 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-espresso-dark hover:bg-espresso-dark hover:text-[#FFFBF2] transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">call</span></span></div></div></div><div class="w-full pt-space-lg border-t border-warm-border/60 flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left"><p class="font-body-sm text-body-sm text-secondary">Hôtel Baie d'Or © 2025 - Projet de démonstration conçu par Acker Tech DS. Liens : Mentions légales, Politique de confidentialité, Cookies, Conditions d'utilisation.</p><div class="flex items-center gap-space-lg font-label-md text-label-md text-secondary"><span class="hover:text-espresso-dark transition-colors cursor-pointer font-semibold">FR</span><span class="text-outline-variant">•</span><span class="hover:text-espresso-dark transition-colors cursor-pointer">EN</span><span class="text-outline-variant">•</span><span class="hover:text-espresso-dark transition-colors cursor-pointer">MG</span></div></div></div></footer><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div></body></html>

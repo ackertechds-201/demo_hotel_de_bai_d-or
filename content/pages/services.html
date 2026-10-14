@@ -1,0 +1,589 @@
+<main class="w-full pt-28 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Immersive Editorial Header with Organic Warm Curves -->
+<section class="relative w-full -mt-28 pt-36 pb-space-3xl bg-gradient-to-b from-soft-sand via-[#FAF5EB] to-surface overflow-hidden border-b border-warm-border/50">
+<!-- Organic arch backdrop -->
+<div class="absolute -top-1/4 -right-24 w-[600px] h-[600px] rounded-full bg-[#F3E5C8]/40 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-[420px] h-[420px] rounded-full bg-[#E5A93C]/10 blur-2xl pointer-events-none"></div>
+<div class="relative max-w-[1240px] mx-auto px-gutter">
+<div class="flex flex-col max-w-4xl">
+<div class="inline-flex items-center gap-space-xs mb-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low border border-warm-border text-primary font-label-sm text-label-sm tracking-widest uppercase shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">hotel_class</span>
+<span>Immersion &amp; Exclusivité • Diego-Suarez</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-espresso-dark tracking-tight leading-[1.08] mb-space-md font-serif">
+          Services Exclusifs &amp; Expériences Insulaires
+        </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl leading-relaxed">
+          Entre les reflets turquoise de la <strong class="text-espresso-dark font-semibold">Mer d'Émeraude</strong>, le souffle exaltant de la <strong class="text-espresso-dark font-semibold">Baie des Sakalava</strong> et la canopée séculaire du <strong class="text-espresso-dark font-semibold">Parc National de la Montagne d’Ambre</strong>, l'Hôtel Baie d'Or orchestre des parenthèses de haute voltige.
+        </p>
+</div>
+<!-- Quick Metrics Strip with Ochre Tinted Badges -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-space-2xl pt-space-xl border-t border-warm-border">
+<div class="flex flex-col bg-surface-container-lowest/70 backdrop-blur-sm p-space-md rounded-2xl border border-warm-border/60">
+<span class="font-headline-lg text-headline-lg text-espresso-dark font-serif">12 Nœuds</span>
+<span class="font-label-md text-label-md text-secondary">Vent régulier Sakalava</span>
+</div>
+<div class="flex flex-col bg-surface-container-lowest/70 backdrop-blur-sm p-space-md rounded-2xl border border-warm-border/60">
+<span class="font-headline-lg text-headline-lg text-espresso-dark font-serif">100% Bio</span>
+<span class="font-label-md text-label-md text-secondary">Katrafay &amp; Ylang Sauvage</span>
+</div>
+<div class="flex flex-col bg-surface-container-lowest/70 backdrop-blur-sm p-space-md rounded-2xl border border-warm-border/60">
+<span class="font-headline-lg text-headline-lg text-espresso-dark font-serif">Privatif</span>
+<span class="font-label-md text-label-md text-secondary">Catamarans &amp; Hélicoptère</span>
+</div>
+<div class="flex flex-col bg-surface-container-lowest/70 backdrop-blur-sm p-space-md rounded-2xl border border-warm-border/60">
+<span class="font-headline-lg text-headline-lg text-espresso-dark font-serif">24h / 24</span>
+<span class="font-label-md text-label-md text-secondary">Majordome &amp; Éco-Guide</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Category Filtering -->
+<section class="w-full bg-surface py-space-lg">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="flex items-center justify-between flex-wrap gap-space-md pb-space-sm border-b border-warm-border/40">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-2 scrollbar-none w-full lg:w-auto" id="filter-pill-container">
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-espresso-dark text-surface-bright transition-all shadow-[0_4px_14px_rgba(38,26,19,0.15)] flex items-center gap-space-xs cursor-pointer border border-espresso-dark" data-category="all" onclick="filterCategory('all')">
+<span>Toutes les Expériences</span>
+<span class="text-xs bg-primary-container text-espresso-dark font-bold px-2 py-0.5 rounded-full">5</span>
+</button>
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface hover:bg-soft-sand transition-all flex items-center gap-space-xs cursor-pointer border border-warm-border" data-category="gastronomie" onclick="filterCategory('gastronomie')">
+<span class="material-symbols-outlined text-[16px] text-primary">restaurant</span>
+<span>Gastronomie</span>
+</button>
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface hover:bg-soft-sand transition-all flex items-center gap-space-xs cursor-pointer border border-warm-border" data-category="spa" onclick="filterCategory('spa')">
+<span class="material-symbols-outlined text-[16px] text-primary">spa</span>
+<span>Spa &amp; Botanique</span>
+</button>
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface hover:bg-soft-sand transition-all flex items-center gap-space-xs cursor-pointer border border-warm-border" data-category="maritime" onclick="filterCategory('maritime')">
+<span class="material-symbols-outlined text-[16px] text-primary">sailing</span>
+<span>Nautisme &amp; Kitesurf</span>
+</button>
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface hover:bg-soft-sand transition-all flex items-center gap-space-xs cursor-pointer border border-warm-border" data-category="terre" onclick="filterCategory('terre')">
+<span class="material-symbols-outlined text-[16px] text-primary">hiking</span>
+<span>Éco-Aventures</span>
+</button>
+<button class="pill-btn px-space-lg py-space-xs rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface hover:bg-soft-sand transition-all flex items-center gap-space-xs cursor-pointer border border-warm-border" data-category="concierge" onclick="filterCategory('concierge')">
+<span class="material-symbols-outlined text-[16px] text-primary">flight_land</span>
+<span>VIP &amp; Transferts</span>
+</button>
+</div>
+<div class="text-secondary font-label-md text-label-md flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-sun-gold animate-pulse"></span>
+<span>Expéditions privées avec guides certifiés</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Experiences Grid / Organic Arch Showcase -->
+<section class="w-full bg-surface pb-space-3xl pt-space-md">
+<div class="max-w-[1240px] mx-auto px-gutter flex flex-col gap-space-3xl" id="experiences-container">
+<!-- Item 1: Haute Gastronomie -->
+<article class="exp-card group w-full grid grid-cols-1 lg:grid-cols-12 rounded-[2.5rem] bg-pale-vanilla border border-warm-border overflow-hidden shadow-[0_8px_30px_-10px_rgba(111,90,79,0.08)] hover:shadow-[0_20px_45px_-12px_rgba(128,86,0,0.15)] transition-all duration-300" data-exp-type="gastronomie">
+<div class="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] overflow-hidden p-3 lg:p-4">
+<div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Exquisite fine dining setup on the beach of Diego Suarez Madagascar at twilight. Elegant dark wooden table with linen, crystal wine glasses, warm candle lanterns, facing the Sugarloaf Nosy Lonjo islet. Deep azure sea, ambient golden sunset lighting with stars starting to appear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbWh8nWO9q2y9WCr803m54cxmBCfTi8vKlt-yNzGg-F-qsO-0N5PJjxaP46VcwqiZ0zEnD0BTDnT9z0cvFCN3SCAZAAAuVopRts_vZvczEl22bxuKZmsCbGXlobavXi70s1oXBQxPiiOqZUMdxKaZ6iIm8XwBLNkQILt-QEj_e8uQsciZJE_yq1LEYZ4YSfo8cVOayroZjThlM-1j5YY406FWO1HPHuwqD6XGQuUFUPzRXTDb_Owi1=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-md left-space-md flex flex-wrap gap-space-xs">
+<span class="bg-espresso-dark/90 backdrop-blur-md text-surface-bright px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">Signature</span>
+<span class="bg-primary-container text-espresso-dark font-semibold px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">Le Pain de Sucre</span>
+</div>
+<div class="absolute bottom-space-md right-space-md bg-pale-vanilla/95 backdrop-blur-md px-space-md py-space-xs rounded-full text-espresso-dark font-label-md text-label-md flex items-center gap-space-xs shadow-md border border-warm-border">
+<span class="material-symbols-outlined text-primary text-[18px]">skillet</span>
+<span>Chef Étoilé Invité</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between bg-pale-vanilla">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-space-xs flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Table Insulaire &amp; Sommelerie</span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mb-space-sm">
+              Haute Gastronomie &amp; Saveurs Malgaches
+            </h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-lg">
+              Une traversée gustative célébrant l'or noir de Madagascar : la vanille Bourbon de Sambava, le poivre sauvage Voatsiperifery et les pêches du jour de la baie de Diego. Dîner privé sous la voûte céleste ou immersion au restaurant panoramique.
+            </p>
+<div class="flex flex-col gap-space-sm mb-space-lg bg-soft-sand/60 p-space-md rounded-2xl border border-warm-border/60">
+<div class="flex items-center gap-space-sm text-espresso-dark font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[19px]">dinner_dining</span>
+<span>Dîner privé pieds dans le sable &amp; chandelles</span>
+</div>
+<div class="flex items-center gap-space-sm text-espresso-dark font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[19px]">wine_bar</span>
+<span>Accords mets &amp; crus d'exception par notre sommelier</span>
+</div>
+<div class="flex items-center gap-space-sm text-espresso-dark font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[19px]">psychiatry</span>
+<span>Atelier dégustation cacao grand cru de la vallée du Sambirano</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Sur réservation</span>
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Menu Dégustation 7 Temps</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_6px_16px_rgba(38,26,19,0.15)] cursor-pointer" onclick="prefillBooking('Haute Gastronomie &amp; Saveurs Malgaches')">
+<span>Réserver cette table</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2: Spa & Rituels Botaniques -->
+<article class="exp-card group w-full grid grid-cols-1 lg:grid-cols-12 rounded-[2.5rem] bg-pale-vanilla border border-warm-border overflow-hidden shadow-[0_8px_30px_-10px_rgba(111,90,79,0.08)] hover:shadow-[0_20px_45px_-12px_rgba(128,86,0,0.15)] transition-all duration-300" data-exp-type="spa">
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between bg-pale-vanilla order-2 lg:order-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-space-xs flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Bien-Être Holistique</span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mb-space-sm">
+              Spa &amp; Rituels Botaniques
+            </h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-lg">
+              Havre de quiétude perché sur les roches de corail. Nos praticiennes certifiées utilisent les vertus ancestrales du Katrafay relaxant, des baumes de Ravintsara purifiant et de l'Ylang-Ylang récolté dans les collines avoisinantes de Nosy Be et d’Antsiranana.
+            </p>
+<div class="grid grid-cols-2 gap-space-sm mb-space-lg">
+<div class="p-space-sm bg-soft-sand/60 border border-warm-border/60 rounded-2xl flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-espresso-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">water</span> Pavillon Océan
+                </span>
+<span class="font-body-sm text-body-sm text-secondary">Massages face à la brise marine</span>
+</div>
+<div class="p-space-sm bg-soft-sand/60 border border-warm-border/60 rounded-2xl flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-espresso-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">hot_tub</span> Bain de Source
+                </span>
+<span class="font-body-sm text-body-sm text-secondary">Jacuzzi minéral chauffé au bois</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[19px]">eco</span>
+<span>100% Produits d'origine sauvage et certifiés éthiques malgaches</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Rituel Signature</span>
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">90 min de Sérénité</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_6px_16px_rgba(38,26,19,0.15)] cursor-pointer" onclick="prefillBooking('Spa &amp; Rituels Botaniques')">
+<span>Personnaliser mon soin</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] overflow-hidden order-1 lg:order-2 p-3 lg:p-4">
+<div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Luxury botanical open-air wooden spa pavilion situated over turquoise coastal waters in northern Madagascar. Stone soaking tub filled with frangipani blossoms, clean minimalist architecture, soft woven textiles, ambient golden morning light reflecting gentle water ripples." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWqQLE1b7oc2qDbAk4SZ4QPhc3SaoAPm_punnokzNCEvAveu8IbNzsOsqsmrjFsozzUgU7Qf_5i3klfDGlp8ED_2QXv7esishLr3D1HM67C3wDmUO8Z9RDvuH1Dbal6REUgKF4-C0LcgFNpcrG6cYrF5A4E7TbY2hKwrGoMhj6Dj4J4VBH-l_jBpu2_ggrM25G4zpGy20oUZh5ax0FJPwdrLyge4xF4m44ciTJwx45ikqJHh_zzw_2=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-md right-space-md bg-espresso-dark/90 backdrop-blur-md text-surface-bright px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">
+            Plénitude Absolue
+          </div>
+</div>
+</div>
+</article>
+<!-- Item 3: Expéditions Maritimes & Kitesurf -->
+<article class="exp-card group w-full grid grid-cols-1 lg:grid-cols-12 rounded-[2.5rem] bg-pale-vanilla border border-warm-border overflow-hidden shadow-[0_8px_30px_-10px_rgba(111,90,79,0.08)] hover:shadow-[0_20px_45px_-12px_rgba(128,86,0,0.15)] transition-all duration-300" data-exp-type="maritime">
+<div class="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] overflow-hidden p-3 lg:p-4">
+<div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Modern sleek luxury catamaran sailing across crystal-clear translucent emerald water in Mer d'Emeraude near Diego Suarez. White sandbanks visible under the water, sunny blue tropical sky, a kitesurfer gliding gracefully in the background against rocky volcanic islands." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUMleUiP67BWe78Ii3h3uyRVTMrSF7JXPFCBiKUQFhBa80DqSLJFE1LWgd8do0gkAFt_2oJeN25rghcvq4BdcxtKmPj1eJxGqiMR9AbikZJh9yGjnnWBDa6ajlSus_FL4epQ5V8895t5WYsaGi_kOom8ENfz0bf73_Zfnukx3GCI75Rg4pUClKSnBm35oMwAK81dmkaQYa5GKXwefoIUO1d14777hOSrK_ElwUIpyAnYhPDztusgx=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-md left-space-md flex flex-wrap gap-space-xs">
+<span class="bg-primary-container text-espresso-dark font-semibold px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">Spot Mondial de Glisse</span>
+<span class="bg-pale-vanilla/95 backdrop-blur-md text-espresso-dark px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider border border-warm-border">Mer d'Émeraude</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between bg-pale-vanilla">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-space-xs flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Océan Indien &amp; Varamahonto</span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mb-space-sm">
+              Expéditions Maritimes &amp; Kitesurf
+            </h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-lg">
+              Embarquez sur notre catamaran de 45 pieds pour une journée idyllique dans la lagune fluorescente de la Mer d'Émeraude. Les passionnés de glisse bénéficieront des alizés réguliers du Varamahonto dans la Baie des Sakalava, encadrés par des moniteurs IKO professionnels.
+            </p>
+<ul class="flex flex-col gap-space-xs mb-space-lg font-body-sm text-body-sm text-espresso-dark">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">verified</span>
+<span>Matériel Duotone 2025 renouvelé chaque saison</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">scuba_diving</span>
+<span>Plongée dérivante aux abords des récifs coralliens</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">kayaking</span>
+<span>Déjeuner barbecue de langoustes fraîches sur un îlot vierge</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Journée complète</span>
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Navigation &amp; Glisse VIP</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_6px_16px_rgba(38,26,19,0.15)] cursor-pointer" onclick="prefillBooking('Expéditions Maritimes &amp; Kitesurf')">
+<span>Programmer l'expédition</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 4: Aventures Terrestres & Éco-Guides -->
+<article class="exp-card group w-full grid grid-cols-1 lg:grid-cols-12 rounded-[2.5rem] bg-pale-vanilla border border-warm-border overflow-hidden shadow-[0_8px_30px_-10px_rgba(111,90,79,0.08)] hover:shadow-[0_20px_45px_-12px_rgba(128,86,0,0.15)] transition-all duration-300" data-exp-type="terre">
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between bg-pale-vanilla order-2 lg:order-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-space-xs flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Biodiversité Unique</span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mb-space-sm">
+              Aventures Terrestres &amp; Éco-Guides
+            </h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-lg">
+              Explorez les formations géologiques spectaculaires des Tsingy Rouges d'Irodo, puis enfoncez-vous dans la forêt ombrophile d'altitude de la Montagne d’Ambre. Observez lémuriens couronnés, caméléons pygmées (Brookesia) et cascades sacrées en véhicule tout-terrain privé.
+            </p>
+<div class="flex flex-col gap-space-sm mb-space-lg bg-soft-sand/60 border border-warm-border/60 p-space-md rounded-2xl">
+<div class="flex justify-between items-center text-espresso-dark font-label-md text-label-md">
+<span>Accompagnement scientifique exclusif</span>
+<span class="text-primary font-bold">Inclus</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-full rounded-full"></div>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Nos guides naturalistes sont natifs d'Antsiranana et formés aux réserves biosphériques de Madagascar.</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Circuit 4x4 Privé</span>
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Tsingy &amp; Montagne d'Ambre</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_6px_16px_rgba(38,26,19,0.15)] cursor-pointer" onclick="prefillBooking('Aventures Terrestres &amp; Éco-Guides')">
+<span>Découvrir l'itinéraire</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] overflow-hidden order-1 lg:order-2 p-3 lg:p-4">
+<div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Majestic red stone formations of Tsingy Rouges in Antsiranana Madagascar. Striking sharp natural clay pillars in vibrant terracotta red, ochre and white contrasts with lush green tropical flora under clear sunlit skies, cinematic perspective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRwNiv3GHvhsMgCUXUqxj3gtxzxNoNC2AnIam4MkOcSZUIxFES6FyfTOWPhzJYzAWrDRyCxCEIhGnLhq_DbZ3gSdIxHa533x3KqKYb8YIP3mbN5YisJvmIUzumo_-DkanD0nnk2NuqxPJAjvIVa2sc-3riP8jLQ8tNTmyfUrN06Z5WrmM-8GV9QHcG1x3SrNbjP5veDStXkMTFzCUNwI9pNSll6NGr1vVhpVJnA_SpnpG9XEW45Bv9=w2400" loading="lazy" decoding="async"/>
+<div class="absolute bottom-space-md left-space-md bg-espresso-dark/90 backdrop-blur-md text-surface-bright px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">
+            Merveille Géologique • Tsingy Rouges
+          </div>
+</div>
+</div>
+</article>
+<!-- Item 5: Conciergerie & Transferts Privés -->
+<article class="exp-card group w-full grid grid-cols-1 lg:grid-cols-12 rounded-[2.5rem] bg-pale-vanilla border border-warm-border overflow-hidden shadow-[0_8px_30px_-10px_rgba(111,90,79,0.08)] hover:shadow-[0_20px_45px_-12px_rgba(128,86,0,0.15)] transition-all duration-300" data-exp-type="concierge">
+<div class="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] overflow-hidden p-3 lg:p-4">
+<div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Private luxury helicopter landing on a scenic oceanfront helipad overlooking Diego Suarez bay and pristine blue ocean waters. Professional VIP hospitality greeting staff in crisp white uniforms with cold towels and champagne welcome tray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByODFxFSqpfbrvvHGI28WVoIohdqTY17tSEKrZDtTD-rLCqH5iQW076BQlOw-Z78fWrWiVmVR5kqJJlI9U5WeVsuZDIWCn_KpzlWnEYS9cpWKyOfFV5YuwZtCOsSB7cpwt4Tp6TSWWF3Q3__0-BG6P0-ib8aRoa0RSR1YJQzFnLt3mnWDPGBVk7BqzEU1BjHe_b7eCljm2EEt3_SL3esj_kl_fn4P2tSBT49s0X8whh6FbpjUVTRs_=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-md left-space-md bg-espresso-dark/90 backdrop-blur-md text-surface-bright px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-wider">
+            Aéroport DIE • Arrachart &amp; Helipad
+          </div>
+</div>
+</div>
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between bg-pale-vanilla">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-space-xs flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Logistique d'Élite</span>
+<h3 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mb-space-sm">
+              Conciergerie &amp; Transferts Privés
+            </h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-lg">
+              Votre sérénité débute dès le toucher des roues. Accueil coupe-file au tarmac de l'Aéroport d’Arrachart (DIE) ou Nosy Be (NOS), liaison rapide en hélicoptère bimoteur ou en vedette rapide côtière jusqu'au ponton privé de l'Hôtel Baie d'Or.
+            </p>
+<div class="grid grid-cols-1 gap-space-xs mb-space-lg font-body-sm text-body-sm text-secondary">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">verified_user</span>
+<span class="text-espresso-dark">Formalités douanières &amp; bagages pris en charge à 100%</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">electric_bolt</span>
+<span class="text-espresso-dark">Véhicules climatisés haut de gamme avec chauffeur bilingue</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[19px]">room_service</span>
+<span class="text-espresso-dark">Majordome dédié et joignable instantanément via messagerie privée</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Transfert Porte-à-Porte</span>
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Service Exclusif</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_6px_16px_rgba(38,26,19,0.15)] cursor-pointer" onclick="prefillBooking('Conciergerie &amp; Transferts Privés')">
+<span>Coordonner mes arrivées</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Interactive Experience Planner & Inquiry Simulator (Fictitious) -->
+<section class="w-full bg-[#FAF5EB] py-space-3xl relative border-y border-warm-border/60" id="planificateur">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Context & Guarantees -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-soft-sand border border-warm-border text-primary font-label-sm text-label-sm uppercase tracking-wider w-max">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">tune</span>
+<span>Atelier de Conception Privée</span>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-espresso-dark tracking-tight font-serif leading-tight">
+            Composer une Journée Sur-Mesure
+          </h2>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+            Chaque itinéraire est unique. Combinez une matinée de glisse dans la Baie des Sakalava avec un déjeuner sur un banc de sable blanc, suivi d'un massage aux huiles de Katrafay au crépuscule.
+          </p>
+<div class="p-space-xl rounded-[2rem] bg-pale-vanilla border border-warm-border shadow-[0_8px_24px_-10px_rgba(111,90,79,0.06)] flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-12 h-12 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">headset_mic</span>
+</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Concierge Dédié</h4>
+<p class="font-label-md text-label-md text-secondary">Réponse personnalisée sous 4 heures</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+              Notre équipe organise chaque étape de votre séjour selon vos désirs : météorologie en temps réel, choix des millésimes et accès aux zones protégées.
+            </p>
+<div class="flex items-center gap-2 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Plateforme de démonstration fictive (aucune donnée réelle requise)</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Simulator Form -->
+<div class="lg:col-span-7 bg-pale-vanilla p-space-xl md:p-space-2xl rounded-[2.5rem] border border-warm-border shadow-[0_20px_45px_-15px_rgba(38,26,19,0.08)]">
+<form class="flex flex-col gap-space-lg" id="experience-simulation-form" onsubmit="handleExperienceSubmit(event)">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-select">Expérience(s) prioritaires</label>
+<select class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-full border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md cursor-pointer" id="exp-select">
+<option value="Haute Gastronomie &amp; Saveurs Malgaches">Haute Gastronomie &amp; Saveurs Malgaches (Pain de Sucre)</option>
+<option value="Spa &amp; Rituels Botaniques">Spa &amp; Rituels Botaniques (Ylang-Ylang &amp; Katrafay)</option>
+<option value="Expéditions Maritimes &amp; Kitesurf">Expéditions Maritimes &amp; Kitesurf (Mer d'Émeraude &amp; Sakalava)</option>
+<option value="Aventures Terrestres &amp; Éco-Guides">Aventures Terrestres &amp; Éco-Guides (Tsingy Rouges &amp; Montagne d'Ambre)</option>
+<option value="Conciergerie &amp; Transferts Privés">Conciergerie VIP &amp; Transferts Hélicoptère (DIE Arrachart)</option>
+<option value="Itinéraire Mixte Sur-Mesure">Itinéraire Mixte Sur-Mesure (Combiné terre &amp; mer)</option>
+</select>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-date">Date souhaitée</label>
+<input class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-full border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md" id="exp-date" required="" type="date" value="2025-05-15"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-guests">Nombre d'hôtes</label>
+<select class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-full border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md cursor-pointer" id="exp-guests">
+<option value="2">2 personnes (Séjour en couple)</option>
+<option value="4">4 personnes (Famille ou Suite)</option>
+<option value="6">6 à 8 personnes (Privatisation Catamaran/Villa)</option>
+<option value="1">1 personne (Séjour individuel)</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-name">Nom complet (Fictif)</label>
+<input class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-full border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md" id="exp-name" placeholder="Ex: Jean de Saint-Exupéry" required="" type="text" value="Alexandre Dupont"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-email">Courriel de contact (Simulation)</label>
+<input class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-full border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md" id="exp-email" placeholder="alexandre@demo.mg" required="" type="email" value="demo.guest@acker-tech.mg"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="exp-notes">Souhaits spécifiques &amp; régimes particuliers</label>
+<textarea class="w-full bg-[#FAF5EB] text-espresso-dark px-space-md py-space-sm rounded-2xl border border-warm-border focus:outline-none focus:ring-2 focus:ring-primary-container font-body-md text-body-md resize-none" id="exp-notes" placeholder="Ex: Allergie aux crustacés, initiation kitesurf débutant, départ en vedette à l'aube..." rows="3">Navigation privée vers la Mer d'Émeraude le matin, avec déjeuner sur un îlot et pause massage au coucher de soleil.</textarea>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-2 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Confirmation instantanée dans le bac à sable</span>
+</div>
+<button class="w-full sm:w-auto px-space-xl py-space-sm rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-primary-container hover:text-espresso-dark transition-all duration-300 shadow-[0_8px_20px_-4px_rgba(38,26,19,0.25)] flex items-center justify-center gap-space-xs cursor-pointer" type="submit">
+<span>Simuler ma demande</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</form>
+<!-- Result Simulation Card (Hidden by default) -->
+<div class="hidden mt-space-lg p-space-lg rounded-[2rem] bg-soft-sand text-espresso-dark flex flex-col gap-space-xs border-l-4 border-primary-container shadow-sm" id="simulation-feedback">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-space-xs font-serif">
+<span class="material-symbols-outlined">task_alt</span> Demande simulée avec succès
+              </span>
+<span class="text-xs font-label-sm bg-espresso-dark text-surface-bright px-3 py-1 rounded-full uppercase tracking-wider">MODE DÉMO</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary" id="simulation-feedback-text">
+              Merci Alexandre Dupont. Votre itinéraire sur-mesure a été simulé pour le 15 Mai 2025. Un récapitulatif détaillé d'expédition a été transmis à la conciergerie fictive.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Atmosphere Gallery Mosaic -->
+<section class="w-full bg-surface py-space-3xl">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Portfolio Visuel</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mt-1">
+            L'Atmosphère Baie d'Or en Images
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-secondary max-w-md">
+          Chaque point de vue célèbre l'alliance du minéral, de l'océan et des essences naturelles de Diego-Suarez.
+        </p>
+</div>
+<!-- Bento Visual Gallery with arched organic aesthetics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto">
+<div class="md:col-span-8 relative rounded-[2rem] overflow-hidden min-h-[360px] group shadow-[0_4px_16px_rgba(111,90,79,0.06)] border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High angle panoramic photograph of the emerald blue lagoon of Mer d'Emeraude Diego Suarez with traditional wooden dhow outrigger boats anchored peacefully over white sand shallows in blazing sunshine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwSXr8oh6-BBM-yBb9UU6GKL8G0hgH4L3UdMWIqgyFFNRn7mxN1vOG8hHsBBAg-UE4CQgHLSCufWMdeGY_K4Iyf1Ltn4HsfA4n-7hIxCPO7F7HbBKvBErwxjUzjH9S8vRIXvsBSsaIAbbBVstbiwcdWGNtkFFOH1boNRfrsO6TDkTKsnkHARMN2HgXQWBt5MJnDVINeXTf8PcR7QQ5HUzn9NSjDKtvGcLbFf5sfDS_JTvryCER6til=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-transparent to-transparent flex items-end p-space-lg">
+<div class="flex flex-col text-surface-bright">
+<span class="font-label-sm text-label-sm tracking-wider text-sun-gold uppercase">Lagune Protégée</span>
+<span class="font-headline-sm text-headline-sm font-serif">Mer d'Émeraude &amp; Récifs</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 relative rounded-[2rem] overflow-hidden min-h-[360px] group shadow-[0_4px_16px_rgba(111,90,79,0.06)] border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close up architectural detail of an eco-luxury villa terrace made of polished rosewood and stone facing Diego Suarez bay with an infinity plunge pool reflecting the sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-54l199k5QYqm1k6lbONpaqxCfrVQiO0K2bdXPFhQbNfAnqBz2Nq-k72dJ63wGmz1lW9RhBpSujnB3ICC_QShQuPwUT9nyXOQU3wNTevPGSfVMYvtBHquzYHQmF2N_ypa958LfuRP_YelvDefAXT7prWB0d6MXbgBcpexluXmb2R_8MgDOF4bLMnUivHtpCO32Roj6Seux9Dr7Kuwp7ij-Z5xUvwGWG4oH_y80Vd7NeD771E8ud5=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-transparent to-transparent flex items-end p-space-lg">
+<div class="flex flex-col text-surface-bright">
+<span class="font-label-sm text-label-sm tracking-wider text-sun-gold uppercase">Architecture</span>
+<span class="font-headline-sm text-headline-sm font-serif">Terrasse Panoramique</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 relative rounded-[2rem] overflow-hidden min-h-[300px] group shadow-[0_4px_16px_rgba(111,90,79,0.06)] border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Macro artistic food photograph of roasted fresh rock lobster with Madagascan vanilla pods, exotic pepper pearls, and delicate micro herbs on a handcrafted dark basalt plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDczNr_NapsMnyeaWvU6Lgkeq9Wcv1VsUxF4YtgQiwSAVEKelRq5_uQPq7OR3gSXw6YX1FguqVPkaAwIE0FPcCP8aaEw4dz2N7w03s4nYCkGIyB-tnaCt0aj86hV-igzYl3wbPZqTuABe-jYsVFU4TX6YklfaEvsg-vtmJYXDyWT8HiF68f1MH-SmvgfvbOjMLeFP6pxdpp_znDq4yrwHgAY3IgBFm8QjR2YJjJios_bZbqgVRd5bB8=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-transparent to-transparent flex items-end p-space-lg">
+<div class="flex flex-col text-surface-bright">
+<span class="font-label-sm text-label-sm tracking-wider text-sun-gold uppercase">Gastronomie</span>
+<span class="font-headline-sm text-headline-sm font-serif">Infusion Vanille Bourbon</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 relative rounded-[2rem] overflow-hidden min-h-[300px] group shadow-[0_4px_16px_rgba(111,90,79,0.06)] border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Lush rainforest canopy in Montagne d'Ambre National Park with a towering sacred waterfall, giant tree ferns and wild tropical orchids bathed in humid morning mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjyVdSdBX7NJlgWL4kwSx9r2IY5oZviFGDEO3J-i_U82NNeFpCi7njmnMT6Xq1IyfTeQrYS5zFJyQXLhb_lehKXUPyey4zzeSmF38OsMi5boZNcL7FiSHtBa0r4tEJMhyHClqxaRgTavCtbzbUUH5g6HBtOiRjLTZln-yEAo824-xJdkTsNIMwDC2V-2Hy6AB7CmBrScoFzYDcwH1unFlSc1_THkD-rMI9bPHCCD1DS0GTwngW0QcZ=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-transparent to-transparent flex items-end p-space-lg">
+<div class="flex flex-col text-surface-bright">
+<span class="font-label-sm text-label-sm tracking-wider text-sun-gold uppercase">Éco-Réserve</span>
+<span class="font-headline-sm text-headline-sm font-serif">Cascade Sacrée d'Antakarana</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 relative rounded-[2rem] overflow-hidden min-h-[300px] group shadow-[0_4px_16px_rgba(111,90,79,0.06)] border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Kitesurfer in action jumping high over vibrant blue waves in Sakalava Bay Madagascar during windy golden hour with distant mountains in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACOkUdBBV9LHsuDdTifT7uMVeRx0xcJT48KRjM815AvqC5aRleXjNq0luYYF8DTWhtm7rnsM2HKiJkXyWYdPG0kFA4S28XZTH3p-4L0H5aRM38AOo8DqKcRgws6XrOS5sLCUrmQDSMWVxVbDQpssCElCDtrBacysyFCe2GKM6JQQMF6bEn-5Ef082GCKQaxGjBjujn3HGO9-ycdKYWrATWSM-KEULE7EfvYMp2M8-C1f1kvIwxMNbD=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/80 via-transparent to-transparent flex items-end p-space-lg">
+<div class="flex flex-col text-surface-bright">
+<span class="font-label-sm text-label-sm tracking-wider text-sun-gold uppercase">Sensations Pures</span>
+<span class="font-headline-sm text-headline-sm font-serif">Sakalava Bay Session</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Guest Testimonials Section with Warm Arch Accent -->
+<section class="w-full bg-[#FAF5EB] py-space-3xl border-t border-warm-border/50">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sun-gold"></span>Récits de Voyageurs</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif mt-1">
+            Leurs Souvenirs en Terre Sakalava
+          </h2>
+</div>
+<!-- Controls -->
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-secondary" id="testimonial-counter">01 / 03</span>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Témoignage précédent" class="w-11 h-11 rounded-full bg-pale-vanilla text-espresso-dark hover:bg-espresso-dark hover:text-surface-bright transition-all flex items-center justify-center border border-warm-border shadow-sm cursor-pointer" onclick="prevTestimonial()">
+<span class="material-symbols-outlined text-[19px]">arrow_back</span>
+</button>
+<button aria-label="Témoignage suivant" class="w-11 h-11 rounded-full bg-pale-vanilla text-espresso-dark hover:bg-espresso-dark hover:text-surface-bright transition-all flex items-center justify-center border border-warm-border shadow-sm cursor-pointer" onclick="nextTestimonial()">
+<span class="material-symbols-outlined text-[19px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Testimonial Cards -->
+<div class="relative overflow-hidden min-h-[260px]">
+<!-- Testimonial 1 -->
+<div class="testimonial-slide flex flex-col lg:flex-row gap-space-xl p-space-xl rounded-[2.5rem] bg-pale-vanilla border border-warm-border shadow-[0_8px_25px_-8px_rgba(111,90,79,0.06)] transition-opacity duration-500 opacity-100" id="slide-0">
+<div class="flex items-center lg:items-start gap-space-md min-w-[260px]">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-primary-container shadow-sm" data-alt="Portrait of an elegant Parisian traveler couple in their forties smiling warmly while sitting at a seaside terrace in Madagascar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1PXv91kyQ0J3UegDYqvYAmeWiAYqC6FSA0gtRSYS7owC7cfAspSUdts-qXnggGDkJ4Yv1pX2HSwe-lUPVCEROjbpe16QB8lpTcw63XfdntrQwT87r9OR9f_JuYDPYQRtNubU_87WXtzJ9rV3qMxlw4gZkHy0eDeoAN0e6h73r4EvlYA2XogWRXIAf5lmIeiTM2EWx36LKlvUw2rSweJHjkLhzmIx82BSnVk6trAbVVZhXpFAvJt3o=w2400" loading="lazy" decoding="async"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Éléonore &amp; Marc D.</span>
+<span class="font-label-md text-label-md text-secondary">Paris, France</span>
+<span class="font-label-sm text-[11px] text-primary uppercase mt-1 tracking-wider">Expédition Mer d'Émeraude</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-headline-sm text-headline-sm text-espresso-dark font-serif italic leading-relaxed font-normal">
+              « Traverser la passe en catamaran privé pour atteindre les bancs de sable déserts de la Mer d'Émeraude restera gravé comme notre plus beau voyage. Le déjeuner de langoustes préparé par le chef à même le rivage était tout simplement sublime. »
+            </p>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-slide hidden flex-col lg:flex-row gap-space-xl p-space-xl rounded-[2.5rem] bg-pale-vanilla border border-warm-border shadow-[0_8px_25px_-8px_rgba(111,90,79,0.06)] transition-opacity duration-500 opacity-0" id="slide-1">
+<div class="flex items-center lg:items-start gap-space-md min-w-[260px]">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-primary-container shadow-sm" data-alt="Portrait of an athletic Swiss kitesurfer smiling, wearing linen shirt on a tropical beach at sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zawe-nmzfvBySIFYSMer8L1ClcUgl33rRnROydqLWl30qcpqAIUoTAauavDeAfWpZfO4jO3kyWGQEtxszsOjih8CL33SJLCbjEl-WEOf3UeWkW2QCcsWIzrKVXy7sXV3MzvPjNEUFEul4QhjhcbXpWh8exJNcx3iDkOQBT0dNig05AKSVwU0eJ7BdhFqw2yUFmf9mam58PBZ8HNfhQE7sAT_vv4EkUh7Tl5YjXsdo0NtbGGMUHBX=w2400" loading="lazy" decoding="async"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Reto Von Bergen</span>
+<span class="font-label-md text-label-md text-secondary">Zurich, Suisse</span>
+<span class="font-label-sm text-[11px] text-primary uppercase mt-1 tracking-wider">Kite Camp Baie des Sakalava</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-headline-sm text-headline-sm text-espresso-dark font-serif italic leading-relaxed font-normal">
+              « Les conditions de vent sont parmi les plus fiables au monde, et le confort de revenir au spa de l'hôtel après 5 heures de session pour un massage au Katrafay n'a aucun équivalent. La conciergerie a anticipé chaque détail logistique. »
+            </p>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-slide hidden flex-col lg:flex-row gap-space-xl p-space-xl rounded-[2.5rem] bg-pale-vanilla border border-warm-border shadow-[0_8px_25px_-8px_rgba(111,90,79,0.06)] transition-opacity duration-500 opacity-0" id="slide-2">
+<div class="flex items-center lg:items-start gap-space-md min-w-[260px]">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-primary-container shadow-sm" data-alt="Portrait of a sophisticated architect woman wearing round tortoiseshell glasses and refined casual resort attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzEAoN8NsnCGLfSsO5SAfZgzk4awrMLAVdqhZTSkdfw6WMTU5PdSJGtXoeQKhHpuGdu1VbY1lxFuL4wmRl2ZGNY36S0EvWJ4r24slzTXPU6RmncjOQcRO0PfSi82bkeSveOP4yA3jaEi018Y3QePEGZBMdsVhy6TAFFdpRo7Sg-trR-WONehP7_lqU4Tb9lQrZDt0TTdx5pd17cSlyegHHggE4uogFROJziPCkXiXTjpCgym8D9Kom=w2400" loading="lazy" decoding="async"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Nathalie R.</span>
+<span class="font-label-md text-label-md text-secondary">Genève, Suisse</span>
+<span class="font-label-sm text-[11px] text-primary uppercase mt-1 tracking-wider">Éco-Guide Montagne d'Ambre</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-headline-sm text-headline-sm text-espresso-dark font-serif italic leading-relaxed font-normal">
+              « Notre guide naturaliste nous a fait découvrir des espèces de caméléons impossibles à déceler seuls. Le respect scrupuleux de l'écosystème et la bienveillance de l'équipe locale font honneur à Madagascar. »
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Warm Ochre Bottom CTA Banner inspired by design reference -->
+<section class="w-full bg-[#E5A93C] text-espresso-dark py-space-3xl relative overflow-hidden">
+<!-- Arch accent -->
+<div class="absolute -right-16 -top-20 w-96 h-96 rounded-full bg-[#FFFBF2]/20 pointer-events-none"></div>
+<div class="max-w-[1240px] mx-auto px-gutter relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col max-w-xl text-center md:text-left">
+<span class="font-label-sm text-label-sm text-espresso-dark/80 uppercase tracking-widest mb-space-xs font-bold">Séjour Inoubliable</span>
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg text-espresso-dark tracking-tight font-serif leading-tight mb-space-sm">
+          Prêt à Explorer le Grand Nord Malgache ?
+        </h3>
+<p class="font-body-md text-body-md text-espresso-dark/90">
+          Nos conseillers d'Antsiranana et notre conciergerie VIP sont à votre disposition pour personnaliser chaque heure de votre séjour.
+        </p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-md">
+<a class="px-space-xl py-space-md rounded-full bg-espresso-dark text-surface-bright font-label-md text-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_8px_24px_rgba(38,26,19,0.3)]" href="#planificateur">
+          Créer mon itinéraire sur-mesure
+        </a>
+<a class="px-space-xl py-space-md rounded-full bg-surface-bright/90 text-espresso-dark font-label-md text-label-md hover:bg-surface-bright transition-all border border-espresso-dark/10 shadow-sm" data-path="chambres-et-suites" href="/chambres">
+          Découvrir les Résidences
+        </a>
+</div>
+</div>
+</section>
+</div>
+</main><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div>

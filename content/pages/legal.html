@@ -1,0 +1,244 @@
+<main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
+<!-- 404 SECTION: ARCHITECTURAL SANCTUARY -->
+
+<!-- LEGAL & REGULATORY FRAMEWORK HUB -->
+<section class="w-full bg-surface-container-low px-gutter lg:px-margin-desktop py-space-3xl mt-space-xl">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header & Pill Switcher -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-pale-vanilla text-primary font-label-md w-fit shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-sun-gold">gavel</span>
+<span>Transparence, Déontologie &amp; Rigueur</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark">
+            Hub des Mentions Légales &amp; Politiques Réglementaires
+          </h2>
+<p class="font-body-lg text-secondary">
+            Consultez en toute clarté l'encadrement juridique, les engagements de protection des données et le statut d'expérimentation du domaine Hôtel Baie d'Or.
+          </p>
+</div>
+<!-- Pill Nav Filter (Simulated interactive tab pills) -->
+<div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-pale-vanilla shadow-sm self-start md:self-auto" id="legal-tab-container">
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md bg-espresso-dark text-pale-vanilla shadow-sm transition-all" id="tab-mentions" onclick="switchLegalTab('mentions')" type="button">
+            Mentions Légales
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-secondary hover:text-espresso-dark transition-all" id="tab-confidentialite" onclick="switchLegalTab('confidentialite')" type="button">
+            Confidentialité
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-secondary hover:text-espresso-dark transition-all" id="tab-cookies" onclick="switchLegalTab('cookies')" type="button">
+            Cookies
+          </button>
+<button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md text-secondary hover:text-espresso-dark transition-all" id="tab-cgu" onclick="switchLegalTab('cgu')" type="button">
+            Conditions CGU
+          </button>
+</div>
+</div>
+<!-- Selected legal detail appears before the information cards. -->
+<div class="p-space-xl rounded-xl bg-pale-vanilla shadow-sm" id="tab-content-panel">
+<div class="legal-panel flex flex-col gap-space-md" id="panel-mentions">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">policy</span>
+<h4 class="font-headline-sm text-espresso-dark">Avertissement Démonstrateur Technologique Officiel</h4>
+</div>
+<p class="font-body-md text-secondary leading-relaxed">
+            Ce site web est un démonstrateur d'expérience utilisateur haut de gamme commandité pour exposer l'art de vivre et les savoir-faire hôteliers du littoral de Diego-Suarez (Antsiranana). Les tarifs, disponibilités des suites et descriptions d'itinéraires maritimes sont configurés dans un but d'illustration esthétique et fonctionnelle. Aucune somme d'argent ne sera prélevée sur votre moyen de paiement au terme de la simulation de réservation.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-confidentialite">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">lock</span>
+<h4 class="font-headline-sm text-espresso-dark">Engagement de Confidentialité &amp; Traitement des Données</h4>
+</div>
+<p class="font-body-md text-secondary leading-relaxed">
+            Dans le respect strict du RGPD et des réglementations internationales sur la vie privée, aucune donnée personnelle saisie dans les formulaires de démonstration n'est vendue, louée ou exploitée commercialement. Vos données de test sont conservées temporairement dans la mémoire locale de votre navigateur et peuvent être supprimées à tout moment via les paramètres de votre session.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-cookies">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">cookie</span>
+<h4 class="font-headline-sm text-espresso-dark">Gestion Raisonnée des Témoins de Connexion (Cookies)</h4>
+</div>
+<p class="font-body-md text-secondary leading-relaxed">
+            Hôtel Baie d'Or applique une politique zéro traçage intrusif : seuls les cookies techniques de premier niveau essentiels à la mémorisation de votre panier de simulation et à l'affichage optimal des polices Newsreader et DM Sans sont utilisés. Aucun pixel publicitaire tiers n'est déployé sur cette démonstration.
+          </p>
+</div>
+<div class="legal-panel hidden flex-col gap-space-md" id="panel-cgu">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">description</span>
+<h4 class="font-headline-sm text-espresso-dark">Conditions Générales d'Utilisation du Démonstrateur (CGU)</h4>
+</div>
+<p class="font-body-md text-secondary leading-relaxed">
+            L'utilisateur accédant à cette plateforme reconnaît naviguer sur un environnement de démonstration d'architecture d'interface. La navigation implique l'acceptation sans réserve des présentes conditions. Pour toute demande d'intégration commerciale ou d'achat de licence du design system, l'équipe d'Acker Tech DS se tient à votre entière écoute via nos formulaires dédiés.
+          </p>
+</div>
+</div>
+<!-- Tri-Card Bento Architecture for Legal Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Mentions & Editeur -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">apartment</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md tracking-wider uppercase text-outline">Éditeur &amp; Ingénierie</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Mentions Légales &amp; Éditeur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Contact du développeur :</strong><br/>
+<a class="text-primary hover:underline" href="tel:+261372638837">0372638837</a> • <a class="text-primary hover:underline" href="mailto:ackertechds@gmail.com">ackertechds@gmail.com</a>
+</p>
+<p>
+<strong class="text-espresso-dark font-medium">Éditeur Responsable :</strong><br/>
+                Acker Tech DS — Agence de Création Digitale &amp; Ingénierie Web Nord-Madagascar.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Siège Technologique :</strong><br/>
+                Route de Ramena, Antsiranana (Diego-Suarez) 201, Madagascar.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Immatriculation Démonstrateur :</strong><br/>
+                RCS Antsiranana n° DS-2025-DEV-0089. Projet créé à titre de prototype immersif de design d'hospitalité éco-responsable.
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md">
+<span>Certification Logicielle</span>
+<span class="text-primary font-bold">DS-SPEC 2025</span>
+</div>
+</div>
+<!-- Card 2: Statut du Projet -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container/60 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md tracking-wider uppercase text-outline">Gouvernance Éditoriale</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Statut du Projet &amp; Directeur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Directeur de Publication :</strong><br/>
+                Direction des Systèmes Numériques, Acker Tech DS Innovation Lab.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Nature de la Plateforme :</strong><br/>
+                Vitrine technique de haut vol présentant une chaîne complète de réservation hôtelière de luxe sans transaction financière réelle requise.
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md">
+<span>Indice de Conformité</span>
+<span class="text-primary font-bold">100% Éthique</span>
+</div>
+</div>
+<!-- Card 3: Hébergement & Propriété Intellectuelle -->
+<div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-sun-gold/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">cloud_done</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md tracking-wider uppercase text-outline">Infrastructure &amp; Droits</span>
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark">Hébergement &amp; Droits Auteur</h3>
+</div>
+<div class="space-y-3 font-body-sm text-secondary">
+<p>
+<strong class="text-espresso-dark font-medium">Infrastructure Démonstrateur :</strong><br/>
+                Datacenters éco-alimentés en énergie solaire certifiée PUE &lt; 1.15, zone Océan Indien &amp; Europe occidentale.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Propriété Intellectuelle :</strong><br/>
+                L'ensemble des visuels conceptuels, micro-typographies et agencements interactifs sont la propriété intellectuelle exclusive d'Acker Tech DS.
+              </p>
+<p>
+<strong class="text-espresso-dark font-medium">Reproduction &amp; Réutilisation :</strong><br/>
+                Interdite sans autorisation préalable écrite du studio de design.
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-high/40 rounded-lg p-space-sm flex items-center justify-between text-espresso-dark font-label-md">
+<span>Énergie Serveurs</span>
+<span class="text-primary font-bold">100% Renouvelable</span>
+</div>
+</div>
+</div>
+<!-- Interactive Accordion: Cadre Réglementaire -->
+<div class="flex flex-col gap-space-md pt-space-lg" id="faq-section">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md uppercase tracking-wider text-outline">Éclaircissements immédats</span>
+<h3 class="font-headline-lg text-headline-lg text-espresso-dark">
+            Questions Rapides sur le Cadre Réglementaire
+          </h3>
+</div>
+<div class="flex flex-col gap-space-sm w-full">
+<!-- Accordion Item 1 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-1')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-espresso-dark">
+                Puis-je effectuer une vraie réservation de suite pour mon voyage à Diego-Suarez ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-1">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md leading-relaxed" id="body-faq-1">
+              Cette plateforme est un démonstrateur interactif conçu par l'agence technologique Acker Tech DS afin de valoriser l'éco-tourisme et les capacités digitales d'Antsiranana. Les réservations effectuées via cette maquette ne sont pas traitées par un véritable établissement hôtelier et n'engagent aucun prélèvement bancaire réel. Pour visiter Diego-Suarez, nous vous invitons à solliciter les réceptifs agréés de la région.
+            </div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-2')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-espresso-dark">
+                Mes données de navigation sont-elles transmises à des tiers publicitaires ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md leading-relaxed" id="body-faq-2">
+              Absolument aucune donnée n'est cédée, monétisée ou partagée avec des réseaux tiers. Fidèle aux préceptes de sobriété et de respect de l'intimité numérique, l'infrastructure n'héberge aucun tracker commercial tiers. Vos sélections de filtres restent confinées à la session active de votre écran.
+            </div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-3')">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-espresso-dark">
+                Comment contacter l'équipe de développement Acker Tech DS ?
+              </span>
+<div class="w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-espresso-dark transition-transform" id="icon-faq-3">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+</div>
+<div class="hidden pt-space-md text-secondary font-body-md leading-relaxed" id="body-faq-3">
+              Vous pouvez échanger avec nos concepteurs et directeurs artistiques au <a class="text-primary hover:underline" href="tel:+261372638837">0372638837</a> ou par courriel à <a class="text-primary hover:underline" href="mailto:ackertechds@gmail.com">ackertechds@gmail.com</a>, ou visiter le bureau de représentation situé à Antsiranana, Madagascar. Nous accompagnons les projets hôteliers haut de gamme dans la création de leurs identités visuelles et plateformes numériques.
+            </div>
+</div>
+</div>
+</div>
+<!-- Eco-Responsible Digital Architecture Banner -->
+<div class="rounded-xl bg-gradient-to-r from-espresso-dark to-[#2c1d14] text-pale-vanilla p-space-xl lg:p-space-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-lg">
+<div class="w-16 h-16 rounded-full bg-sun-gold/20 flex items-center justify-center shrink-0 text-sun-gold">
+<span class="material-symbols-outlined text-[36px]">energy_savings_leaf</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md uppercase tracking-widest text-sun-gold">Engagement Numérique Bas-Carbone</span>
+<h4 class="font-headline-sm text-pale-vanilla">Conception Éco-Responsable &amp; Respect de l'Écosystème</h4>
+<p class="font-body-sm text-secondary-fixed-dim max-w-xl">
+              Cette interface émet moins de 0.18g de CO₂ par page consultée grâce à une optimisation fine des flux SVG, l'absence de scripts lourds superflus et un hébergement alimenté aux énergies douces.
+            </p>
+</div>
+</div>
+<button class="shrink-0 px-space-xl py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md hover:bg-primary-container transition-all shadow-md flex items-center gap-2" onclick="showAuditNotice()" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Vérifier l'empreinte numérique</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div>

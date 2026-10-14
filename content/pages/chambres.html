@@ -1,0 +1,593 @@
+<main class="w-full pt-28 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Banner & Breadcrumb Header with Warm Golden Organic Curves -->
+<section class="relative w-full bg-surface-container-low overflow-hidden py-space-2xl md:py-space-3xl border-b border-warm-border/50">
+<div class="absolute inset-0 pointer-events-none opacity-60">
+<div class="absolute -top-32 -right-24 w-96 h-96 rounded-full bg-tertiary-fixed/70 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/3 w-[500px] h-[300px] rounded-full bg-sun-gold/10 blur-3xl"></div>
+<div class="absolute bottom-0 left-12 w-80 h-80 rounded-full bg-secondary-fixed/50 blur-2xl"></div>
+</div>
+<div class="relative max-w-[1240px] mx-auto px-gutter flex flex-col gap-space-md">
+<!-- Breadcrumb -->
+<nav aria-label="Fil d'Ariane" class="flex items-center gap-space-xs font-label-md text-[12px] text-secondary">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="/">
+<span class="material-symbols-outlined text-[15px]">home</span>
+<span>Accueil</span>
+</a>
+<span class="material-symbols-outlined text-[13px] text-outline-variant">chevron_right</span>
+<span class="text-tertiary font-semibold">Chambres &amp; Suites</span>
+</nav>
+<!-- Editorial Headline Group -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pt-space-xs">
+<div class="max-w-2xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-[12px] text-primary tracking-widest uppercase font-semibold">Écrins de Sérénité • Diego-Suarez</span>
+<h1 class="font-headline-xl text-headline-xl text-espresso-dark font-medium tracking-tight">Nos Hébergements d'Exception</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+            Face à l'immensité turquoise de la baie d'Antsiranana et au profil sacré du Pain de Sucre (Nosy Lonjo), découvrez une collection rare de pavillons, villas pieds dans l'eau et suites panoramiques taillées dans l'épure contemporaine et le bois précieux malgache.
+          </p>
+</div>
+<!-- Live Availability Pill Meta -->
+<div class="flex items-center gap-space-sm bg-pale-vanilla/95 px-space-md py-space-sm rounded-full border border-warm-border shadow-sm self-start lg:self-auto">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sun-gold opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-container"></span>
+</span>
+<span class="font-label-md text-[13px] text-on-surface font-medium">6 catégories d'hébergement disponibles en réservation fictive</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Filter Toolbar (Warm Ivory Floating Architectural Layout) -->
+<section class="relative z-10 -mt-6 max-w-[1240px] mx-auto px-gutter w-full">
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl border border-warm-border shadow-[0_10px_30px_rgba(38,26,19,0.06)] flex flex-col gap-space-md">
+<!-- Upper Filter Row: Category Pills -->
+<div class="flex items-center justify-between gap-space-md overflow-x-auto pb-2 scrollbar-none">
+<div class="flex items-center gap-space-xs min-w-max" id="category-filters">
+<button class="filter-category-btn px-space-md py-2 rounded-full font-label-md text-[13px] bg-sun-gold text-espresso-dark font-semibold shadow-sm transition-all" data-category="all">
+            Tous les hébergements
+          </button>
+<button class="filter-category-btn px-space-md py-2 rounded-full font-label-md text-[13px] bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-category="lagoon">
+            Suites Lagon
+          </button>
+<button class="filter-category-btn px-space-md py-2 rounded-full font-label-md text-[13px] bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-category="villa">
+            Villas Plage
+          </button>
+<button class="filter-category-btn px-space-md py-2 rounded-full font-label-md text-[13px] bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-category="bungalow">
+            Bungalows Panoramiques
+          </button>
+<button class="filter-category-btn px-space-md py-2 rounded-full font-label-md text-[13px] bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-category="penthouse">
+            Penthouse Baie d'Or
+          </button>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs text-secondary font-label-md text-[13px] min-w-max">
+<span class="material-symbols-outlined text-[18px] text-primary">verified</span>
+<span>Tarifs garantis en démonstration</span>
+</div>
+</div>
+<!-- Lower Controls: Vue, Capacité, Tri & Reset -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm pt-space-xs">
+<!-- Filter: Vue -->
+<div class="relative bg-surface-container-low rounded-lg px-space-md py-space-xs flex flex-col justify-center border border-warm-border/60">
+<span class="font-label-sm text-[11px] text-secondary uppercase">Orientation &amp; Vue</span>
+<select class="bg-transparent font-label-md text-[14px] text-espresso-dark font-medium focus:outline-none cursor-pointer pt-0.5" id="filter-view">
+<option value="all">Toutes les vues</option>
+<option value="mer">Vue Mer &amp; Pain de Sucre</option>
+<option value="plage">Pieds dans l'eau direct</option>
+<option value="jardin">Jardin Tropical &amp; Baobabs</option>
+</select>
+</div>
+<!-- Filter: Capacite -->
+<div class="relative bg-surface-container-low rounded-lg px-space-md py-space-xs flex flex-col justify-center border border-warm-border/60">
+<span class="font-label-sm text-[11px] text-secondary uppercase">Capacité d'accueil</span>
+<select class="bg-transparent font-label-md text-[14px] text-espresso-dark font-medium focus:outline-none cursor-pointer pt-0.5" id="filter-capacity">
+<option value="all">Toutes les configurations</option>
+<option value="2">2 Personnes (Couples)</option>
+<option value="4">4 Personnes (Suites doubles)</option>
+<option value="family">Famille &amp; Amis (jusqu'à 8 pers.)</option>
+</select>
+</div>
+<!-- Sort By: Prix -->
+<div class="relative bg-surface-container-low rounded-lg px-space-md py-space-xs flex flex-col justify-center border border-warm-border/60">
+<span class="font-label-sm text-[11px] text-secondary uppercase">Classement par tarif</span>
+<select class="bg-transparent font-label-md text-[14px] text-espresso-dark font-medium focus:outline-none cursor-pointer pt-0.5" id="filter-sort">
+<option value="default">Sélection Baie d'Or</option>
+<option value="asc">Prix croissant (dès 52 900 Ar)</option>
+<option value="desc">Prix décroissant (jusqu'à 181 000 Ar)</option>
+<option value="surface">Superficie décroissante</option>
+</select>
+</div>
+<!-- Quick Summary & Results Counter -->
+<div class="bg-soft-sand/70 rounded-lg px-space-md py-space-xs flex items-center justify-between border border-warm-border">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary uppercase">Résultats visibles</span>
+<span class="font-headline-sm text-[20px] text-espresso-dark font-semibold leading-tight" id="results-count">6 Hébergements</span>
+</div>
+<button class="p-2 text-secondary hover:text-espresso-dark transition-colors rounded-full hover:bg-surface-container" id="reset-filters" title="Réinitialiser les filtres">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Accommodations Grid Showcase -->
+<section class="w-full py-space-2xl md:py-space-3xl max-w-[1240px] mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="rooms-grid">
+<!-- Card 1: Bungalow Alizé -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="2" data-category="bungalow" data-price="260" data-surface="55" data-view="jardin">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Bungalow Alizé Jardin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxurious tropical bungalow with native hardwood veranda surrounded by frangipani blossoms and traveler palms in Madagascar, bathed in bright morning sunshine with warm natural textures and blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz-zs2zYPmbr87S6912AIXOb1zNZMMJLtP8u-co_8Ak17oXxH5FQ4YhjIhpLkTxaOk6Uejdeq8PUdBZt5eWvV83MApiubLaZ8o_t9vfQN5zFuda3ASuCzt-FWVsQi_1rBDNv711S3yRqdJcYdtUnK69FtnpgyqeI-8QomTg0ZgqQva7-pT-8XRoE2t_-b-QhZmT1N5r6nJax6b-msq8P3Ziya0DKG9wGC_-f7v7hN-KswRez-HWeBi=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-soft-sand/95 backdrop-blur-md text-espresso-dark font-label-sm text-[11px] border border-warm-border shadow-sm">
+              Disponible
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>8 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">52 900 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">55 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Bungalow Alizé • Jardin Botanique</h2>
+<p class="font-label-md text-[13px] text-secondary">Ailes Tropicales • Vue Jardin &amp; Baobabs</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Sanctuaire ombragé au milieu des ylangs-ylangs, grande terrasse privative en palissandre et douche extérieure sous les étoiles de Diego.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs border-t-0">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">group</span> 2 hôtes</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">king_bed</span> 1 King Bed</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">deck</span> Terrasse privée</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="alize">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="260" data-room-title="Bungalow Alizé">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Suite Lagon Émeraude -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="2" data-category="lagoon" data-price="320" data-surface="75" data-view="mer">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Suite Lagon Émeraude" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant luxury lagoon hotel suite interior with unobstructed glass sliding doors facing the emerald sea of Diego Suarez, fine white linen draped bed, cobalt blue accents and natural sea breeze light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT0CF8534BJS9xv8bjxzkpXLVPBzvOKZOscF6oFxXdpjcBFpmkrJtIxHFKFM6rs9tBSPIAOtIhnIMGfPh_GoX5TleS0nWURa7cEZ4wWAx6PPvsiggzRHHG1IpKdQGzKZouSxTIsypVVA7nhDs_JIpkJsLr9IbNaT5JapaMUmeMdLmdZtD94Kh9WgPDZN5pIqkjLI-Y6FoXtkBJ3UCK2yAIUuAP0IBRrLX5nRFcZ8EZyv3nAXVg1dkb=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-sun-gold text-espresso-dark font-label-sm text-[11px] font-bold shadow-sm">
+              Coup de cœur
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>12 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">65 100 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">75 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Suite Lagon • Mer d'Émeraude</h2>
+<p class="font-label-md text-[13px] text-secondary">Front de Baie • Vue Panoramique Mer</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Vue plongeante sur les nuances turquoise de la rade, baignoire îlot en marbre brut et salon ouvert prolongeant la brise marine.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">group</span> 2 hôtes</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">bathtub</span> Baignoire mer</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">visibility</span> Vue Pain de Sucre</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="emeraude">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="320" data-room-title="Suite Lagon Émeraude">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Suite Sakalava Sunset -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="4" data-category="lagoon" data-price="420" data-surface="110" data-view="mer">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Suite Sakalava Sunset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern high-end oceanfront suite overlooking Diego Bay during golden hour, refined teak wood interior, floor to ceiling panoramic glass, warm amber light and deep blue sea background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHyVmsXDEC3XLh9pKaU_Q9SQJ0vR95dtIV0eh1HjL0p-2lcirFbdr9F7C4wUYTUHTgKZWp1XRWsC43VeDf9yg6PA6mNAt1JwxB84Ge4abap2Fn7pmRfT3Q2aymY8wSB_PYWYDnDSUsAhPUvBTV2VbZJTZ0W05YuPhDCXOzgP3Xqxkcg4BHKfMNZ0CLeqmkPJaxEtZ-DxEellOJHe9-W8r-KlRHeuVK1Wp9eKILnhLPaKpfkZ1fBRux=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-soft-sand/95 backdrop-blur-md text-espresso-dark font-label-sm text-[11px] border border-warm-border shadow-sm">
+              Disponible
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>10 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">85 400 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">110 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Suite Sakalava Sunset • Double Espace</h2>
+<p class="font-label-md text-[13px] text-secondary">Plateau Ouest • Coucher de Soleil Panoramique</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Deux chambres majestueuses communicantes, lounge privé avec bar à thés et rhums arrangés artisanaux de Madagascar.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">group</span> 4 hôtes</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">bed</span> 2 King Beds</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">wb_twilight</span> Vue Crépuscule</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="sakalava">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="420" data-room-title="Suite Sakalava Sunset">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4: Villa Ramena Pieds dans l'Eau -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="4" data-category="villa" data-price="580" data-surface="160" data-view="plage">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Villa Ramena Plage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Private beachfront luxury villa nestled on fine white sands in Diego Suarez with private plunge pool, thatched roofing, contemporary white sunbeds and lush coco palm shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRyCySOQpSe-3_vw1kgNJvMHv-NJHaKv4HqyEBjNKdsKYg8USWC3RcEPisw2KK9zU9_AIRWgWPTzMiXoLrFC7KO9mbJ7D2rvp6hLLMCUa1NiAp9mXzDSXchcffNaWclarLKQTEtZcHZlYiIYMfZMDqJpNfmG8IB7XIGjosPZSsh8MUVC-oi-vB_WMFqXpw2su9_mXCSOsb45JjP401FZpgDjyBJQhXX3AJwrZ56raq2fvhjvfBXZFS=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-espresso-dark text-pale-vanilla font-label-sm text-[11px] font-medium shadow-sm">
+              Exclusivité
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>16 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">118 000 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">160 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Villa Ramena • Pieds dans l'Eau</h2>
+<p class="font-label-md text-[13px] text-secondary">Plage Privée • Accès Direct Sable Chaud</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Bassin privé à débordement ouvrant immédiatement sur la plage, deck en bois exotique et pavillon de repos sous les filaos.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">pool</span> Piscine privée</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">beach_access</span> Plage directe</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">room_service</span> Majordome</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="ramena">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="580" data-room-title="Villa Ramena Plage">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 5: Villa Royale Nosy Lonjo -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="family" data-category="villa" data-price="740" data-surface="240" data-view="mer">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Villa Royale Nosy Lonjo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Ultra luxury private architectural estate villa in northern Madagascar with large lap pool overlooking the bay, open living pavilion with high ceilings, tropical garden and chic minimalist lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06Mo4bTdYVyfDmab1vToR04scYMLYTwmFU-JVTCBtpM76zC1FPYsIb-bgjsJ4rizb7LG0bWH06qLvR6SXNVyniCmB2xT8qMVnhFanaMDT6ECEzAi8WYriEZdeZYyIFh7GWcVSR_ZfomnZQse8y2JNej_dvIFzAG2KUxy9YijmMbsJlO6ifleNSqS2g3SFrBcXi7hefdIrLejutKygkTSf_HVHDSjGdiBrmFlamH1LYdL2PSWu_bQp=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-sun-gold text-espresso-dark font-label-sm text-[11px] font-bold shadow-sm">
+              Coup de cœur
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>22 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">150 500 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">240 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Villa Royale • Nosy Lonjo</h2>
+<p class="font-label-md text-[13px] text-secondary">Domaine Privé • Vue Totale Baie &amp; Montagne d'Ambre</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Résidence d'architecte avec piscine à couloir de nage de 18 mètres, 3 suites parentales et service de chef privé à la demande.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">groups</span> Jusqu'à 6-8 pers.</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">skillet</span> Chef privé</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">directions_boat</span> Bateau privé</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="nosylonjo">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="740" data-room-title="Villa Royale Nosy Lonjo">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 6: Penthouse Sommet Baie d'Or -->
+<article class="room-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border/80 shadow-[0_4px_20px_rgba(38,26,19,0.04)] hover:shadow-[0_14px_36px_rgba(38,26,19,0.09)] transition-all duration-300" data-capacity="family" data-category="penthouse" data-price="890" data-surface="310" data-view="mer">
+<div class="relative w-full aspect-[16/11] overflow-hidden bg-surface-container">
+<img alt="Penthouse Sommet Baie d'Or" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Breathtaking architectural rooftop penthouse terrace in Diego Suarez Madagascar, infinity jacuzzi overlooking the deep ocean, chic minimalist outdoor lounge furniture and starry night lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrKUDyTwN_cOmrIPeMHmaIgiqqVewfDoj5FI1YsAnYIn4ybXTLyIYLgdq5pFTqymTYScodPC8--4RyRrlJVzj8qa6LPUD53QUvl4t1qVkcRw9XBAeNq6i_vPiphCESRXmCiwPeaRkfs0y3DCGgCbfYhKAFNsd6vhwMOKiAn1-fm7NpEnO9qRa3dKgEPJMhJrJf2rDt7E9QcGJ4R3l11Y0NtH-DRV31rj4LOCftZHuuBR8jUfpgzGba=w2400" loading="lazy" decoding="async"/>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-tertiary text-pale-vanilla font-label-sm text-[11px] font-semibold shadow-sm">
+              Exclusivité Maîtresse
+            </span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm bg-espresso-dark/85 backdrop-blur-md text-pale-vanilla px-space-sm py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+<span>28 photos</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-[26px] text-espresso-dark font-semibold">181 000 Ar <span class="font-body-sm text-body-sm text-secondary font-normal">/ nuitée</span></span>
+<span class="font-label-md text-[13px] text-secondary">310 m²</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Penthouse • Sommet Baie d'Or</h2>
+<p class="font-label-md text-[13px] text-secondary">Dernier Étage Privatif • Horizon 360°</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
+              Rooftop panoramique avec jacuzzi d'eau de source, ascenseur direct sécurisé, cave à vins sélectionnée et transferts hélicoptère inclus.
+            </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Amenities Badges -->
+<div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">hot_tub</span> Jacuzzi 360°</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">flight_takeoff</span> Héliport direct</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">concierge</span> Majordome 24/7</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="open-details-btn w-full py-2.5 px-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-espresso-dark font-label-md text-[13px] font-semibold transition-colors text-center border border-warm-border/60" data-room-id="penthouse">
+                Découvrir
+              </button>
+<button class="simulate-book-btn w-full py-2.5 px-space-xs rounded-full bg-espresso-dark hover:bg-tertiary text-pale-vanilla font-label-md text-[13px] font-medium transition-colors text-center shadow-sm" data-room-price="890" data-room-title="Penthouse Sommet Baie d'Or">
+                Simuler
+              </button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Empty State Message (hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-space-3xl text-center" id="no-results-msg">
+<span class="material-symbols-outlined text-[48px] text-secondary">travel_explore</span>
+<h3 class="font-headline-md text-headline-md text-on-surface pt-space-sm">Aucun hébergement ne correspond à vos filtres</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md pt-space-xs">
+        Essayez d'élargir votre recherche par type d'orientation ou réinitialisez l'ensemble des filtres.
+      </p>
+<button class="mt-space-md px-space-lg py-space-sm rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-[13px]" id="reset-empty-btn">
+        Réinitialiser les filtres
+      </button>
+</div>
+</section>
+<!-- Section Comparative des Inclusions & Prestations (Warm Cream Container with Amber Accents) -->
+<section class="w-full bg-surface-container-low py-space-3xl border-y border-warm-border/60">
+<div class="max-w-[1240px] mx-auto px-gutter flex flex-col gap-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-2xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-[12px] text-primary tracking-widest uppercase font-semibold">Transparence &amp; Confort 5 Étoiles</span>
+<h2 class="font-headline-lg text-headline-lg text-espresso-dark font-medium">Comparatif des Équipements par Catégorie</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Chaque séjour au sein de l'Hôtel Baie d'Or comprend des standards d'excellence pensés pour une immersion totale sans contrainte.
+          </p>
+</div>
+<div class="bg-pale-vanilla px-space-md py-space-xs rounded-full text-secondary font-label-md text-[13px] flex items-center gap-2 self-start md:self-auto border border-warm-border shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary-container">diamond</span>
+<span>Standards Hôteliers Supérieurs</span>
+</div>
+</div>
+<!-- Comparison Matrix Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-espresso-dark border-b border-warm-border">
+<th class="p-space-md font-headline-sm text-[17px] font-semibold">Prestation &amp; Service inclus</th>
+<th class="p-space-md font-headline-sm text-[17px] font-semibold text-center">Bungalow</th>
+<th class="p-space-md font-headline-sm text-[17px] font-semibold text-center">Suite Lagon</th>
+<th class="p-space-md font-headline-sm text-[17px] font-semibold text-center">Villa Plage</th>
+<th class="p-space-md font-headline-sm text-[17px] font-semibold text-center text-primary">Penthouse Baie d'Or</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-warm-border/50 font-body-md text-body-md text-on-surface-variant">
+<!-- Feature 1 -->
+<tr class="hover:bg-surface-container-low/80 transition-colors">
+<td class="p-space-md font-medium text-espresso-dark flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">wifi</span>
+<span>Wi-Fi Starlink Satellite Très Haut Débit</span>
+</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+</tr>
+<!-- Feature 2 -->
+<tr class="hover:bg-surface-container-low/80 transition-colors">
+<td class="p-space-md font-medium text-espresso-dark flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">restaurant</span>
+<span>Petit-Déjeuner Insulaire &amp; Fruits Exotiques</span>
+</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-secondary">Au buffet</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-secondary">Buffet ou Suite</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">En Villa à la carte</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Chef privé dédié</td>
+</tr>
+<!-- Feature 3 -->
+<tr class="hover:bg-surface-container-low/80 transition-colors">
+<td class="p-space-md font-medium text-espresso-dark flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">spa</span>
+<span>Accès Bain Vapeur &amp; Rituels Botaniques Spa</span>
+</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-secondary">Sur réservation</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Accès illimité + 1 rituel offert</td>
+</tr>
+<!-- Feature 4 -->
+<tr class="hover:bg-surface-container-low/80 transition-colors">
+<td class="p-space-md font-medium text-espresso-dark flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">directions_car</span>
+<span>Transferts Aéroport Arrachart (DIE) • 4x4 Climatisé</span>
+</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-secondary">En option (7 119 Ar)</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">VIP Privatisé</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Hélicoptère ou 4x4 Luxe</td>
+</tr>
+<!-- Feature 5 -->
+<tr class="hover:bg-surface-container-low/80 transition-colors">
+<td class="p-space-md font-medium text-espresso-dark flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">local_bar</span>
+<span>Mini-bar d'accueil artisanal &amp; Cafetières d'exception</span>
+</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Cave à vins garnie</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Champagnes &amp; Gratuits</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- Concierge Banner CTA in Deep Espresso with Warm Amber Accents -->
+<section class="w-full py-space-3xl max-w-[1240px] mx-auto px-gutter">
+<div class="relative bg-espresso-dark text-pale-vanilla rounded-xl overflow-hidden p-space-xl md:p-space-2xl shadow-[0_16px_40px_rgba(38,26,19,0.18)]">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-8 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-sun-gold font-label-sm text-[12px] tracking-widest uppercase">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+<span>Service Conciergerie Privée • 24h/24</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-pale-vanilla font-medium">Vous préparez un événement singulier ou une privatisation complète ?</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest/90 max-w-2xl">
+            Lune de miel confidentielle, expéditions exclusives vers la Mer d'Émeraude, survol des Tsingy Rouges ou privatisation d'une aile entière : notre équipe dédiée à Diego-Suarez compose votre itinéraire sur-mesure.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-md text-[13px] text-tertiary-fixed">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">lock</span> Confidentialité absolue</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> Réponse garantie sous 2h</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-space-sm">
+<button class="w-full py-space-md px-space-lg rounded-full bg-sun-gold hover:bg-primary-container text-espresso-dark font-label-md text-[13px] font-bold transition-all shadow-md text-center flex items-center justify-center gap-space-xs" id="open-concierge-modal">
+<span class="material-symbols-outlined text-[20px]">mark_email_unread</span>
+<span>Solliciter la Conciergerie</span>
+</button>
+<a class="w-full py-space-md px-space-lg rounded-full bg-pale-vanilla/10 hover:bg-pale-vanilla/15 text-pale-vanilla border border-pale-vanilla/20 font-label-md text-[13px] font-medium transition-all text-center flex items-center justify-center gap-space-xs" href="tel:+261320000000">
+<span class="material-symbols-outlined text-[20px]">call</span>
+<span>+261 32 00 000 00 (Ligne Démo)</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Discreet Demo Project Notice -->
+<div class="w-full py-space-md bg-surface text-center">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<p class="font-label-md text-[12px] text-secondary">
+        Notice légale : Cette page présente les hébergements fictifs de l'Hôtel Baie d'Or (Antsiranana). Réalisé à titre de démonstration technologique par l'agence Acker Tech DS. Aucune réservation réelle ni transaction bancaire n'est effectuée sur ce prototype.
+      </p>
+</div>
+</div>
+<!-- Interactive Simulation Modal (Client-side dynamic UI) -->
+<div class="fixed inset-0 z-50 bg-espresso-dark/60 backdrop-blur-sm hidden items-center justify-center p-gutter" id="booking-modal">
+<div class="bg-pale-vanilla rounded-xl max-w-lg w-full p-space-xl border border-warm-border shadow-[0_20px_50px_rgba(38,26,19,0.25)] relative flex flex-col gap-space-md">
+<button class="absolute top-space-md right-space-md text-secondary hover:text-espresso-dark p-1" id="close-modal-btn">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-[11px] uppercase font-bold">
+<span class="material-symbols-outlined text-[18px]">hotel</span>
+<span>Simulation de Réservation Démo</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-semibold" id="modal-room-title">Suite Lagon Émeraude</h3>
+<p class="font-body-md text-body-md text-secondary" id="modal-room-price-display">Tarif estimé : 65 100 Ar / nuitée</p>
+</div>
+<form class="flex flex-col gap-space-sm pt-space-xs" id="simulation-form" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
+<label class="font-label-sm text-[10px] text-secondary uppercase">Date d'Arrivée</label>
+<input class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" type="date" value="2025-05-15"/>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
+<label class="font-label-sm text-[10px] text-secondary uppercase">Date de Départ</label>
+<input class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" type="date" value="2025-05-20"/>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
+<label class="font-label-sm text-[10px] text-secondary uppercase">Nombre de Voyageurs</label>
+<select class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1">
+<option>2 Adultes (Configuration standard)</option>
+<option>2 Adultes + 1 Enfant</option>
+<option>4 Adultes (Sur demande)</option>
+</select>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
+<label class="font-label-sm text-[10px] text-secondary uppercase">Nom du Titulaire (Fictif)</label>
+<input class="w-full rounded-xl border border-warm-border bg-pale-vanilla/80 px-3.5 py-3 font-label-md text-[13px] text-espresso-dark shadow-sm transition-colors placeholder:text-secondary/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-sun-gold/25" placeholder="ex. Jean Dupont" type="text" value="Visiteur Démonstration"/>
+</div>
+<div class="p-space-sm bg-soft-sand rounded-lg flex items-center justify-between font-label-md text-[13px] border border-warm-border">
+<span>Estimation indicative (5 nuits) :</span>
+<span class="font-headline-sm text-[22px] font-bold text-espresso-dark" id="modal-total-price">325 400 Ar</span>
+</div>
+<button class="mt-space-xs w-full py-space-md rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-[14px] hover:bg-tertiary transition-colors text-center shadow-md font-semibold" id="confirm-simulation-btn" type="button">
+          Confirmer la simulation (sans débit)
+        </button>
+<p class="text-center font-label-sm text-[11px] text-secondary">
+          Simulation purement visuelle • Données locales Acker Tech DS
+        </p>
+</form>
+</div>
+</div>
+<!-- Client-side Interactive Filter & Modal Script -->
+
+</div></main><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div>

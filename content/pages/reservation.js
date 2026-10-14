@@ -1,0 +1,155 @@
+(function() {
+      // Rates Map
+      const SUITE_RATES = {
+        'dunes': { name: 'Villa Dunes', price: 280, tagline: 'Vue panoramique mer d’émeraude' },
+        'baie': { name: 'Suite Baie d’Or', price: 450, tagline: 'Lagon turquoise & terrasse en teck' },
+        'emeraude': { name: 'Pavillon Royal', price: 790, tagline: 'Piscine à débordement privée & service majordome' }
+      };
+      const DISPLAY_MGA_PER_EUR = 5085 / 25;
+      const formatMGA = (amountInEuros) => `${(Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100).toLocaleString('fr-FR')} Ar`;
+
+      let adults = 2;
+      let children = 0;
+
+      // Guest counter adjust
+      window.adjustGuests = function(type, delta) {
+        if (type === 'adults') {
+          adults = Math.max(1, Math.min(8, adults + delta));
+          document.getElementById('count-adults').textContent = adults;
+        } else {
+          children = Math.max(0, Math.min(6, children + delta));
+          document.getElementById('count-children').textContent = children;
+        }
+        window.updateCalculation();
+      };
+
+      // Calculate total nights and amounts
+      window.updateCalculation = function() {
+        const arrivalVal = document.getElementById('date-arrival').value;
+        const departureVal = document.getElementById('date-departure').value;
+        
+        let nights = 4;
+        if (arrivalVal && departureVal) {
+          const d1 = new Date(arrivalVal);
+          const d2 = new Date(departureVal);
+          const diffTime = d2 - d1;
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          nights = diffDays > 0 ? diffDays : 1;
+        }
+
+        const selectedSuite = document.querySelector('input[name="suite"]:checked').value;
+        const suiteInfo = SUITE_RATES[selectedSuite];
+        document.getElementById('suite-tagline').textContent = suiteInfo.tagline;
+
+        // Base price
+        let total = suiteInfo.price * nights;
+
+        // Options
+        const hasTransfer = document.getElementById('opt-transfer').checked;
+        const hasDining = document.getElementById('opt-dining').checked;
+        const hasSeaTrip = document.getElementById('opt-sea').checked;
+
+        if (hasTransfer) total += 75;
+        if (hasDining) total += (45 * adults * nights);
+        if (hasSeaTrip) total += (120 * (adults + children));
+
+        // Format
+        const formattedTotal = formatMGA(total);
+        document.getElementById('total-price-display').textContent = formattedTotal;
+        document.getElementById('summary-nights').textContent = nights + (nights > 1 ? ' nuits' : ' nuit');
+        document.getElementById('summary-guests').textContent = adults + (adults > 1 ? ' adultes' : ' adulte') + (children > 0 ? (', ' + children + ' enfant' + (children > 1 ? 's' : '')) : '');
+
+        return {
+          total: formattedTotal,
+          nights: nights,
+          suiteName: suiteInfo.name
+        };
+      };
+
+      // Simulation submission trigger
+      window.simulateBooking = function() {
+        const calc = window.updateCalculation();
+        document.getElementById('modal-suite-name').textContent = calc.suiteName;
+        
+        const d1 = document.getElementById('date-arrival').value;
+        const d2 = document.getElementById('date-departure').value;
+        document.getElementById('modal-dates').textContent = 'Du ' + d1 + ' au ' + d2 + ' (' + calc.nights + ' nuits)';
+        document.getElementById('modal-guests').textContent = adults + ' adultes, ' + children + ' enfant(s)';
+        document.getElementById('modal-total-price').textContent = calc.total;
+
+        const modal = document.getElementById('confirmation-modal');
+        const card = document.getElementById('modal-card');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+          card.classList.remove('scale-95');
+          card.classList.add('scale-100');
+        }, 10);
+      };
+
+      window.closeModal = function() {
+        const modal = document.getElementById('confirmation-modal');
+        const card = document.getElementById('modal-card');
+        modal.classList.add('opacity-0');
+        card.classList.remove('scale-100');
+        card.classList.add('scale-95');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+      };
+
+      // Contact form submission
+      window.sendContactMessage = function() {
+        alert('Démonstration technique : Votre message a été virtuellement transmis à l’équipe Acker Tech DS. Aucune donnée n’a été stockée.');
+        document.getElementById('contact-form').reset();
+      };
+
+      // Tabs
+      const bookingTab = document.getElementById('tab-btn-booking');
+      const contactTab = document.getElementById('tab-btn-contact');
+      const bookingBox = document.getElementById('booking-container');
+      const contactBox = document.getElementById('contact-container');
+
+      window.switchTab = function(mode) {
+        if (mode === 'booking') {
+          bookingTab.className = "flex-1 py-2.5 px-space-md rounded-full font-label-md text-label-md text-center transition-all bg-espresso-dark text-[#FFFBF2] font-semibold shadow-sm flex items-center justify-center gap-2";
+          contactTab.className = "flex-1 py-2.5 px-space-md rounded-full font-label-md text-label-md text-center transition-all text-secondary hover:text-espresso-dark flex items-center justify-center gap-2";
+          bookingBox.classList.remove('hidden');
+          contactBox.classList.add('hidden');
+        } else {
+          contactTab.className = "flex-1 py-2.5 px-space-md rounded-full font-label-md text-label-md text-center transition-all bg-espresso-dark text-[#FFFBF2] font-semibold shadow-sm flex items-center justify-center gap-2";
+          bookingTab.className = "flex-1 py-2.5 px-space-md rounded-full font-label-md text-label-md text-center transition-all text-secondary hover:text-espresso-dark flex items-center justify-center gap-2";
+          bookingBox.classList.add('hidden');
+          contactBox.classList.remove('hidden');
+        }
+      };
+
+      bookingTab.addEventListener('click', () => window.switchTab('booking'));
+      contactTab.addEventListener('click', () => window.switchTab('contact'));
+
+      // FAQ Accordion functionality
+      window.toggleFaq = function(button) {
+        const card = button.closest('.faq-card');
+        const isOpen = card.getAttribute('data-open') === 'true';
+        const content = card.querySelector('.faq-content');
+        const iconSpan = card.querySelector('.faq-icon span');
+        const iconBox = card.querySelector('.faq-icon');
+
+        if (isOpen) {
+          content.classList.add('hidden');
+          card.setAttribute('data-open', 'false');
+          iconSpan.textContent = 'expand_more';
+          iconBox.classList.remove('bg-espresso-dark', 'text-[#FFFBF2]');
+          iconBox.classList.add('bg-soft-sand', 'text-espresso-dark');
+        } else {
+          content.classList.remove('hidden');
+          card.setAttribute('data-open', 'true');
+          iconSpan.textContent = 'expand_less';
+          iconBox.classList.remove('bg-soft-sand', 'text-espresso-dark');
+          iconBox.classList.add('bg-espresso-dark', 'text-[#FFFBF2]');
+        }
+      };
+
+      // Initial run
+      window.updateCalculation();
+    })();

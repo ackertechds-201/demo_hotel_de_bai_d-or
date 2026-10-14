@@ -1,0 +1,477 @@
+<main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Visual Banner with Warm Golden Architectural Depth -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-[#f9f3e5] via-[#fdfaf3] to-pale-vanilla py-space-2xl md:py-space-3xl border-b border-warm-border/50">
+<div class="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-[#E5A93C]/15 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-8 w-96 h-96 rounded-full bg-tertiary-fixed/40 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1240px] mx-auto px-gutter relative z-10">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-2xl flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-space-xs self-start px-space-md py-1 rounded-full bg-soft-sand border border-warm-border text-primary font-label-md tracking-widest uppercase">
+<span class="material-symbols-outlined text-[15px] text-sun-gold">travel_explore</span>
+<span>Antsiranana • Baie de Diego-Suarez</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif">
+            Réservez Votre Séjour ou Contactez Notre Conciergerie
+          </h1>
+<p class="font-body-lg text-secondary leading-relaxed">
+            Niché face aux eaux turquoises de la seconde plus vaste rade du monde et au sanctuaire sacré de Nosy Lonjo, l’Hôtel Baie d’Or vous ouvre les portes d’une retraite confidentielle d’exception.
+          </p>
+</div>
+<div class="flex items-center gap-space-md bg-surface-container-lowest/80 backdrop-blur-sm p-space-md rounded-2xl border border-warm-border shadow-sm self-start lg:self-auto">
+<div class="w-12 h-12 rounded-full bg-soft-sand border border-warm-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px] text-sun-gold">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark font-semibold">Garantie Démonstrateur Tech</span>
+<span class="font-body-sm text-secondary">Acker Tech DS • Architecture Cloud Fictive</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Hub: Simulation Engine + Practical Guide -->
+<section class="w-full py-space-2xl bg-pale-vanilla">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<!-- Fictitious Alert Banner -->
+<div class="mb-space-xl p-space-md rounded-2xl bg-soft-sand/70 border border-warm-border flex items-start sm:items-center gap-space-md text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-primary text-[24px] shrink-0">info</span>
+<div class="flex-1 font-body-sm leading-relaxed text-secondary">
+<span class="font-semibold text-espresso-dark">Environnement de Démonstration Fictif :</span>
+          Aucune transaction bancaire ni réservation réelle n'est effectuée. Aucune donnée personnelle n'est enregistrée ni transmise à un serveur tiers.
+        </div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest border border-warm-border text-secondary font-label-md text-[10px] uppercase font-bold shrink-0 hidden sm:inline-block">Simulateur V1.2</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Main Interactive Column (Tabs + Forms) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Mode Switcher Pill Tabs -->
+<div class="flex items-center p-1.5 bg-soft-sand border border-warm-border rounded-full max-w-md shadow-sm">
+<button class="flex-1 py-2.5 px-space-md rounded-full font-label-md text-center transition-all bg-espresso-dark text-[#FFFBF2] font-semibold shadow-sm flex items-center justify-center gap-2" id="tab-btn-booking">
+<span class="material-symbols-outlined text-[18px]">hotel</span>
+<span>Simulation Séjour</span>
+</button>
+<button class="flex-1 py-2.5 px-space-md rounded-full font-label-md text-center transition-all text-secondary hover:text-espresso-dark flex items-center justify-center gap-2" id="tab-btn-contact">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span>Message &amp; Conciergerie</span>
+</button>
+</div>
+<!-- TAB 1 : Simulation de Réservation -->
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-lg" id="booking-container">
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-espresso-dark font-serif">Calculateur de Tarif de Séjour</h2>
+<p class="font-body-sm text-secondary">Personnalisez votre immersion dans le grand Nord malgache avec calcul en direct.</p>
+</div>
+<form class="flex flex-col gap-space-md" id="reservation-form" onsubmit="event.preventDefault(); window.simulateBooking();">
+<!-- Suite Selection -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold flex items-center justify-between">
+<span>Sélectionnez votre Hébergement</span>
+<span class="text-primary text-[12px] font-normal" id="suite-tagline">Vue panoramique mer d'émeraude</span>
+</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm" id="suite-selector">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="suite" onchange="window.updateCalculation()" type="radio" value="dunes"/>
+<div class="p-space-sm rounded-2xl bg-pale-vanilla border border-warm-border text-espresso-dark peer-checked:bg-espresso-dark peer-checked:text-[#FFFBF2] peer-checked:border-espresso-dark transition-all flex flex-col gap-1 shadow-sm">
+<span class="font-label-md tracking-wider uppercase opacity-90">Villa Dunes</span>
+<span class="font-headline-sm font-semibold">57 000 Ar <span class="font-body-sm text-[11px] font-normal opacity-75">/ nuit</span></span>
+<span class="font-body-sm text-[12px] opacity-75">Jusqu'à 2 personnes</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="suite" onchange="window.updateCalculation()" type="radio" value="baie"/>
+<div class="p-space-sm rounded-2xl bg-pale-vanilla border border-warm-border text-espresso-dark peer-checked:bg-espresso-dark peer-checked:text-[#FFFBF2] peer-checked:border-espresso-dark transition-all flex flex-col gap-1 shadow-sm">
+<span class="font-label-md tracking-wider uppercase opacity-90">Suite Baie d'Or</span>
+<span class="font-headline-sm font-semibold">91 500 Ar <span class="font-body-sm text-[11px] font-normal opacity-75">/ nuit</span></span>
+<span class="font-body-sm text-[12px] opacity-75">Jusqu'à 4 personnes</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="suite" onchange="window.updateCalculation()" type="radio" value="emeraude"/>
+<div class="p-space-sm rounded-2xl bg-pale-vanilla border border-warm-border text-espresso-dark peer-checked:bg-espresso-dark peer-checked:text-[#FFFBF2] peer-checked:border-espresso-dark transition-all flex flex-col gap-1 shadow-sm">
+<span class="font-label-md tracking-wider uppercase opacity-90">Pavillon Royal</span>
+<span class="font-headline-sm font-semibold">160 700 Ar <span class="font-body-sm text-[11px] font-normal opacity-75">/ nuit</span></span>
+<span class="font-body-sm text-[12px] opacity-75">Piscine privée • 6 pax</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Dates Inputs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-sun-gold">calendar_today</span>
+<span>Date d'Arrivée</span>
+</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-arrival" onchange="window.updateCalculation()" required="" type="date" value="2025-06-12"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-sun-gold">event</span>
+<span>Date de Départ</span>
+</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-departure" onchange="window.updateCalculation()" required="" type="date" value="2025-06-16"/>
+</div>
+</div>
+<!-- Guests Selection -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Adultes (12 ans +)</label>
+<div class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1">
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', -1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-adults">2</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', 1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Enfants (0 - 11 ans)</label>
+<div class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1">
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', -1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-children">0</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', 1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Options & Experiences -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Expériences &amp; Services Additionnels</label>
+<div class="flex flex-col gap-space-xs">
+<label class="flex items-center justify-between p-space-sm rounded-xl bg-pale-vanilla border border-warm-border/80 hover:border-sun-gold cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-5 h-5 rounded text-primary-container focus:ring-primary-container border-warm-border accent-[#dfa035]" id="opt-transfer" onchange="window.updateCalculation()" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark">Transfert VIP 4x4 Privé</span>
+<span class="font-body-sm text-[12px] text-secondary">Aéroport d'Arrachart DIE aller-retour avec rafraîchissements</span>
+</div>
+</div>
+<span class="font-label-md text-espresso-dark font-semibold">+ 15 300 Ar</span>
+</label>
+<label class="flex items-center justify-between p-space-sm rounded-xl bg-pale-vanilla border border-warm-border/80 hover:border-sun-gold cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-5 h-5 rounded text-primary-container focus:ring-primary-container border-warm-border accent-[#dfa035]" id="opt-dining" onchange="window.updateCalculation()" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark">Demi-Pension Gastronomique</span>
+<span class="font-body-sm text-[12px] text-secondary">Menu 4 temps produits de la baie &amp; vanille Sambava (par adulte / jour)</span>
+</div>
+</div>
+<span class="font-label-md text-espresso-dark font-semibold">+ 9 200 Ar /j</span>
+</label>
+<label class="flex items-center justify-between p-space-sm rounded-xl bg-pale-vanilla border border-warm-border/80 hover:border-sun-gold cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm">
+<input class="w-5 h-5 rounded text-primary-container focus:ring-primary-container border-warm-border accent-[#dfa035]" id="opt-sea" onchange="window.updateCalculation()" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark">Catamaran vers la Mer d'Émeraude</span>
+<span class="font-body-sm text-[12px] text-secondary">Excursion exclusive d'une journée avec déjeuner langouste sur îlot</span>
+</div>
+</div>
+<span class="font-label-md text-espresso-dark font-semibold">+ 24 400 Ar /p</span>
+</label>
+</div>
+</div>
+<!-- Price Breakdown Dynamic Bar -->
+<div class="mt-space-sm p-space-md rounded-2xl bg-soft-sand border border-warm-border flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-col text-center sm:text-left">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-[13px]">
+<span id="summary-nights">4 nuits</span>
+<span>•</span>
+<span id="summary-guests">2 adultes</span>
+</div>
+<span class="font-headline-lg text-espresso-dark font-serif tracking-tight" id="total-price-display">316 300 Ar</span>
+<span class="font-body-sm text-[11px] text-secondary">Taxes touristiques et services inclus (simulation indicative)</span>
+</div>
+<button class="w-full sm:w-auto px-space-xl py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_4px_16px_rgba(38,26,19,0.2)] flex items-center justify-center gap-space-xs" type="submit">
+<span>Simuler la réservation</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- TAB 2 : Formulaire de Contact & Conciergerie -->
+<div class="hidden bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-lg" id="contact-container">
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-espresso-dark font-serif">Écrire à Notre Équipe Hôtelière</h2>
+<p class="font-body-sm text-secondary">Privatisation, organisation de mariage côtier ou demandes particulières.</p>
+</div>
+<form class="flex flex-col gap-space-md" id="contact-form" onsubmit="event.preventDefault(); window.sendContactMessage();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Nom complet</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="ex. Alexandre de Rohan" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Adresse Email</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="alexandre@exemple.com" required="" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Sujet de votre demande</label>
+<select class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+<option>Séjour sur-mesure &amp; Kitesurf en Baie de Sakalava</option>
+<option>Privatisation de villa pour événement</option>
+<option>Transfert hélicoptère ou catamaran privé</option>
+<option>Menu dégustation &amp; allergies alimentaires</option>
+<option>Autre information générale</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-espresso-dark font-semibold">Votre Message</label>
+<textarea class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="Précisez votre période prévisionnelle, le nombre de voyageurs ou vos envies spécifiques..." required="" rows="4"></textarea>
+</div>
+<button class="self-start px-space-xl py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all shadow-md flex items-center gap-space-xs" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Transmettre à la Conciergerie (Simulation)</span>
+</button>
+</form>
+</div>
+</div>
+<!-- Sidebar Column : Demonstration Details, Location & Real-Time Card -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Architecture & Showcase Card -->
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md tracking-wider text-secondary uppercase">Fiche Démonstrateur</span>
+<span class="px-space-sm py-0.5 rounded-full bg-soft-sand border border-warm-border text-primary font-label-md text-[11px] font-semibold">Antsiranana 2025</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Hôtel Baie d'Or Resort</h3>
+<p class="font-body-sm text-secondary">
+                Concept architectural d'éco-luxe balnéaire, inspiré par les vents Alizés du Varatraza et le bois de palissandre.
+              </p>
+</div>
+<!-- Direct Contact List -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-soft-sand border border-warm-border flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">pin_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark font-semibold">Localisation Insulaire</span>
+<span class="font-body-sm text-secondary">Baie de Diego-Suarez, Face à Nosy Lonjo, Presqu'île de Ramena, Antsiranana, Madagascar</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-soft-sand border border-warm-border flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark font-semibold">Messagerie Démo Fictive</span>
+<a class="font-body-sm text-primary hover:underline" href="mailto:concierge@hotelbaiedor-demo.mg">concierge@hotelbaiedor-demo.mg</a>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-soft-sand border border-warm-border flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px] text-sun-gold">call</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark font-semibold">Ligne Conciergerie Simulée</span>
+<span class="font-body-sm text-secondary">+261 32 00 000 00 (Ligne de test)</span>
+</div>
+</div>
+</div>
+<!-- Author Card Integration -->
+<div class="mt-space-xs p-space-md rounded-2xl bg-soft-sand/70 border border-warm-border flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-espresso-dark text-[#FFFBF2] flex items-center justify-center font-bold font-headline-sm">
+                A
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-espresso-dark font-semibold">Conception : Acker Tech DS</span>
+<span class="font-body-sm text-secondary">Solutions Numériques &amp; Expériences Web • Diego-Suarez</span>
+</div>
+</div>
+</div>
+<!-- Stylized Access & Map Card -->
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Plan d'Accès &amp; Trajet</h3>
+<span class="flex items-center gap-1 font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px] text-sun-gold">navigation</span>
+<span>Route de Ramena</span>
+</span>
+</div>
+<!-- Visual Map Placeholder with data-location -->
+<div class="w-full h-48 bg-cover bg-center rounded-2xl relative overflow-hidden border border-warm-border shadow-sm" data-location="Antsiranana, Madagascar" data-lazy-background="https://lh3.googleusercontent.com/aida-public/AB6AXuAs3UofDVIdEUjYAPGEDZGup1WO8i7MRNwKT3JOs1Yo3MZ1xxueEjMaNAsAKoLM-mIfjJbeys14cdW4DG9-dnblFYemXxCG3SpHKwQew2pofRE8hW6uL57_R8WnTkNWY7i-P6AjuojedMpElFPrFXQxaQvAEJ8whepm2zFG1LVs0JV9Y1L2uXxNnh1bcun2_FiK2QnarXUmLD_j7_cwLr0qMcOjySyXCQJeNdvuSvF1oIZH3PO2QUKb=w2400">
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/85 via-espresso-dark/35 to-transparent flex items-end p-space-md">
+<div class="flex items-center gap-space-xs text-[#FFFBF2]">
+<span class="material-symbols-outlined text-sun-gold text-[20px]">location_on</span>
+<span class="font-label-md">Coordonnées GPS : 12°17'48.2"S 49°18'22.1"E</span>
+</div>
+</div>
+</div>
+<!-- Route Metrics Bento -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-xl bg-pale-vanilla border border-warm-border flex flex-col">
+<span class="font-label-md text-[11px] text-secondary uppercase tracking-wider">Aéroport DIE</span>
+<span class="font-headline-sm text-espresso-dark font-serif">25 min</span>
+<span class="font-body-sm text-[12px] text-secondary">Par transfert 4x4 climatisé</span>
+</div>
+<div class="p-space-sm rounded-xl bg-pale-vanilla border border-warm-border flex flex-col">
+<span class="font-label-md text-[11px] text-secondary uppercase tracking-wider">Mer d'Émeraude</span>
+<span class="font-headline-sm text-espresso-dark font-serif">15 min</span>
+<span class="font-body-sm text-[12px] text-secondary">Depuis l'embarcadère privé</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Break / Atmosphere Card -->
+<section class="w-full py-space-xl bg-[#f8f3e9] border-y border-warm-border/60">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="relative h-64 rounded-2xl overflow-hidden shadow-sm group border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High resolution architectural shot of beachfront luxury villa in Diego Suarez with cobalt blue pool, modern white walls, tropical palms, and sunset reflections over the bay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLLJY8savpZ8uqvEjOZ0NPvlgz-r1tjIEB5FMneQ1rivaLYvnm3Z4Oxvu7FBkTQbmpZpiwCyi3JPAgUyLh2wonlAHwrOugmC7uAiyhHwF8WVVnOcFnY9cMmFcmxDVMmFbF3uZnjzbF0Ctq69ZxFxjrmfTK1Q64Ow-Lqhkb5kLPPUqVux-Zqrj-KyRdiY6TUJ7WT8GZqAE5NRlulhGySa_5yI1Fic-aVL5GAj_wtomqIfGF4ru-8zkm=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/90 via-espresso-dark/20 to-transparent flex flex-col justify-end p-space-md text-[#FFFBF2]">
+<span class="font-label-md text-[11px] text-sun-gold tracking-widest uppercase">Architecture Éco-Luxe</span>
+<span class="font-headline-sm font-serif">Terrasses d'Ombre &amp; Varatraza</span>
+</div>
+</div>
+<div class="relative h-64 rounded-2xl overflow-hidden shadow-sm group border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Fine dining table set at dusk overlooking the calm waters of Antsiranana bay with fresh seafood, vanilla garnish, fine glassware, and warm ambient lantern lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJGMnxYUQ_HGQVdUs83iBTrbQycAIt6g3lcTyleWs_dcd5WH8G3cUIVWy5QUPsxFD_ZsF3qO4yfP1HcdpRVAQCfjOwyZWNXsOccysqjaVwoA0PowqcGmTSkmKoYfivLCpdAj1OErN2rFZELvCQVnwh53sJc4XqaNdOb4DV1V9spk7BdJO2W6DvX5K2we8zMXUOmacskl14AI6vI3hjI5HAWG3mcmUXKcfTmb5T9NYO6k04Pa6yFCt=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/90 via-espresso-dark/20 to-transparent flex flex-col justify-end p-space-md text-[#FFFBF2]">
+<span class="font-label-md text-[11px] text-sun-gold tracking-widest uppercase">Saveurs du Sambirano</span>
+<span class="font-headline-sm font-serif">Cuisine Vivante de l'Océan</span>
+</div>
+</div>
+<div class="relative h-64 rounded-2xl overflow-hidden shadow-sm group border border-warm-border">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Private luxury catamaran cruising through crystal clear turquoise waters of the Emerald Sea in northern Madagascar, pristine white sandbanks and deep cobalt horizon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkgtLQoFjj5GgwWLYxHQQC0689udtIKgcCOD867kJB4RgipsvWCCDAn5Z1AHTRIl891Uw6xLhF3-DKMUzRXAnFOY7rJDl8bOq3GDXU8Z2LI4dCVY1NeV_B4WWXWgljVPHvQh0PVWE6O9sQNgTSmXqjJwxB12eECxcSM5yaV40GQ2PNkXJNpCCKZHDAZ9jcpqpC2wcsHH1TFObXkxlZKNym7Lx35npbsEkBudPOLN2hblgutJwLghGa=w2400" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/90 via-espresso-dark/20 to-transparent flex flex-col justify-end p-space-md text-[#FFFBF2]">
+<span class="font-label-md text-[11px] text-sun-gold tracking-widest uppercase">Échappées Nautiques</span>
+<span class="font-headline-sm font-serif">Lagons Privatisés de Ramena</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive FAQ Accordion Section in Warm Cream Cards -->
+<section class="w-full py-space-3xl bg-pale-vanilla">
+<div class="max-w-[840px] mx-auto px-gutter">
+<div class="flex flex-col items-center text-center gap-space-sm mb-space-2xl">
+<span class="font-label-md tracking-widest text-primary uppercase font-bold">Questions Fréquentes</span>
+<h2 class="font-headline-xl text-headline-xl text-espresso-dark tracking-tight font-serif">Préparer Votre Voyage à Diego-Suarez</h2>
+<p class="font-body-md text-secondary max-w-lg">
+          Tout savoir sur les particularités climatiques d'Antsiranana, les formalités de séjour et le fonctionnement de cette démonstration.
+        </p>
+</div>
+<div class="flex flex-col gap-space-sm" id="faq-accordion">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="true">
+<button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
+<span class="font-headline-sm text-espresso-dark font-serif faq-title">Comment fonctionne cette simulation de réservation ?</span>
+<div class="w-9 h-9 rounded-full bg-espresso-dark text-[#FFFBF2] flex items-center justify-center shrink-0 faq-icon transition-colors">
+<span class="material-symbols-outlined text-[18px]">expand_less</span>
+</div>
+</button>
+<div class="faq-content mt-space-md font-body-md text-secondary flex flex-col gap-2 pt-2 border-t border-warm-border/50">
+<p>
+              Ce portail est une démonstration technologique développée par <strong class="text-espresso-dark">Acker Tech DS</strong> pour illustrer les standards de conception pour l'hôtellerie haut de gamme à Madagascar. 
+            </p>
+<p>
+              Aucun paiement n'est exigé, aucune coordonnée bancaire n'est sollicitée, et aucune chambre n'est réellement bloquée. Vous pouvez ajuster librement les options afin d'observer la dynamique tarifaire instantanée.
+            </p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
+<button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
+<span class="font-headline-sm text-espresso-dark font-serif faq-title">Quelle est la meilleure saison pour séjourner dans la région ?</span>
+<div class="w-9 h-9 rounded-full bg-soft-sand text-espresso-dark flex items-center justify-center shrink-0 faq-icon transition-colors">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</button>
+<div class="faq-content hidden mt-space-md font-body-md text-secondary flex flex-col gap-2 pt-2 border-t border-warm-border/50">
+<p>
+              Diego-Suarez bénéficie d'un climat exceptionnellement ensoleillé plus de 320 jours par an. La période de <strong class="text-espresso-dark">mai à novembre</strong> est la saison sèche idéale : les températures oscillent entre 25°C et 29°C.
+            </p>
+<p>
+              C'est également la saison où souffle le célèbre vent <em>Varatraza</em>, offrant des conditions mondialement réputées pour le kitesurf et la planche à voile dans les baies de Sakalava et des Dunes.
+            </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
+<button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
+<span class="font-headline-sm text-espresso-dark font-serif faq-title">Comment s'organise le transfert depuis l'Aéroport d'Arrachart (DIE) ?</span>
+<div class="w-9 h-9 rounded-full bg-soft-sand text-espresso-dark flex items-center justify-center shrink-0 faq-icon transition-colors">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</button>
+<div class="faq-content hidden mt-space-md font-body-md text-secondary flex flex-col gap-2 pt-2 border-t border-warm-border/50">
+<p>
+              Notre conciergerie privée vous accueille dès la sortie du hall d'arrivée avec une pancarte personnalisée. Le trajet jusqu'aux villas de la baie dure environ <strong class="text-espresso-dark">25 minutes</strong> sur une route côtière entièrement goudronnée en véhicule tout-terrain grand confort avec connexion Wi-Fi à bord et rafraîchissements au baobab.
+            </p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
+<button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
+<span class="font-headline-sm text-espresso-dark font-serif faq-title">Quelles sont les conditions simulées de modification et annulation ?</span>
+<div class="w-9 h-9 rounded-full bg-soft-sand text-espresso-dark flex items-center justify-center shrink-0 faq-icon transition-colors">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</button>
+<div class="faq-content hidden mt-space-md font-body-md text-secondary flex flex-col gap-2 pt-2 border-t border-warm-border/50">
+<p>
+              Dans le cadre de cette démonstration d'accueil premium, l'annulation fictive sans frais est configurable jusqu'à 7 jours avant la date d'arrivée simulée. Les séjours peuvent être reprogrammés en fonction des liaisons aériennes en provenance d'Antananarivo ou de l'île de La Réunion.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Confirmation Modal Overlay (Simulation Done) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-gutter bg-espresso-dark/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300" id="confirmation-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-space-xl border border-warm-border shadow-2xl flex flex-col gap-space-lg relative transform scale-95 transition-transform duration-300" id="modal-card">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-soft-sand border border-warm-border text-sun-gold flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">task_alt</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-soft-sand text-espresso-dark flex items-center justify-center hover:bg-warm-border transition-colors" onclick="window.closeModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-primary tracking-widest uppercase font-semibold">Simulation Validée avec Succès</span>
+<h3 class="font-headline-lg text-headline-lg text-espresso-dark font-serif">Votre Séjour Idéal à Diego-Suarez</h3>
+<p class="font-body-md text-secondary">
+          Votre estimation personnalisée a été générée. Rappel : ceci est un démonstrateur produit par Acker Tech DS sans valeur contractuelle.
+        </p>
+</div>
+<!-- Simulation Summary Box -->
+<div class="p-space-md rounded-2xl bg-pale-vanilla border border-warm-border flex flex-col gap-space-xs font-body-sm text-espresso-dark">
+<div class="flex justify-between py-1 border-b border-warm-border">
+<span class="text-secondary">Hébergement :</span>
+<span class="font-semibold" id="modal-suite-name">Villa Dunes</span>
+</div>
+<div class="flex justify-between py-1 border-b border-warm-border">
+<span class="text-secondary">Dates du séjour :</span>
+<span class="font-semibold" id="modal-dates">Du 12/06 au 16/06 (4 nuits)</span>
+</div>
+<div class="flex justify-between py-1 border-b border-warm-border">
+<span class="text-secondary">Voyageurs :</span>
+<span class="font-semibold" id="modal-guests">2 adultes, 0 enfant</span>
+</div>
+<div class="flex justify-between pt-space-xs font-headline-sm text-espresso-dark font-serif font-bold">
+<span>Tarif Estimatif Total :</span>
+<span id="modal-total-price">316 300 Ar</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm">
+<button class="w-full sm:flex-1 py-3 px-space-md rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all" onclick="window.closeModal()">
+          Modifier la simulation
+        </button>
+<button class="w-full sm:flex-1 py-3 px-space-md rounded-full bg-soft-sand border border-warm-border text-espresso-dark font-label-md hover:bg-warm-border transition-all" onclick="window.switchTab('contact'); window.closeModal();">
+          Poser une question
+        </button>
+</div>
+</div>
+</div>
+
+</div></main><div class="fixed bottom-space-lg right-space-lg z-50 flex flex-col gap-space-sm pointer-events-none" id="notification-container"></div>

@@ -1,0 +1,57 @@
+{
+  "index": {
+    "title": "Accueil",
+    "bodyClass": "bg-background font-body-md text-body-md text-on-surface antialiased",
+    "formsPlugin": false
+  },
+  "a-propos": {
+    "title": "Une Retraite d'Exception au Bout du Monde Malgache",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  },
+  "galerie": {
+    "title": "Galerie & Écrin Photographique",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased",
+    "formsPlugin": true
+  },
+  "suite": {
+    "title": "Suite Lagon • Mer d'Émeraude",
+    "bodyClass": "bg-[#FAF5EB] font-sans text-on-surface antialiased",
+    "formsPlugin": true
+  },
+  "services": {
+    "title": "Services Exclusifs & Expériences Insulaires",
+    "bodyClass": "bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-espresso-dark",
+    "formsPlugin": true
+  },
+  "chambres": {
+    "title": "Nos Hébergements d'Exception",
+    "bodyClass": "bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-espresso-dark",
+    "formsPlugin": true
+  },
+  "reservation": {
+    "title": "Réservez Votre Séjour ou Contactez Notre Conciergerie",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  },
+  "faq": {
+    "title": "Foire Aux Questions & Guide de Séjour",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  },
+  "404": {
+    "title": "Page introuvable",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  },
+  "confirmation": {
+    "title": "Votre Simulation de Séjour est Confirmée",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
+    "formsPlugin": true
+  }
+}
