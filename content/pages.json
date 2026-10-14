@@ -45,7 +45,7 @@
     "formsPlugin": true
   },
   "confirmation": {
-    "title": "Votre Simulation de Séjour est Confirmée",
+    "title": "Exemple de récapitulatif illustratif",
     "bodyClass": "bg-pale-vanilla font-body-md text-body-md text-on-surface antialiased selection:bg-sun-gold/30",
     "formsPlugin": true
   },

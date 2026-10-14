@@ -37,7 +37,7 @@ function switchLegalTab(tabId) {
   function showAuditNotice() {
     const toast = document.createElement('div');
     toast.className = 'px-space-lg py-3 rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-label-sm shadow-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
-    toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[18px]">eco</span><span>Audit Certifié : Empreinte A+ • 0.14g CO₂/vue • Score d\'accessibilité 98/100</span>';
+    toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[18px]">info</span><span>Informations et certifications à vérifier avant publication réelle.</span>';
     
     const container = document.getElementById('notification-container');
     if (container) {

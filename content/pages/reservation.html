@@ -64,11 +64,11 @@
 <form class="flex flex-col gap-space-md" id="reservation-form" onsubmit="event.preventDefault(); window.simulateBooking();">
 <!-- Suite Selection -->
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold flex items-center justify-between">
+<div class="font-label-md text-espresso-dark font-semibold flex items-center justify-between" id="suite-group-label">
 <span>Sélectionnez votre Hébergement</span>
 <span class="text-primary text-[12px] font-normal" id="suite-tagline">Vue panoramique mer d'émeraude</span>
-</label>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm" id="suite-selector">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm" id="suite-selector" role="group" aria-labelledby="suite-group-label">
 <label class="cursor-pointer">
 <input checked="" class="peer sr-only" name="suite" onchange="window.updateCalculation()" type="radio" value="dunes"/>
 <div class="p-space-sm rounded-2xl bg-pale-vanilla border border-warm-border text-espresso-dark peer-checked:bg-espresso-dark peer-checked:text-[#FFFBF2] peer-checked:border-espresso-dark transition-all flex flex-col gap-1 shadow-sm">
@@ -98,42 +98,42 @@
 <!-- Dates Inputs -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5">
+<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5" for="date-arrival">
 <span class="material-symbols-outlined text-[17px] text-sun-gold">calendar_today</span>
 <span>Date d'Arrivée</span>
 </label>
-<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-arrival" onchange="window.updateCalculation()" required="" type="date" value="2025-06-12"/>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-arrival" onchange="window.updateCalculation()" required="" type="date" value=""/>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5">
+<label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5" for="date-departure">
 <span class="material-symbols-outlined text-[17px] text-sun-gold">event</span>
 <span>Date de Départ</span>
 </label>
-<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-departure" onchange="window.updateCalculation()" required="" type="date" value="2025-06-16"/>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-departure" onchange="window.updateCalculation()" required="" type="date" value=""/>
 </div>
 </div>
 <!-- Guests Selection -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Adultes (12 ans +)</label>
-<div class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1">
-<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', -1)" type="button">
+<span class="font-label-md text-espresso-dark font-semibold" id="adults-label">Adultes (12 ans +)</span>
+<div aria-labelledby="adults-label" class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1" role="group">
+<button aria-label="Retirer un adulte" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', -1)" type="button">
 <span class="material-symbols-outlined text-[18px]">remove</span>
 </button>
-<span class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-adults">2</span>
-<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', 1)" type="button">
+<span aria-live="polite" class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-adults">2</span>
+<button aria-label="Ajouter un adulte" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('adults', 1)" type="button">
 <span class="material-symbols-outlined text-[18px]">add</span>
 </button>
 </div>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Enfants (0 - 11 ans)</label>
-<div class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1">
-<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', -1)" type="button">
+<span class="font-label-md text-espresso-dark font-semibold" id="children-label">Enfants (0 - 11 ans)</span>
+<div aria-labelledby="children-label" class="flex items-center bg-pale-vanilla border border-warm-border rounded-xl p-1" role="group">
+<button aria-label="Retirer un enfant" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', -1)" type="button">
 <span class="material-symbols-outlined text-[18px]">remove</span>
 </button>
-<span class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-children">0</span>
-<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', 1)" type="button">
+<span aria-live="polite" class="flex-1 text-center font-headline-sm text-espresso-dark font-serif" id="count-children">0</span>
+<button aria-label="Ajouter un enfant" class="w-9 h-9 rounded-lg bg-surface-container-lowest text-espresso-dark flex items-center justify-center hover:bg-soft-sand transition-colors" onclick="window.adjustGuests('children', 1)" type="button">
 <span class="material-symbols-outlined text-[18px]">add</span>
 </button>
 </div>
@@ -141,7 +141,7 @@
 </div>
 <!-- Options & Experiences -->
 <div class="flex flex-col gap-space-xs pt-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Expériences &amp; Services Additionnels</label>
+<p class="font-label-md text-espresso-dark font-semibold">Expériences &amp; Services Additionnels</p>
 <div class="flex flex-col gap-space-xs">
 <label class="flex items-center justify-between p-space-sm rounded-xl bg-pale-vanilla border border-warm-border/80 hover:border-sun-gold cursor-pointer transition-colors">
 <div class="flex items-center gap-space-sm">
@@ -183,7 +183,7 @@
 <span>•</span>
 <span id="summary-guests">2 adultes</span>
 </div>
-<span class="font-headline-lg text-espresso-dark font-serif tracking-tight" id="total-price-display">316 300 Ar</span>
+<span class="font-headline-lg text-espresso-dark font-serif tracking-tight" id="total-price-display">327 700 Ar</span>
 <span class="font-body-sm text-[11px] text-secondary">Taxes touristiques et services inclus (simulation indicative)</span>
 </div>
 <button class="w-full sm:w-auto px-space-xl py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_4px_16px_rgba(38,26,19,0.2)] flex items-center justify-center gap-space-xs" type="submit">
@@ -202,17 +202,17 @@
 <form class="flex flex-col gap-space-md" id="contact-form" onsubmit="event.preventDefault(); window.sendContactMessage();">
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Nom complet</label>
-<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="ex. Alexandre de Rohan" required="" type="text"/>
+<label class="font-label-md text-espresso-dark font-semibold" for="contact-name">Nom complet (facultatif, démonstration)</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="contact-name" placeholder="Votre nom" type="text"/>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Adresse Email</label>
-<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="alexandre@exemple.com" required="" type="email"/>
+<label class="font-label-md text-espresso-dark font-semibold" for="contact-email">Adresse e-mail (facultatif, démonstration)</label>
+<input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="contact-email" placeholder="nom@exemple.com" type="email"/>
 </div>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Sujet de votre demande</label>
-<select class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+<label class="font-label-md text-espresso-dark font-semibold" for="contact-subject">Sujet de votre demande</label>
+<select id="contact-subject" class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
 <option>Séjour sur-mesure &amp; Kitesurf en Baie de Sakalava</option>
 <option>Privatisation de villa pour événement</option>
 <option>Transfert hélicoptère ou catamaran privé</option>
@@ -221,13 +221,14 @@
 </select>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-espresso-dark font-semibold">Votre Message</label>
-<textarea class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="Précisez votre période prévisionnelle, le nombre de voyageurs ou vos envies spécifiques..." required="" rows="4"></textarea>
+<label class="font-label-md text-espresso-dark font-semibold" for="contact-message">Votre message</label>
+<textarea id="contact-message" class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="Votre message de démonstration" required rows="4"></textarea>
 </div>
 <button class="self-start px-space-xl py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all shadow-md flex items-center gap-space-xs" type="submit">
 <span class="material-symbols-outlined text-[18px]">send</span>
-<span>Transmettre à la Conciergerie (Simulation)</span>
+<span>Valider le formulaire de démonstration</span>
 </button>
+<p id="contact-form-feedback" class="hidden rounded-xl bg-soft-sand p-3 text-sm text-espresso-dark" role="status" aria-live="polite"></p>
 </form>
 </div>
 </div>
@@ -237,7 +238,7 @@
 <div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-md relative overflow-hidden">
 <div class="flex items-center justify-between">
 <span class="font-label-md tracking-wider text-secondary uppercase">Fiche Démonstrateur</span>
-<span class="px-space-sm py-0.5 rounded-full bg-soft-sand border border-warm-border text-primary font-label-md text-[11px] font-semibold">Antsiranana 2025</span>
+<span class="px-space-sm py-0.5 rounded-full bg-soft-sand border border-warm-border text-primary font-label-md text-[11px] font-semibold">Démo • dates indicatives</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Hôtel Baie d'Or Resort</h3>
@@ -262,7 +263,7 @@
 </div>
 <div class="flex flex-col">
 <span class="font-label-md text-espresso-dark font-semibold">Messagerie Démo Fictive</span>
-<a class="font-body-sm text-primary hover:underline" href="mailto:concierge@hotelbaiedor-demo.mg">concierge@hotelbaiedor-demo.mg</a>
+<span class="font-body-sm text-secondary">Aucune messagerie hôtelière n’est connectée à cette démonstration.</span>
 </div>
 </div>
 <div class="flex items-start gap-space-sm">
@@ -271,7 +272,7 @@
 </div>
 <div class="flex flex-col">
 <span class="font-label-md text-espresso-dark font-semibold">Ligne Conciergerie Simulée</span>
-<span class="font-body-sm text-secondary">+261 32 00 000 00 (Ligne de test)</span>
+<span class="font-body-sm text-secondary">Aucune ligne de réservation n’est connectée.</span>
 </div>
 </div>
 </div>
@@ -419,7 +420,7 @@
 </button>
 <div class="faq-content hidden mt-space-md font-body-md text-secondary flex flex-col gap-2 pt-2 border-t border-warm-border/50">
 <p>
-              Dans le cadre de cette démonstration d'accueil premium, l'annulation fictive sans frais est configurable jusqu'à 7 jours avant la date d'arrivée simulée. Les séjours peuvent être reprogrammés en fonction des liaisons aériennes en provenance d'Antananarivo ou de l'île de La Réunion.
+              Aucune réservation réelle n'est créée et aucune politique d'annulation ne s'applique à cette démonstration. Les conditions d'un établissement réel restent à définir et à vérifier.
             </p>
 </div>
 </div>
@@ -438,10 +439,10 @@
 </button>
 </div>
 <div class="flex flex-col gap-space-xs">
-<span class="font-label-md text-primary tracking-widest uppercase font-semibold">Simulation Validée avec Succès</span>
-<h3 class="font-headline-lg text-headline-lg text-espresso-dark font-serif">Votre Séjour Idéal à Diego-Suarez</h3>
+<span class="font-label-md text-primary tracking-widest uppercase font-semibold">Formulaire de démonstration validé</span>
+<h3 class="font-headline-lg text-headline-lg text-espresso-dark font-serif">Récapitulatif illustratif</h3>
 <p class="font-body-md text-secondary">
-          Votre estimation personnalisée a été générée. Rappel : ceci est un démonstrateur produit par Acker Tech DS sans valeur contractuelle.
+          Votre demande de démonstration a été validée. Aucune réservation réelle n’a été créée et aucune donnée n’a été transmise.
         </p>
 </div>
 <!-- Simulation Summary Box -->
@@ -460,7 +461,7 @@
 </div>
 <div class="flex justify-between pt-space-xs font-headline-sm text-espresso-dark font-serif font-bold">
 <span>Tarif Estimatif Total :</span>
-<span id="modal-total-price">316 300 Ar</span>
+<span id="modal-total-price">327 700 Ar</span>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row items-center gap-space-sm">

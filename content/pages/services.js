@@ -42,16 +42,35 @@
   // Handle simulation form submit
   function handleExperienceSubmit(e) {
     e.preventDefault();
-    const guestName = document.getElementById('exp-name').value || 'Hôte';
-    const guestDate = document.getElementById('exp-date').value || 'la date choisie';
+    const form = document.getElementById('experience-simulation-form');
+    const dateInput = document.getElementById('exp-date');
+    if (!form.reportValidity()) return;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selectedDate = new Date(`${dateInput.value}T12:00:00`);
+    dateInput.setCustomValidity(selectedDate >= today ? '' : 'Choisissez une date qui n’est pas passée.');
+    if (!dateInput.reportValidity()) return;
     const feedbackBox = document.getElementById('simulation-feedback');
     const feedbackText = document.getElementById('simulation-feedback-text');
 
     if (feedbackBox && feedbackText) {
-      feedbackText.innerHTML = `Merci <strong>${guestName}</strong>. Votre demande de démonstration fictive a été traitée pour le <strong>${guestDate}</strong>. Les détails logistiques ont été validés dans l'environnement de test de l'Hôtel Baie d'Or.`;
+      feedbackText.textContent = 'Votre formulaire de démonstration a été validé. Aucun message n’a été envoyé et aucune donnée n’a été transmise.';
       feedbackBox.classList.remove('hidden');
       feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      form.reset();
     }
+  }
+
+  const experienceDate = document.getElementById('exp-date');
+  const experienceForm = document.getElementById('experience-simulation-form');
+  const experienceFeedback = document.getElementById('simulation-feedback');
+  experienceForm?.addEventListener('input', () => experienceFeedback?.classList.add('hidden'));
+  if (experienceDate) {
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() + 1);
+    experienceDate.min = `${minDate.getFullYear()}-${String(minDate.getMonth() + 1).padStart(2, '0')}-${String(minDate.getDate()).padStart(2, '0')}`;
+    experienceDate.value = experienceDate.min;
+    experienceDate.addEventListener('change', () => experienceDate.setCustomValidity(''));
   }
 
   // Testimonial Carousel Controller

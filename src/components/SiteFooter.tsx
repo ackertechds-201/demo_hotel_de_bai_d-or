@@ -34,15 +34,15 @@ export default function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Logo light />
             <p className="text-sm text-[#F5EAD6]/75 max-w-xs">
-              Sanctuaire éco-luxe face à la baie d&apos;Antsiranana : villas, suites pieds dans l&apos;eau et
-              expériences sur-mesure.
+              Concept d&apos;hôtel fictif inspiré par les paysages de la baie d&apos;Antsiranana. Les chambres,
+              services et tarifs sont présentés à titre indicatif.
             </p>
             <a
               href="/reservation?tab=contact"
               className="inline-flex items-center gap-2 text-sm text-sun-gold hover:underline w-fit"
             >
               <span className="material-symbols-outlined text-[18px]">mail</span>
-              Écrire à la conciergerie
+              Ouvrir le formulaire de démonstration
             </a>
           </div>
           <Column title="Navigation" links={NAV_LINKS.filter((l) => !l.href.includes("tab=contact"))} />
@@ -50,7 +50,7 @@ export default function SiteFooter() {
           <Column title="Informations légales" links={LEGAL_LINKS} />
         </div>
         <div className="pt-6 border-t border-[#F5EAD6]/15 text-xs text-[#F5EAD6]/60 flex flex-col md:flex-row gap-2 justify-between">
-          <p>© 2025 Hôtel Baie d&apos;Or — Diego-Suarez, Madagascar.</p>
+          <p>© {new Date().getFullYear()} Hôtel Baie d&apos;Or — projet fictif.</p>
           <p>Projet de démonstration fictif conçu par Acker Tech DS. Aucune réservation réelle.</p>
         </div>
       </div>

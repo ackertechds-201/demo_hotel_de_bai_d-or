@@ -60,7 +60,7 @@
 </div>
 <div class="hidden xl:flex items-center gap-space-xs text-secondary font-label-md text-[13px] min-w-max">
 <span class="material-symbols-outlined text-[18px] text-primary">verified</span>
-<span>Tarifs garantis en démonstration</span>
+<span>Tarifs fictifs et indicatifs</span>
 </div>
 </div>
 <!-- Lower Controls: Vue, Capacité, Tri & Reset -->
@@ -367,7 +367,7 @@
 <span class="font-label-md text-[13px] text-secondary">310 m²</span>
 </div>
 <h2 class="font-headline-sm text-headline-sm text-espresso-dark group-hover:text-primary transition-colors">Penthouse • Sommet Baie d'Or</h2>
-<p class="font-label-md text-[13px] text-secondary">Dernier Étage Privatif • Horizon 360°</p>
+<p class="font-label-md text-[13px] text-secondary">Dernier étage privatif • panorama illustratif</p>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 pt-1">
               Rooftop panoramique avec jacuzzi d'eau de source, ascenseur direct sécurisé, cave à vins sélectionnée et transferts hélicoptère inclus.
             </p>
@@ -375,7 +375,7 @@
 <div class="flex flex-col gap-space-md pt-space-xs">
 <!-- Amenities Badges -->
 <div class="flex flex-wrap items-center gap-x-space-sm gap-y-1 font-label-md text-[13px] text-on-surface-variant">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">hot_tub</span> Jacuzzi 360°</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">hot_tub</span> Bain à remous panoramique (concept)</span>
 <span>•</span>
 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-sun-gold">flight_takeoff</span> Héliport direct</span>
 <span>•</span>
@@ -475,7 +475,7 @@
 <span class="material-symbols-outlined text-sun-gold text-[20px]">directions_car</span>
 <span>Transferts Aéroport Arrachart (DIE) • 4x4 Climatisé</span>
 </td>
-<td class="p-space-md text-center font-label-md text-[13px] text-secondary">En option (7 119 Ar)</td>
+<td class="p-space-md text-center font-label-md text-[13px] text-secondary">En option (7 100 Ar)</td>
 <td class="p-space-md text-center"><span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span></td>
 <td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">VIP Privatisé</td>
 <td class="p-space-md text-center font-label-md text-[13px] text-primary font-semibold">Hélicoptère ou 4x4 Luxe</td>
@@ -514,7 +514,7 @@
 <div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-md text-[13px] text-tertiary-fixed">
 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">lock</span> Confidentialité absolue</span>
 <span>•</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> Réponse garantie sous 2h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> Formulaire de démonstration</span>
 </div>
 </div>
 <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-space-sm">
@@ -522,9 +522,9 @@
 <span class="material-symbols-outlined text-[20px]">mark_email_unread</span>
 <span>Solliciter la Conciergerie</span>
 </button>
-<a class="w-full py-space-md px-space-lg rounded-full bg-pale-vanilla/10 hover:bg-pale-vanilla/15 text-pale-vanilla border border-pale-vanilla/20 font-label-md text-[13px] font-medium transition-all text-center flex items-center justify-center gap-space-xs" href="tel:+261320000000">
+<a class="w-full py-space-md px-space-lg rounded-full bg-pale-vanilla/10 hover:bg-pale-vanilla/15 text-pale-vanilla border border-pale-vanilla/20 font-label-md text-[13px] font-medium transition-all text-center flex items-center justify-center gap-space-xs" href="/reservation?tab=contact">
 <span class="material-symbols-outlined text-[20px]">call</span>
-<span>+261 32 00 000 00 (Ligne Démo)</span>
+<span>Formulaire de contact de démonstration</span>
 </a>
 </div>
 </div>
@@ -555,17 +555,17 @@
 <form class="flex flex-col gap-space-sm pt-space-xs" id="simulation-form" onsubmit="event.preventDefault();">
 <div class="grid grid-cols-2 gap-space-xs">
 <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
-<label class="font-label-sm text-[10px] text-secondary uppercase">Date d'Arrivée</label>
-<input class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" type="date" value="2025-05-15"/>
+<label for="modal-arrival" class="font-label-sm text-[10px] text-secondary uppercase">Date d'Arrivée</label>
+<input id="modal-arrival" class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" required type="date"/>
 </div>
 <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
-<label class="font-label-sm text-[10px] text-secondary uppercase">Date de Départ</label>
-<input class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" type="date" value="2025-05-20"/>
+<label for="modal-departure" class="font-label-sm text-[10px] text-secondary uppercase">Date de Départ</label>
+<input id="modal-departure" class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" required type="date"/>
 </div>
 </div>
 <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
 <label class="font-label-sm text-[10px] text-secondary uppercase">Nombre de Voyageurs</label>
-<select class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1">
+<select aria-label="Nombre de voyageurs" class="bg-transparent font-label-md text-[13px] text-espresso-dark focus:outline-none pt-1" required>
 <option>2 Adultes (Configuration standard)</option>
 <option>2 Adultes + 1 Enfant</option>
 <option>4 Adultes (Sur demande)</option>
@@ -573,17 +573,17 @@
 </div>
 <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col border border-warm-border">
 <label class="font-label-sm text-[10px] text-secondary uppercase">Nom du Titulaire (Fictif)</label>
-<input class="w-full rounded-xl border border-warm-border bg-pale-vanilla/80 px-3.5 py-3 font-label-md text-[13px] text-espresso-dark shadow-sm transition-colors placeholder:text-secondary/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-sun-gold/25" placeholder="ex. Jean Dupont" type="text" value="Visiteur Démonstration"/>
+<input class="w-full rounded-xl border border-warm-border bg-pale-vanilla/80 px-3.5 py-3 font-label-md text-[13px] text-espresso-dark shadow-sm transition-colors placeholder:text-secondary/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-sun-gold/25" placeholder="Ex. Camille Démonstration" required type="text" value=""/>
 </div>
 <div class="p-space-sm bg-soft-sand rounded-lg flex items-center justify-between font-label-md text-[13px] border border-warm-border">
 <span>Estimation indicative (5 nuits) :</span>
-<span class="font-headline-sm text-[22px] font-bold text-espresso-dark" id="modal-total-price">325 400 Ar</span>
+<span class="font-headline-sm text-[22px] font-bold text-espresso-dark" id="modal-total-price">325 500 Ar</span>
 </div>
 <button class="mt-space-xs w-full py-space-md rounded-full bg-espresso-dark text-pale-vanilla font-label-md text-[14px] hover:bg-tertiary transition-colors text-center shadow-md font-semibold" id="confirm-simulation-btn" type="button">
           Confirmer la simulation (sans débit)
         </button>
 <p class="text-center font-label-sm text-[11px] text-secondary">
-          Simulation purement visuelle • Données locales Acker Tech DS
+          Simulation de démonstration • Aucune donnée n'est conservée ni transmise
         </p>
 </form>
 </div>

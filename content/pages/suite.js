@@ -20,6 +20,33 @@
     const formatMGA = (amountInEuros) => `${(Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100).toLocaleString('fr-FR')} Ar`;
     let guestCount = 2;
 
+    if (checkinInput && checkoutInput) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const toISO = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const arrival = new Date(today);
+      arrival.setDate(arrival.getDate() + 30);
+      const departure = new Date(arrival);
+      departure.setDate(departure.getDate() + 4);
+      checkinInput.min = toISO(today);
+      checkinInput.value = toISO(arrival);
+      checkoutInput.min = toISO(departure);
+      checkoutInput.value = toISO(departure);
+      checkinInput.addEventListener('change', () => {
+        checkinInput.setCustomValidity('');
+        const minDeparture = new Date(`${checkinInput.value}T12:00:00`);
+        minDeparture.setDate(minDeparture.getDate() + 1);
+        checkoutInput.min = toISO(minDeparture);
+        if (checkoutInput.value <= checkinInput.value) checkoutInput.value = toISO(minDeparture);
+        checkoutInput.setCustomValidity('');
+        updateBreakdown();
+      });
+      checkoutInput.addEventListener('change', () => {
+        checkoutInput.setCustomValidity(checkoutInput.value > checkinInput.value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        updateBreakdown();
+      });
+    }
+
     function calculateNights() {
       if (!checkinInput || !checkoutInput) return 4;
       const start = new Date(checkinInput.value);
@@ -142,16 +169,20 @@
     const simulateBtn = document.getElementById('btn-simulate-booking');
     if (simulateBtn) {
       simulateBtn.addEventListener('click', () => {
+        if (!checkinInput || !checkoutInput) return;
+        checkoutInput.setCustomValidity(checkoutInput.value > checkinInput.value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        if (!checkinInput.reportValidity() || !checkoutInput.reportValidity()) return;
         const notifContainer = document.getElementById('notification-container');
         if (!notifContainer) return;
         
         const toast = document.createElement('div');
         toast.className = 'bg-[#1F1610] text-[#FFFBF2] px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 max-w-md pointer-events-auto border border-[#E5A93C]/30';
+        toast.setAttribute('role', 'status');
         toast.innerHTML = `
           <span class="material-symbols-outlined text-[#E5A93C] text-[22px]">check_circle</span>
           <div class="flex flex-col">
-            <span class="text-[13px] font-bold text-[#FFFBF2]">Simulation enregistrée avec succès</span>
-            <span class="text-[12px] opacity-80">Environnement fictif de démonstration - Aucune transaction réelle.</span>
+          <span class="text-[13px] font-bold text-[#FFFBF2]">Formulaire de démonstration validé</span>
+          <span class="text-[12px] opacity-80">Aucune réservation réelle n’a été créée et aucune donnée n’a été transmise.</span>
           </div>
         `;
         notifContainer.appendChild(toast);

@@ -14,7 +14,7 @@ npm run build && npm start   # version production
 
 - `src/app/` — App Router : `/` (accueil), `/[slug]` (chambres, suite, services, galerie, a-propos, faq, reservation, confirmation, legal), page 404.
 - `content/pages/` — balisage et script de chaque écran (générés depuis `stitch/`).
-- `src/lib/site.ts` — menu mobile, simulation de réservation → confirmation (sessionStorage), liens directs vers les onglets Contact / Mentions légales.
+- `src/lib/site.ts` — menu mobile, contrôles de réservation en mémoire, liens directs vers les onglets Contact / Mentions légales.
 - `scripts/import_stitch.py` — régénère `content/` et `tailwind.config.ts` à partir des exports de `stitch/` (`python3 scripts/import_stitch.py`, nécessite Node).
 
-Les images sont chargées directement depuis les URL des exports. Aucune donnée n'est envoyée : la réservation est une simulation.
+Les images et les polices sont chargées depuis les URL présentes dans les exports ou des fournisseurs externes de remplacement. Les formulaires ne font que valider l'interface : aucune réservation n'est créée et aucune donnée de formulaire n'est envoyée ni persistée.

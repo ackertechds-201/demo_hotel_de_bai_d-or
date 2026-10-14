@@ -1,87 +1,87 @@
-(function initGallery() {
-      const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      const lightbox = document.getElementById('gallery-lightbox');
-      const lightboxImage = document.getElementById('lightbox-image');
-      const lightboxTitle = document.getElementById('lightbox-title');
-      const lightboxSubtitle = document.getElementById('lightbox-subtitle');
-      const lightboxClose = document.getElementById('lightbox-close');
-      const vrPlayBtn = document.getElementById('vr-play-button');
-      const loadMoreBtn = document.getElementById('load-more-btn');
+(function initGalleryPage() {
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const filters = document.querySelectorAll('.gallery-filter-btn');
+  const loadMore = document.getElementById('load-more-btn');
+  const openGallery = document.getElementById('vr-play-button');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const closeButton = document.getElementById('lightbox-close');
+  let returnFocus = null;
 
-      // Filter functionality
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filter = btn.getAttribute('data-filter');
+  const showPhoto = (item) => {
+    const image = item.querySelector('img');
+    if (!image || !lightbox || !lightboxImage) return;
+    returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt || image.dataset.alt || 'Photo illustrative de la maquette';
+    document.getElementById('lightbox-title').textContent = item.dataset.title || 'Photo illustrative';
+    document.getElementById('lightbox-subtitle').textContent = item.dataset.subtitle || '';
+    lightbox.classList.remove('hidden', 'pointer-events-none');
+    window.requestAnimationFrame(() => lightbox.classList.add('opacity-100'));
+    closeButton?.focus();
+  };
 
-          filterButtons.forEach(b => {
-            b.classList.remove('bg-sun-gold', 'text-espresso-dark', 'font-bold', 'shadow-[0_4px_16px_rgba(229,169,60,0.3)]');
-            b.classList.add('bg-surface-container-lowest', 'text-secondary', 'border', 'border-warm-border/60');
-          });
+  items.forEach((item) => {
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-haspopup', 'dialog');
+    item.addEventListener('click', () => showPhoto(item));
+    item.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showPhoto(item);
+      }
+    });
+  });
 
-          btn.classList.add('bg-sun-gold', 'text-espresso-dark', 'font-bold', 'shadow-[0_4px_16px_rgba(229,169,60,0.3)]');
-          btn.classList.remove('bg-surface-container-lowest', 'text-secondary', 'border-warm-border/60');
-
-          galleryItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.filter;
+      filters.forEach((item) => {
+        const active = item === button;
+        item.classList.remove('bg-sun-gold', 'text-espresso-dark', 'font-bold', 'shadow-[0_4px_16px_rgba(229,169,60,0.3)]');
+        item.classList.add('bg-surface-container-lowest', 'text-secondary', 'border', 'border-warm-border/60');
+        if (active) {
+          item.classList.add('bg-sun-gold', 'text-espresso-dark', 'font-bold', 'shadow-[0_4px_16px_rgba(229,169,60,0.3)]');
+          item.classList.remove('bg-surface-container-lowest', 'text-secondary', 'border-warm-border/60');
+        }
       });
-
-      // Lightbox simulation
-      galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const title = item.getAttribute('data-title');
-          const subtitle = item.getAttribute('data-subtitle');
-          const img = item.querySelector('img');
-
-          if (img && lightbox && lightboxImage) {
-            lightboxImage.src = img.src;
-            lightboxImage.setAttribute('data-alt', img.getAttribute('data-alt') || '');
-            lightboxTitle.textContent = title;
-            lightboxSubtitle.textContent = subtitle;
-
-            lightbox.classList.remove('hidden', 'pointer-events-none');
-            setTimeout(() => {
-              lightbox.classList.add('opacity-100');
-            }, 10);
-          }
-        });
+      items.forEach((item) => {
+        item.style.display = category === 'all' || item.dataset.category === category ? '' : 'none';
       });
+    });
+  });
 
-      if (lightboxClose) {
-        lightboxClose.addEventListener('click', () => {
-          lightbox.classList.remove('opacity-100');
-          setTimeout(() => {
-            lightbox.classList.add('hidden', 'pointer-events-none');
-          }, 300);
-        });
-      }
+  // This export contains seven photographs and no hidden second page of images.
+  // Hide the old progressive-load control when there is nothing left to reveal.
+  if (loadMore) {
+    const hiddenItems = items.filter((item) => item.hidden || getComputedStyle(item).display === 'none');
+    if (hiddenItems.length === 0) loadMore.hidden = true;
+    else loadMore.addEventListener('click', () => hiddenItems.forEach((item) => { item.hidden = false; item.style.display = ''; }));
+  }
 
-      // VR Button Toast simulation
-      if (vrPlayBtn) {
-        vrPlayBtn.addEventListener('click', () => {
-          const toast = document.createElement('div');
-          toast.className = 'bg-espresso-dark text-pale-vanilla px-4 py-3 rounded-2xl shadow-xl font-body-sm text-body-sm flex items-center gap-2 border-l-4 border-sun-gold transition-all';
-          toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[20px]">vrpano</span> Visite 360° en cours de chargement... (Mode Démonstration)';
-          const notifContainer = document.getElementById('notification-container');
-          if (notifContainer) {
-            notifContainer.appendChild(toast);
-            setTimeout(() => toast.remove(), 4000);
-          }
-        });
-      }
+  openGallery?.addEventListener('click', () => {
+    const firstVisible = items.find((item) => getComputedStyle(item).display !== 'none');
+    firstVisible?.click();
+    document.getElementById('lightbox-close')?.focus();
+  });
 
-      if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', () => {
-          loadMoreBtn.textContent = 'Toutes les photos sont affichées (36/36)';
-          loadMoreBtn.disabled = true;
-          loadMoreBtn.classList.add('opacity-70', 'cursor-default');
-        });
-      }
-    })();
+  const openPhoto = document.querySelector('#vr-play-button')?.closest('section')?.querySelector('button:not(#vr-play-button)');
+  openPhoto?.addEventListener('click', () => {
+    const firstVisible = items.find((item) => getComputedStyle(item).display !== 'none');
+    firstVisible?.click();
+    document.getElementById('lightbox-close')?.focus();
+  });
+
+  if (lightbox) {
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) document.getElementById('lightbox-close')?.click();
+    });
+  }
+
+  closeButton?.addEventListener('click', () => {
+    lightbox?.classList.remove('opacity-100');
+    window.setTimeout(() => lightbox?.classList.add('hidden', 'pointer-events-none'), 300);
+    returnFocus?.focus();
+  });
+})();

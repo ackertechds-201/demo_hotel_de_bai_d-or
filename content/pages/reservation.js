@@ -68,6 +68,10 @@
 
       // Simulation submission trigger
       window.simulateBooking = function() {
+        const arrivalInput = document.getElementById('date-arrival');
+        const departureInput = document.getElementById('date-departure');
+        departureInput.setCustomValidity(departureInput.value > arrivalInput.value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        if (!arrivalInput.reportValidity() || !departureInput.reportValidity()) return;
         const calc = window.updateCalculation();
         document.getElementById('modal-suite-name').textContent = calc.suiteName;
         
@@ -100,9 +104,19 @@
 
       // Contact form submission
       window.sendContactMessage = function() {
-        alert('Démonstration technique : Votre message a été virtuellement transmis à l’équipe Acker Tech DS. Aucune donnée n’a été stockée.');
-        document.getElementById('contact-form').reset();
+        const form = document.getElementById('contact-form');
+        if (!form.reportValidity()) return;
+        const feedback = document.getElementById('contact-form-feedback');
+        if (feedback) {
+          feedback.textContent = 'Votre formulaire de démonstration a été validé. Aucun message n’a été envoyé et aucune donnée n’a été transmise.';
+          feedback.classList.remove('hidden');
+        }
+        form.reset();
       };
+
+      const contactForm = document.getElementById('contact-form');
+      const contactFeedback = document.getElementById('contact-form-feedback');
+      contactForm?.addEventListener('input', () => contactFeedback?.classList.add('hidden'));
 
       // Tabs
       const bookingTab = document.getElementById('tab-btn-booking');
@@ -151,5 +165,29 @@
       };
 
       // Initial run
+      const today = new Date();
+      const arrival = new Date(today);
+      arrival.setDate(today.getDate() + 30);
+      const departure = new Date(arrival);
+      departure.setDate(arrival.getDate() + 4);
+      const toISO = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const arrivalInput = document.getElementById('date-arrival');
+      const departureInput = document.getElementById('date-departure');
+      arrivalInput.min = toISO(today);
+      arrivalInput.value = toISO(arrival);
+      departureInput.min = toISO(new Date(arrival.getTime() + 86400000));
+      departureInput.value = toISO(departure);
+      arrivalInput.addEventListener('change', () => {
+        const minDeparture = new Date(`${arrivalInput.value}T12:00:00`);
+        minDeparture.setDate(minDeparture.getDate() + 1);
+        departureInput.min = toISO(minDeparture);
+        if (departureInput.value <= arrivalInput.value) departureInput.value = toISO(minDeparture);
+        departureInput.setCustomValidity('');
+        window.updateCalculation();
+      });
+      departureInput.addEventListener('change', () => {
+        departureInput.setCustomValidity(departureInput.value > arrivalInput.value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        window.updateCalculation();
+      });
       window.updateCalculation();
     })();

@@ -1,22 +1,8 @@
 /**
  * Shared behaviours layered on top of the exported pages: mobile navigation,
- * the simulated booking flow (suite / rooms / reservation → confirmation) and
+ * booking form calculations and validations (no reservation is submitted), and
  * deep links into the contact and legal tabs.
  */
-
-type Booking = {
-  suite: string;
-  rate: number;
-  arrival: string;
-  departure: string;
-  nights: number;
-  adults: number;
-  children: number;
-  extras: number;
-  extrasLabel: string;
-  ref?: string;
-  createdAt?: string;
-};
 
 type Calculation = { total: string; suiteName: string; nights: number };
 
@@ -28,10 +14,7 @@ declare global {
   }
 }
 
-const STORAGE_KEY = "baiedor:booking-mga";
 const DISPLAY_MGA_PER_EUR = 5085 / 25;
-const MONTHS = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-const SUITE_RATES: Record<string, number> = { dunes: 280 * DISPLAY_MGA_PER_EUR, baie: 450 * DISPLAY_MGA_PER_EUR, emeraude: 790 * DISPLAY_MGA_PER_EUR };
 
 const $ = <T extends Element = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
 const $all = <T extends Element = HTMLElement>(sel: string, root: ParentNode = document) => Array.from(root.querySelectorAll<T>(sel));
@@ -76,6 +59,9 @@ function initImageFallbacks() {
   // React hydrates after the browser has started loading page images. Recover
   // images that already failed before this shared handler was installed.
   $all<HTMLImageElement>("img").forEach((image) => {
+    if (!image.hasAttribute("alt")) {
+      image.alt = image.getAttribute("data-alt")?.trim() || "Illustration de la maquette Hôtel Baie d'Or";
+    }
     if (image.complete && image.naturalWidth === 0) recoverImage(image);
   });
 
@@ -125,25 +111,11 @@ function fieldLabel(control: HTMLInputElement | HTMLSelectElement, fallback?: Pa
   return copy.textContent?.trim() || "";
 }
 
-const formatMGA = (n: number) => `${(Math.round(n / 100) * 100).toLocaleString("fr-FR").replace(/\u202f/g, " ")} Ar`;
-
-function frDate(iso: string) {
-  const d = new Date(iso + "T12:00:00");
-  return isNaN(d.getTime()) ? iso : `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
-}
-
 function isoOffset(days: number) {
   const d = new Date();
   d.setDate(d.getDate() + days);
-  return d.toISOString().slice(0, 10);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
-
-function nightsBetween(a: string, b: string) {
-  const n = Math.ceil((new Date(b).getTime() - new Date(a).getTime()) / 86400000);
-  return n > 0 ? n : 1;
-}
-
-const parseAmount = (text: string) => parseInt(String(text).replace(/[^\d]/g, ""), 10) || 0;
 
 function placeBookingPopover(popover: HTMLElement, anchor: HTMLElement) {
   const margin = 8;
@@ -163,12 +135,6 @@ function placeBookingPopover(popover: HTMLElement, anchor: HTMLElement) {
   }
   const availableHeight = (openAbove ? spaceAbove : spaceBelow) - margin;
   popover.style.maxHeight = `${Math.max(96, availableHeight)}px`;
-}
-
-function saveBooking(b: Booking) {
-  b.ref = `BD-DIEGO-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-  b.createdAt = new Date().toISOString();
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(b));
 }
 
 const goTo = (href: string, delay = 0) => setTimeout(() => (window.location.href = href), delay);
@@ -504,14 +470,16 @@ function initRooms(params: URLSearchParams) {
   const dates = $all<HTMLInputElement>('#booking-modal input[type="date"]');
   const arrival = params.get("arrival");
   const departure = params.get("departure");
-  if (arrival && /^\d{4}-\d{2}-\d{2}$/.test(arrival) && dates[0]) {
+  const isISODate = (value: string | null): value is string => {
+    if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const date = new Date(`${value}T12:00:00`);
+    return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+  };
+  const today = isoOffset(0);
+  if (isISODate(arrival) && isISODate(departure) && arrival >= today && departure > arrival && dates[0] && dates[1]) {
     dates[0].value = arrival;
-    dates[0].dispatchEvent(new Event("input", { bubbles: true }));
     dates[0].dispatchEvent(new Event("change", { bubbles: true }));
-  }
-  if (departure && /^\d{4}-\d{2}-\d{2}$/.test(departure) && dates[1]) {
     dates[1].value = departure;
-    dates[1].dispatchEvent(new Event("input", { bubbles: true }));
     dates[1].dispatchEvent(new Event("change", { bubbles: true }));
   }
   document.addEventListener(
@@ -540,17 +508,19 @@ function initRooms(params: URLSearchParams) {
             .map((item) => item.textContent?.trim() || "")
             .filter((item) => item && item !== "•"),
         };
-        sessionStorage.setItem(`baiedor:room-detail:${roomId}`, JSON.stringify(roomData));
-        goTo(`/suite?room=${encodeURIComponent(roomId)}`);
+        const detailParams = new URLSearchParams({
+          room: roomId,
+          title: roomData.title,
+          price: roomData.price,
+          area: roomData.area,
+          location: roomData.location,
+          description: roomData.description,
+          image: roomData.image,
+          imageAlt: roomData.imageAlt,
+          amenities: JSON.stringify(roomData.amenities),
+        });
+        goTo(`/suite?${detailParams.toString()}`);
         return;
-      }
-      if (target.closest("#confirm-simulation-btn")) {
-        e.stopPropagation();
-        const title = $("#modal-room-title")?.textContent || "Suite Lagon";
-        const priceText = $all("#modal-room-price-display").map((el) => el.textContent).join(" ");
-        const rate = parseAmount(priceText) || 320 * DISPLAY_MGA_PER_EUR;
-        saveBooking({ suite: title.trim(), rate, arrival: isoOffset(30), departure: isoOffset(35), nights: 5, adults: 2, children: 0, extras: 0, extrasLabel: "" });
-        goTo("/confirmation");
       }
     },
     true,
@@ -570,40 +540,39 @@ type RoomDetail = {
 
 function initSuite(params: URLSearchParams) {
   const roomId = params.get("room");
-  if (roomId && roomId !== "emeraude") renderRoomDetail(roomId);
+  if (roomId && roomId !== "emeraude") renderRoomDetail(roomId, params);
   const btn = $("#btn-simulate-booking");
   if (!btn) return;
   btn.addEventListener("click", () => {
     const arrival = $<HTMLInputElement>("#input-checkin")?.value || isoOffset(30);
     const departure = $<HTMLInputElement>("#input-checkout")?.value || isoOffset(34);
-    const extras = $all<HTMLInputElement>(".extra-checkbox:checked");
-    const labels = extras
-      .map((c) => (c.closest("label") || c.parentElement)?.querySelector("span, p")?.textContent?.trim() || "")
-      .filter(Boolean);
-    saveBooking({
-      suite: "Suite Lagon • Mer d’Émeraude",
-      rate: 320 * DISPLAY_MGA_PER_EUR,
-      arrival,
-      departure,
-      nights: nightsBetween(arrival, departure),
-      adults: parseInt($("#guest-count")?.textContent || "", 10) || 2,
-      children: 0,
-      extras: extras.reduce((s, c) => s + (parseInt(c.dataset.price || "", 10) || 0) * DISPLAY_MGA_PER_EUR, 0),
-      extrasLabel: labels.join(" • "),
-    });
-    goTo("/confirmation", 1200);
+    const checkin = $<HTMLInputElement>("#input-checkin");
+    const checkout = $<HTMLInputElement>("#input-checkout");
+    if (!checkin || !checkout) return;
+    checkout.setCustomValidity(departure > arrival ? "" : "La date de départ doit être postérieure à la date d'arrivée.");
+    if (!checkin.reportValidity() || !checkout.reportValidity()) return;
   });
 }
 
-function renderRoomDetail(roomId: string) {
-  let room: RoomDetail | null = null;
+function renderRoomDetail(roomId: string, params: URLSearchParams) {
+  let amenities: string[] = [];
   try {
-    const saved = sessionStorage.getItem(`baiedor:room-detail:${roomId}`);
-    room = saved ? (JSON.parse(saved) as RoomDetail) : null;
+    amenities = JSON.parse(params.get("amenities") || "[]") as string[];
   } catch {
-    room = null;
+    amenities = [];
   }
-  if (!room) return;
+  const room: RoomDetail = {
+    title: params.get("title") || "Hébergement",
+    price: params.get("price") || "Tarif indicatif",
+    area: params.get("area") || "",
+    location: params.get("location") || "Diego-Suarez • Madagascar",
+    description: params.get("description") || "",
+    image: params.get("image") || "",
+    imageAlt: params.get("imageAlt") || "Hébergement de démonstration",
+    amenities: amenities.filter((item) => typeof item === "string").slice(0, 8),
+  };
+  if (roomId.length > 40) return;
+  if (!room.title || !room.image) return;
 
   const main = $("main");
   if (!main) return;
@@ -638,43 +607,6 @@ function renderRoomDetail(roomId: string) {
 
 function initReservation(params: URLSearchParams) {
   if (params.get("tab") === "contact") window.switchTab?.("contact");
-  const card = $("#modal-card");
-  const actions = card && $all("button", card).find((b) => /Modifier la simulation/.test(b.textContent || ""));
-  const row = actions?.parentElement;
-  if (!row?.parentElement) return;
-
-  const confirm = document.createElement("button");
-  confirm.type = "button";
-  confirm.className =
-    "w-full py-3.5 px-space-md rounded-full bg-sun-gold text-espresso-dark font-label-md text-label-md font-semibold hover:brightness-95 transition-all flex items-center justify-center gap-2 shadow-md";
-  confirm.innerHTML = 'Confirmer et voir mon récapitulatif <span class="material-symbols-outlined text-[18px]">arrow_forward</span>';
-  row.parentElement.insertBefore(confirm, row);
-
-  confirm.addEventListener("click", () => {
-    const calc = window.updateCalculation?.();
-    if (!calc) return;
-    const key = $<HTMLInputElement>('input[name="suite"]:checked')?.value || "dunes";
-    const rate = SUITE_RATES[key] || 280 * DISPLAY_MGA_PER_EUR;
-    const opts = [
-      ["opt-transfer", "Transfert VIP Arrachart"],
-      ["opt-dining", "Demi-pension gastronomique"],
-      ["opt-sea", "Excursion Mer d’Émeraude"],
-    ]
-      .filter(([id]) => (document.getElementById(id) as HTMLInputElement | null)?.checked)
-      .map(([, label]) => label);
-    saveBooking({
-      suite: calc.suiteName,
-      rate,
-      arrival: $<HTMLInputElement>("#date-arrival")?.value || isoOffset(30),
-      departure: $<HTMLInputElement>("#date-departure")?.value || isoOffset(34),
-      nights: calc.nights,
-      adults: parseInt($("#count-adults")?.textContent || "", 10) || 2,
-      children: parseInt($("#count-children")?.textContent || "", 10) || 0,
-      extras: Math.max(0, parseAmount(calc.total) - rate * calc.nights),
-      extrasLabel: opts.join(" • "),
-    });
-    goTo("/confirmation");
-  });
 }
 
 function initLegal(params: URLSearchParams) {
@@ -683,58 +615,7 @@ function initLegal(params: URLSearchParams) {
 }
 
 function initConfirmation() {
-  const raw = sessionStorage.getItem(STORAGE_KEY);
-  if (!raw) return;
-  let b: Booking;
-  try {
-    b = JSON.parse(raw);
-  } catch {
-    return;
-  }
-
-  const ref = b.ref || "BD-DIEGO-2025-9481";
-  const lodging = b.rate * b.nights;
-  const taxes = Math.round((lodging + b.extras) * 0.05);
-  const total = lodging + b.extras + taxes;
-  const guests =
-    b.adults + (b.adults > 1 ? " Adultes" : " Adulte") + (b.children ? `, ${b.children}${b.children > 1 ? " Enfants" : " Enfant"}` : "");
-  const shortName = b.suite.split("•")[0].trim();
-  const created = new Date(b.createdAt || Date.now());
-
-  const map: Record<string, string> = {
-    "#BD-DIEGO-2025-9481": "#" + ref,
-    "BD-DIEGO-2025-9481": ref,
-    "Suite Lagon • Mer d’Émeraude": b.suite,
-    "65 100 Ar": formatMGA(b.rate),
-    "14 Juin 2025": frDate(b.arrival),
-    "18 Juin 2025": frDate(b.departure),
-    "4 Nuits": b.nights + (b.nights > 1 ? " Nuits" : " Nuit"),
-    "2 Adultes": guests,
-    "Hébergement • 4 Nuitées": `Hébergement • ${b.nights}${b.nights > 1 ? " Nuitées" : " Nuitée"}`,
-    "Suite Lagon @ 65 100 Ar / nuit": `${shortName} @ ${formatMGA(b.rate)} / nuit`,
-    "260 400 Ar": formatMGA(lodging),
-    "+48 800 Ar": b.extras ? "+" + formatMGA(b.extras) : "Non incluse",
-    "48 800 Ar": b.extras ? formatMGA(b.extras) : "Non incluse",
-    "15 500 Ar": formatMGA(taxes),
-    "324 600 Ar": formatMGA(total),
-    "97 400 Ar": formatMGA(total * 0.3),
-    "227 200 Ar": formatMGA(total * 0.7),
-    "Février 2025": `${MONTHS[created.getMonth()]} ${created.getFullYear()}`,
-  };
-  if (b.extrasLabel) {
-    map["Catamaran Mer d'Émeraude"] = "Prestations sélectionnées";
-    map["Excursion exclusive d'une journée"] = b.extrasLabel;
-  }
-
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  const nodes: Text[] = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode as Text);
-  nodes.forEach((n) => {
-    const value = n.nodeValue || "";
-    const key = value.trim().replace(/\u202f|\u00a0/g, " ");
-    if (Object.prototype.hasOwnProperty.call(map, key)) n.nodeValue = value.replace(value.trim(), map[key]);
-  });
-  document.title = `Confirmation ${ref} • Hôtel Baie d'Or`;
+  document.title = "Exemple de simulation • Hôtel Baie d'Or";
 }
 
 function toast(message: string) {

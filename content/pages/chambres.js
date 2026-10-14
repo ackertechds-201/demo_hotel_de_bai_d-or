@@ -103,7 +103,6 @@
       const modal = document.getElementById('booking-modal');
       const closeModalBtn = document.getElementById('close-modal-btn');
       const simButtons = document.querySelectorAll('.simulate-book-btn');
-      const detailsButtons = document.querySelectorAll('.open-details-btn');
       const modalTitle = document.getElementById('modal-room-title');
       const modalPriceDisplay = document.getElementById('modal-room-price-display');
       const modalTotalPrice = document.getElementById('modal-total-price');
@@ -113,24 +112,52 @@
       function openModal(title, price) {
         modalTitle.textContent = title;
         modalPriceDisplay.textContent = 'Tarif indicatif : ' + formatMGA(price) + ' / nuitée';
-        modalTotalPrice.textContent = formatMGA(price * 5) + ' (séjour 5 nuits)';
+        modal.dataset.pricePerNight = String(price);
+        updateModalTotal();
         modal.classList.remove('hidden');
         modal.classList.add('flex');
       }
+
+      const dateInputs = Array.from(document.querySelectorAll('#booking-modal input[type="date"]'));
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const toISO = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const arrivalDefault = new Date(today);
+      arrivalDefault.setDate(arrivalDefault.getDate() + 30);
+      const departureDefault = new Date(arrivalDefault);
+      departureDefault.setDate(departureDefault.getDate() + 5);
+      if (dateInputs[0] && dateInputs[1]) {
+        dateInputs[0].min = toISO(today);
+        dateInputs[0].value = toISO(arrivalDefault);
+        dateInputs[1].min = toISO(departureDefault);
+        dateInputs[1].value = toISO(departureDefault);
+      }
+      const updateModalTotal = () => {
+        if (!dateInputs[0] || !dateInputs[1] || !modalTotalPrice) return;
+        const start = new Date(`${dateInputs[0].value}T12:00:00`);
+        const end = new Date(`${dateInputs[1].value}T12:00:00`);
+        const nights = Math.max(1, Math.round((end.getTime() - start.getTime()) / 86400000));
+        const price = Number(modal.dataset.pricePerNight || 300);
+        modalTotalPrice.textContent = `${formatMGA(price * nights)} (séjour ${nights} nuit${nights > 1 ? 's' : ''})`;
+      };
+      dateInputs[0]?.addEventListener('change', () => {
+        dateInputs[0].setCustomValidity('');
+        const next = new Date(`${dateInputs[0].value}T12:00:00`);
+        next.setDate(next.getDate() + 1);
+        dateInputs[1].min = toISO(next);
+        if (dateInputs[1].value <= dateInputs[0].value) dateInputs[1].value = toISO(next);
+        dateInputs[1].setCustomValidity('');
+        updateModalTotal();
+      });
+      dateInputs[1]?.addEventListener('change', () => {
+        dateInputs[1].setCustomValidity(dateInputs[1].value > dateInputs[0].value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        updateModalTotal();
+      });
 
       simButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const title = btn.getAttribute('data-room-title');
           const price = parseInt(btn.getAttribute('data-room-price') || '300');
-          openModal(title, price);
-        });
-      });
-
-      detailsButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const card = btn.closest('.room-card');
-          const title = card.querySelector('h2').textContent;
-          const price = parseInt(card.getAttribute('data-price') || '300');
           openModal(title, price);
         });
       });
@@ -154,11 +181,17 @@
       });
 
       confirmSimBtn.addEventListener('click', () => {
+        const form = document.getElementById('simulation-form');
+        if (dateInputs[0] && dateInputs[1]) {
+          dateInputs[1].setCustomValidity(dateInputs[1].value > dateInputs[0].value ? '' : 'La date de départ doit être postérieure à la date d’arrivée.');
+        }
+        if (!form.reportValidity()) return;
         const notif = document.getElementById('notification-container');
         if (notif) {
           const toast = document.createElement('div');
           toast.className = 'bg-espresso-dark text-pale-vanilla px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-opacity duration-300 pointer-events-auto border border-warm-border/30';
-          toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span><span class="font-label-md text-[13px]">Simulation enregistrée ! Démonstration sans débit réel.</span>';
+          toast.setAttribute('role', 'status');
+          toast.innerHTML = '<span class="material-symbols-outlined text-sun-gold text-[20px]">check_circle</span><span class="font-label-md text-[13px]">Votre demande de démonstration a été validée. Aucune réservation réelle n’a été créée et aucune donnée n’a été transmise.</span>';
           notif.appendChild(toast);
           setTimeout(() => {
             toast.style.opacity = '0';
