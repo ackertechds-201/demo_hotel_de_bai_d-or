@@ -5,11 +5,6 @@ import { initSite } from "@/lib/site";
 
 type Listener = EventListenerOrEventListenerObject;
 
-/**
- * Runs an export's inline script once the server-rendered markup is in the DOM.
- * The scripts were written for a classic page load, so DOMContentLoaded/load
- * listeners they register are invoked right after the script has run.
- */
 function runInlineScript(code: string) {
   const pending: Array<() => void> = [];
   const defer = (target: Document | Window, type: string, listener: Listener) =>
@@ -43,7 +38,6 @@ function runInlineScript(code: string) {
 
 export default function PageScripts({ page, code, title }: { page: string; code: string; title?: string }) {
   useEffect(() => {
-    // Pages are full reloads (plain links inside the exported markup); guard against Strict Mode double effects.
     const w = window as Window & { __baiedorPage?: string };
     if (w.__baiedorPage === page) return;
     w.__baiedorPage = page;

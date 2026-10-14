@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Accordion Toggling
     const accordions = document.querySelectorAll('.faq-item');
     accordions.forEach((item) => {
       const toggle = item.querySelector('.faq-toggle');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.addEventListener('click', () => {
           const isOpen = !content.classList.contains('hidden');
           
-          // Close others in same category for a polished accordion feeling
           const parentGroup = item.closest('.faq-category-group');
           if (parentGroup) {
             parentGroup.querySelectorAll('.faq-item').forEach(other => {
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // 2. Category Pill Filter Logic
     const filterButtons = document.querySelectorAll('.faq-pill-btn');
     const categoryGroups = document.querySelectorAll('.faq-category-group');
     const searchInput = document.getElementById('faq-search-input');
@@ -63,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
             visibleCount++;
           });
         } else {
-          // Check if any individual item matches (e.g. dining or ecology inside stay)
           let hasMatchingChild = false;
           items.forEach(it => {
             const itemCat = it.getAttribute('data-category');
@@ -101,12 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // 3. Search Field Logic
     function performSearch(term) {
       const q = term.toLowerCase().trim();
       let totalFound = 0;
 
-      // Reset pill states to 'all' visually
       filterButtons.forEach(btn => {
         if (btn.getAttribute('data-filter') === 'all') {
           btn.classList.add('bg-espresso-dark', 'text-pale-vanilla');
@@ -177,7 +171,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // Quick chip buttons
     const quickChips = document.querySelectorAll('.quick-chip');
     quickChips.forEach(chip => {
       chip.addEventListener('click', () => {
@@ -190,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Reset button in empty state
     const resetBtn = document.getElementById('reset-search-btn');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {

@@ -1,5 +1,4 @@
 <main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
-<!-- Top Visual Banner with Warm Golden Architectural Depth -->
 <section class="relative w-full overflow-hidden bg-gradient-to-b from-[#f9f3e5] via-[#fdfaf3] to-pale-vanilla py-space-2xl md:py-space-3xl border-b border-warm-border/50">
 <div class="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-[#E5A93C]/15 blur-3xl pointer-events-none"></div>
 <div class="absolute bottom-0 left-8 w-96 h-96 rounded-full bg-tertiary-fixed/40 blur-3xl pointer-events-none"></div>
@@ -29,10 +28,8 @@
 </div>
 </div>
 </section>
-<!-- Interactive Hub: Simulation Engine + Practical Guide -->
 <section class="w-full py-space-2xl bg-pale-vanilla">
 <div class="max-w-[1240px] mx-auto px-gutter">
-<!-- Fictitious Alert Banner -->
 <div class="mb-space-xl p-space-md rounded-2xl bg-soft-sand/70 border border-warm-border flex items-start sm:items-center gap-space-md text-on-surface-variant shadow-sm">
 <span class="material-symbols-outlined text-primary text-[24px] shrink-0">info</span>
 <div class="flex-1 font-body-sm leading-relaxed text-secondary">
@@ -42,9 +39,7 @@
 <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest border border-warm-border text-secondary font-label-md text-[10px] uppercase font-bold shrink-0 hidden sm:inline-block">Simulateur V1.2</span>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-<!-- Main Interactive Column (Tabs + Forms) -->
 <div class="lg:col-span-7 flex flex-col gap-space-lg">
-<!-- Mode Switcher Pill Tabs -->
 <div class="flex items-center p-1.5 bg-soft-sand border border-warm-border rounded-full max-w-md shadow-sm">
 <button class="flex-1 py-2.5 px-space-md rounded-full font-label-md text-center transition-all bg-espresso-dark text-[#FFFBF2] font-semibold shadow-sm flex items-center justify-center gap-2" id="tab-btn-booking">
 <span class="material-symbols-outlined text-[18px]">hotel</span>
@@ -55,14 +50,12 @@
 <span>Message &amp; Conciergerie</span>
 </button>
 </div>
-<!-- TAB 1 : Simulation de Réservation -->
 <div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-lg" id="booking-container">
 <div class="flex flex-col gap-1">
 <h2 class="font-headline-md text-headline-md text-espresso-dark font-serif">Calculateur de Tarif de Séjour</h2>
 <p class="font-body-sm text-secondary">Personnalisez votre immersion dans le grand Nord malgache avec calcul en direct.</p>
 </div>
 <form class="flex flex-col gap-space-md" id="reservation-form" onsubmit="event.preventDefault(); window.simulateBooking();">
-<!-- Suite Selection -->
 <div class="flex flex-col gap-space-xs">
 <div class="font-label-md text-espresso-dark font-semibold flex items-center justify-between" id="suite-group-label">
 <span>Sélectionnez votre Hébergement</span>
@@ -95,7 +88,6 @@
 </label>
 </div>
 </div>
-<!-- Dates Inputs -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-espresso-dark font-semibold flex items-center gap-1.5" for="date-arrival">
@@ -112,7 +104,6 @@
 <input class="w-full px-space-md py-space-sm rounded-xl bg-pale-vanilla border border-warm-border text-espresso-dark font-body-md outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="date-departure" onchange="window.updateCalculation()" required="" type="date" value=""/>
 </div>
 </div>
-<!-- Guests Selection -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
 <span class="font-label-md text-espresso-dark font-semibold" id="adults-label">Adultes (12 ans +)</span>
@@ -139,7 +130,6 @@
 </div>
 </div>
 </div>
-<!-- Options & Experiences -->
 <div class="flex flex-col gap-space-xs pt-space-xs">
 <p class="font-label-md text-espresso-dark font-semibold">Expériences &amp; Services Additionnels</p>
 <div class="flex flex-col gap-space-xs">
@@ -175,7 +165,6 @@
 </label>
 </div>
 </div>
-<!-- Price Breakdown Dynamic Bar -->
 <div class="mt-space-sm p-space-md rounded-2xl bg-soft-sand border border-warm-border flex flex-col sm:flex-row items-center justify-between gap-space-md">
 <div class="flex flex-col text-center sm:text-left">
 <div class="flex items-center gap-space-xs text-secondary font-label-md text-[13px]">
@@ -183,7 +172,7 @@
 <span>•</span>
 <span id="summary-guests">2 adultes</span>
 </div>
-<span class="font-headline-lg text-espresso-dark font-serif tracking-tight" id="total-price-display">327 700 Ar</span>
+<span class="font-headline-lg text-espresso-dark font-serif tracking-tight" id="total-price-display">332 700 Ar</span>
 <span class="font-body-sm text-[11px] text-secondary">Taxes touristiques et services inclus (simulation indicative)</span>
 </div>
 <button class="w-full sm:w-auto px-space-xl py-3.5 rounded-full bg-espresso-dark text-[#FFFBF2] font-label-md hover:bg-espresso-dark/90 transition-all shadow-[0_4px_16px_rgba(38,26,19,0.2)] flex items-center justify-center gap-space-xs" type="submit">
@@ -193,7 +182,6 @@
 </div>
 </form>
 </div>
-<!-- TAB 2 : Formulaire de Contact & Conciergerie -->
 <div class="hidden bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-lg" id="contact-container">
 <div class="flex flex-col gap-1">
 <h2 class="font-headline-md text-headline-md text-espresso-dark font-serif">Écrire à Notre Équipe Hôtelière</h2>
@@ -232,9 +220,7 @@
 </form>
 </div>
 </div>
-<!-- Sidebar Column : Demonstration Details, Location & Real-Time Card -->
 <div class="lg:col-span-5 flex flex-col gap-space-lg">
-<!-- Architecture & Showcase Card -->
 <div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-md relative overflow-hidden">
 <div class="flex items-center justify-between">
 <span class="font-label-md tracking-wider text-secondary uppercase">Fiche Démonstrateur</span>
@@ -246,7 +232,6 @@
                 Concept architectural d'éco-luxe balnéaire, inspiré par les vents Alizés du Varatraza et le bois de palissandre.
               </p>
 </div>
-<!-- Direct Contact List -->
 <div class="flex flex-col gap-space-sm pt-space-xs">
 <div class="flex items-start gap-space-sm">
 <div class="w-9 h-9 rounded-xl bg-soft-sand border border-warm-border flex items-center justify-center text-primary shrink-0">
@@ -276,7 +261,6 @@
 </div>
 </div>
 </div>
-<!-- Author Card Integration -->
 <div class="mt-space-xs p-space-md rounded-2xl bg-soft-sand/70 border border-warm-border flex items-center gap-space-md">
 <div class="w-10 h-10 rounded-full bg-espresso-dark text-[#FFFBF2] flex items-center justify-center font-bold font-headline-sm">
                 A
@@ -287,7 +271,6 @@
 </div>
 </div>
 </div>
-<!-- Stylized Access & Map Card -->
 <div class="bg-surface-container-lowest p-space-xl rounded-2xl border border-warm-border shadow-[0_4px_24px_rgba(38,26,19,0.04)] flex flex-col gap-space-md">
 <div class="flex items-center justify-between">
 <h3 class="font-headline-sm text-headline-sm text-espresso-dark font-serif">Plan d'Accès &amp; Trajet</h3>
@@ -296,7 +279,6 @@
 <span>Route de Ramena</span>
 </span>
 </div>
-<!-- Visual Map Placeholder with data-location -->
 <div class="w-full h-48 bg-cover bg-center rounded-2xl relative overflow-hidden border border-warm-border shadow-sm" data-location="Antsiranana, Madagascar" data-lazy-background="https://lh3.googleusercontent.com/aida-public/AB6AXuAs3UofDVIdEUjYAPGEDZGup1WO8i7MRNwKT3JOs1Yo3MZ1xxueEjMaNAsAKoLM-mIfjJbeys14cdW4DG9-dnblFYemXxCG3SpHKwQew2pofRE8hW6uL57_R8WnTkNWY7i-P6AjuojedMpElFPrFXQxaQvAEJ8whepm2zFG1LVs0JV9Y1L2uXxNnh1bcun2_FiK2QnarXUmLD_j7_cwLr0qMcOjySyXCQJeNdvuSvF1oIZH3PO2QUKb=w2400">
 <div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/85 via-espresso-dark/35 to-transparent flex items-end p-space-md">
 <div class="flex items-center gap-space-xs text-[#FFFBF2]">
@@ -305,7 +287,6 @@
 </div>
 </div>
 </div>
-<!-- Route Metrics Bento -->
 <div class="grid grid-cols-2 gap-space-sm pt-space-xs">
 <div class="p-space-sm rounded-xl bg-pale-vanilla border border-warm-border flex flex-col">
 <span class="font-label-md text-[11px] text-secondary uppercase tracking-wider">Aéroport DIE</span>
@@ -323,7 +304,6 @@
 </div>
 </div>
 </section>
-<!-- Visual Break / Atmosphere Card -->
 <section class="w-full py-space-xl bg-[#f8f3e9] border-y border-warm-border/60">
 <div class="max-w-[1240px] mx-auto px-gutter">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
@@ -351,7 +331,6 @@
 </div>
 </div>
 </section>
-<!-- Interactive FAQ Accordion Section in Warm Cream Cards -->
 <section class="w-full py-space-3xl bg-pale-vanilla">
 <div class="max-w-[840px] mx-auto px-gutter">
 <div class="flex flex-col items-center text-center gap-space-sm mb-space-2xl">
@@ -362,7 +341,6 @@
         </p>
 </div>
 <div class="flex flex-col gap-space-sm" id="faq-accordion">
-<!-- FAQ 1 -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="true">
 <button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
 <span class="font-headline-sm text-espresso-dark font-serif faq-title">Comment fonctionne cette simulation de réservation ?</span>
@@ -379,7 +357,6 @@
             </p>
 </div>
 </div>
-<!-- FAQ 2 -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
 <button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
 <span class="font-headline-sm text-espresso-dark font-serif faq-title">Quelle est la meilleure saison pour séjourner dans la région ?</span>
@@ -396,7 +373,6 @@
             </p>
 </div>
 </div>
-<!-- FAQ 3 -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
 <button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
 <span class="font-headline-sm text-espresso-dark font-serif faq-title">Comment s'organise le transfert depuis l'Aéroport d'Arrachart (DIE) ?</span>
@@ -410,7 +386,6 @@
             </p>
 </div>
 </div>
-<!-- FAQ 4 -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg border border-warm-border shadow-sm transition-all faq-card" data-open="false">
 <button class="w-full flex items-center justify-between text-left gap-space-md cursor-pointer" onclick="window.toggleFaq(this)">
 <span class="font-headline-sm text-espresso-dark font-serif faq-title">Quelles sont les conditions simulées de modification et annulation ?</span>
@@ -427,7 +402,6 @@
 </div>
 </div>
 </section>
-<!-- Confirmation Modal Overlay (Simulation Done) -->
 <div class="fixed inset-0 z-50 flex items-center justify-center p-gutter bg-espresso-dark/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300" id="confirmation-modal">
 <div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-space-xl border border-warm-border shadow-2xl flex flex-col gap-space-lg relative transform scale-95 transition-transform duration-300" id="modal-card">
 <div class="flex items-start justify-between">
@@ -445,7 +419,6 @@
           Votre demande de démonstration a été validée. Aucune réservation réelle n’a été créée et aucune donnée n’a été transmise.
         </p>
 </div>
-<!-- Simulation Summary Box -->
 <div class="p-space-md rounded-2xl bg-pale-vanilla border border-warm-border flex flex-col gap-space-xs font-body-sm text-espresso-dark">
 <div class="flex justify-between py-1 border-b border-warm-border">
 <span class="text-secondary">Hébergement :</span>
@@ -461,7 +434,7 @@
 </div>
 <div class="flex justify-between pt-space-xs font-headline-sm text-espresso-dark font-serif font-bold">
 <span>Tarif Estimatif Total :</span>
-<span id="modal-total-price">327 700 Ar</span>
+<span id="modal-total-price">332 700 Ar</span>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row items-center gap-space-sm">

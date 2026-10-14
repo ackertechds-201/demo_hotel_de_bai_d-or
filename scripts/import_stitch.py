@@ -1,9 +1,4 @@
-"""Import the Google Stitch HTML exports (stitch/) into Next.js content files.
 
-Writes content/pages/<slug>.html (page markup), content/pages/<slug>.js (the page's
-inline script), content/pages.json (title, body classes) and tailwind.config.ts
-(the merged Tailwind config of all exports). Run: python3 scripts/import_stitch.py
-"""
 import json
 import re
 import subprocess
@@ -62,44 +57,15 @@ TEXT_RULES = [
     (r"^call ", "tel:+261320000000"),
 ]
 
-# The "Suite Lagon" card photo in the exports is a screenshot of a website mock-up.
 IMAGE_SWAPS = {
     "siDfdLiMxk4xv46ykBJCNFlMU": "RrLX5nRFcZ8EZyv3nAXVg1dkb",
 }
 
-HERO = """<section class="relative w-full -mt-28 bg-pale-vanilla pb-16 border-b border-warm-border">
-<div class="relative w-full min-h-[640px] lg:min-h-[720px] flex items-end bg-cover bg-center" data-alt="{alt}" style="background-image: url('{img}')">
-<div class="absolute inset-0 bg-gradient-to-t from-espresso-dark/90 via-espresso-dark/40 to-espresso-dark/60"></div>
-<div class="relative z-10 max-w-[1240px] w-full mx-auto px-gutter pt-44 pb-28">
-<div class="inline-flex items-center gap-space-xs bg-pale-vanilla/15 backdrop-blur-md border border-pale-vanilla/25 px-4 py-1.5 rounded-full w-fit mb-space-md">
-<span class="material-symbols-outlined text-[16px] text-sun-gold">eco</span>
-<span class="font-label-sm text-[11px] text-[#FFFBF2] uppercase tracking-widest">Havre de Sérénité Tropicale • Antsiranana</span>
-</div>
-<h1 class="font-serif text-[42px] leading-[1.08] md:text-[64px] lg:text-[76px] lg:leading-[1.04] text-[#FFFBF2] max-w-3xl tracking-tight mb-space-md drop-shadow-sm">Trouvez Votre Évasion d'Exception.</h1>
-<p class="font-body-lg text-body-lg text-[#FFFBF2]/85 max-w-2xl leading-relaxed mb-space-lg">L'Hôtel Baie d'Or vous invite à contempler l'une des plus belles baies du monde. Villas exclusives, gastronomie insulaire et bien-être absolu face à l'Océan Indien.</p>
-<div class="flex flex-wrap items-center gap-space-md">
-<a class="px-7 py-3.5 rounded-full bg-sun-gold text-espresso-dark font-label-md flex items-center gap-2 hover:brightness-95 transition-all shadow-lg group" href="#reservation">
-<span>Réserver un Séjour</span>
-<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-<a class="px-6 py-3.5 rounded-full bg-pale-vanilla/15 backdrop-blur-md border border-pale-vanilla/30 text-[#FFFBF2] font-label-md flex items-center gap-2 hover:bg-pale-vanilla/25 transition-colors" href="/chambres">
-<span class="material-symbols-outlined text-[18px] text-sun-gold">explore</span>
-<span>Explorer le domaine</span>
-</a>
-</div>
-<div class="flex flex-wrap gap-x-8 gap-y-3 pt-space-lg mt-space-lg border-t border-pale-vanilla/20 max-w-2xl">
-{features}
-</div>
-</div>
-</div>
-{widget}
-</section>"""
-FEATURE = """<div class="flex items-center gap-2 text-[#FFFBF2]/80 font-label-sm uppercase tracking-wider text-[11px]"><span class="w-2 h-2 rounded-full bg-sun-gold"></span><span>{}</span></div>"""
-
+HERO = 
+FEATURE = 
 
 def text_of(html):
     return " ".join(re.sub(r"<[^>]+>", " ", html).split())
-
 
 def rewrite_links(html):
     ids = set(re.findall(r'\sid="([^"]+)"', html))
@@ -126,9 +92,8 @@ def rewrite_links(html):
 
     return re.sub(r"<a(\s[^>]*)>(.*?)</a>", repl, html, flags=re.S)
 
-
 def full_width_hero(body):
-    """Replace the home hero with a full-bleed photo version (v2 layout, v1 palette)."""
+    
     start = body.find("<section", body.find("<main"))
     end = body.find("</section>", start) + len("</section>")
     hero = body[start:end]
@@ -140,7 +105,6 @@ def full_width_hero(body):
     new = HERO.format(alt=img.group(1), img=img.group(2), widget=widget,
                       features="\n".join(FEATURE.format(f) for f in features))
     return body[:start] + new + body[end:]
-
 
 def split_page(html):
     scripts = []
@@ -157,16 +121,14 @@ def split_page(html):
     body_class = re.search(r'class="([^"]*)"', body_m.group(1))
     return body_m.group(2).strip(), "\n;\n".join(scripts), body_class.group(1) if body_class else ""
 
-
 def page_title(slug, html):
     if slug in FIXED_TITLES:
         return FIXED_TITLES[slug]
     h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
     return text_of(h1.group(1)).replace("&amp;", "&") if h1 else "Hôtel Baie d'Or"
 
-
 def element_span(html, start):
-    """(start, end) of the element opening at `start`, matching nested tags of the same name."""
+    
     tag = re.match(r"<(\w+)", html[start:]).group(1)
     depth = 0
     for m in re.finditer(rf"<(/?){tag}\b[^>]*>", html[start:]):
@@ -175,34 +137,26 @@ def element_span(html, start):
             return start, start + m.end()
     raise ValueError(f"unclosed <{tag}> at {start}")
 
-
 def remove_element(html, start):
     if start < 0:
         raise ValueError("element to remove not found")
     a, b = element_span(html, start)
     return html[:a] + html[b:]
 
-
 def tidy_layout(slug, body):
-    """Drop per-page chrome (shared header/footer live in the layout) and redundant blocks."""
+    
     body = remove_element(body, body.find('<div class="fixed top-0 left-0 right-0 z-50 flex flex-col">'))
     body = remove_element(body, body.find("<footer"))
     if slug == "index":
-        # Second "featured stays" grid repeats the showcase above it, with filters that filter nothing.
         body = remove_element(body, body.rfind("<section", 0, body.find("Hébergements en Vedette</h2>")))
-        # Carousel arrows / counters that are not wired to anything.
         body = re.sub(r"<!-- (?:Directional Pagination Controls|Pagination numbers)[^>]*-->\s*<div[^>]*>.*?</div>", "", body, flags=re.S)
-    # A WhatsApp link with no number opens an empty chat: point it at the contact form instead.
     body = body.replace('href="https://wa.me" rel="noopener noreferrer" target="_blank"', 'href="/reservation?tab=contact"')
     body = body.replace("WhatsApp Concierge", "Écrire au concierge")
     if slug == "suite":
-        # Guests start at 2, so "-" must be usable (the export ships it disabled).
         body = body.replace('disabled="" id="guest-minus"', 'id="guest-minus"')
     if slug == "404":
-        # The legal hub has its own page (/legal); keep the 404 focused on getting back on track.
         body = remove_element(body, body.rfind("<section", 0, body.find("Hub des Mentions Légales")))
     return body
-
 
 def write_page(meta, slug, html):
     for old, new in IMAGE_SWAPS.items():
@@ -222,21 +176,18 @@ def write_page(meta, slug, html):
     if dangling:
         print(f"  {slug}: anchors without target: {dangling}")
 
-
 _ALL_HTML = None
 
-
 def find_image(suffix):
-    """Return the full URL of an exported image identified by its trailing characters."""
+    
     global _ALL_HTML
     if _ALL_HTML is None:
         _ALL_HTML = "".join(p.read_text(encoding="utf-8") for p in sorted(SRC.glob("*.html")))
     url = re.search(r"https://lh3\.googleusercontent\.com/[^\"')\s]*" + re.escape(suffix), _ALL_HTML).group(0)
     return url
 
-
 def page_config(html):
-    """The theme.extend object of an export's inline tailwind.config."""
+    
     m = re.search(r"tailwind\.config\s*=\s*(\{.*?\})\s*;?\s*</script>", html, re.S)
     if not m:
         return {}
@@ -244,19 +195,12 @@ def page_config(html):
                         input=m.group(1), capture_output=True, text=True, check=True).stdout
     return json.loads(js)["theme"]["extend"]
 
-
 SPACING_PREFIXES = r"(?:-?(?:p|px|py|pt|pb|pl|pr|ps|pe|m|mx|my|mt|mb|ml|mr|ms|me)|gap|gap-x|gap-y|space-x|space-y|w|h|min-w|min-h|max-w|max-h|top|bottom|left|right|inset|inset-x|inset-y|size|scroll-m|scroll-p)"
 
-
-# Default Tailwind utilities existed on every page; they now resolve to the hotel fonts.
 TAILWIND_DEFAULTS = {"sans", "serif", "mono"}
 
-
 def strip_unknown_tokens(body, own, merged):
-    """Drop classes that only resolve because of another export's theme tokens.
-
-    The Tailwind CDN ignored them on the original page, so keeping them would change its look.
-    """
+    
     rules = [("fontSize", r"text"), ("fontFamily", r"font"), ("spacing", SPACING_PREFIXES)]
     patterns = []
     for section, prefix in rules:
@@ -276,12 +220,10 @@ def strip_unknown_tokens(body, own, merged):
 
     return re.sub(r'(\sclass=)"([^"]*)"', clean, body)
 
-
 _MERGED = None
 
-
 def tailwind_config():
-    """Merge every export's inline tailwind.config (majority values win)."""
+    
     global _MERGED
     if _MERGED is not None:
         return _MERGED
@@ -296,14 +238,12 @@ def tailwind_config():
     _MERGED = merged
     return merged
 
-
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     meta = {}
     for slug, src in PAGES.items():
         write_page(meta, slug, (SRC / src).read_text(encoding="utf-8"))
 
-    # Legal hub: the 404 export without its "page not found" hero.
     html = (SRC / LEGAL_SOURCE).read_text(encoding="utf-8")
     main_start = html.find("<main")
     first = re.search(r"<section.*?</section>", html[main_start:], re.S)
@@ -327,7 +267,6 @@ def main():
         encoding="utf-8",
     )
     print("pages:", ", ".join(meta))
-
 
 if __name__ == "__main__":
     main()

@@ -1,17 +1,17 @@
 (function() {
-      // Rates Map
       const SUITE_RATES = {
         'dunes': { name: 'Villa Dunes', price: 280, tagline: 'Vue panoramique mer d’émeraude' },
         'baie': { name: 'Suite Baie d’Or', price: 450, tagline: 'Lagon turquoise & terrasse en teck' },
         'emeraude': { name: 'Pavillon Royal', price: 790, tagline: 'Piscine à débordement privée & service majordome' }
       };
       const DISPLAY_MGA_PER_EUR = 5085 / 25;
-      const formatMGA = (amountInEuros) => `${(Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100).toLocaleString('fr-FR')} Ar`;
+      const toMGA = (amountInEuros) => Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100;
+      const roundMGA = (amountInMGA) => Math.round(amountInMGA / 100) * 100;
+      const formatAr = (amountInMGA) => `${amountInMGA.toLocaleString('fr-FR')} Ar`;
 
       let adults = 2;
       let children = 0;
 
-      // Guest counter adjust
       window.adjustGuests = function(type, delta) {
         if (type === 'adults') {
           adults = Math.max(1, Math.min(8, adults + delta));
@@ -23,7 +23,6 @@
         window.updateCalculation();
       };
 
-      // Calculate total nights and amounts
       window.updateCalculation = function() {
         const arrivalVal = document.getElementById('date-arrival').value;
         const departureVal = document.getElementById('date-departure').value;
@@ -41,20 +40,19 @@
         const suiteInfo = SUITE_RATES[selectedSuite];
         document.getElementById('suite-tagline').textContent = suiteInfo.tagline;
 
-        // Base price
-        let total = suiteInfo.price * nights;
+        const roomSubtotal = toMGA(suiteInfo.price) * nights;
+        let total = roomSubtotal;
 
-        // Options
         const hasTransfer = document.getElementById('opt-transfer').checked;
         const hasDining = document.getElementById('opt-dining').checked;
         const hasSeaTrip = document.getElementById('opt-sea').checked;
 
-        if (hasTransfer) total += 75;
-        if (hasDining) total += (45 * adults * nights);
-        if (hasSeaTrip) total += (120 * (adults + children));
+        if (hasTransfer) total += toMGA(75);
+        if (hasDining) total += (toMGA(45) * adults * nights);
+        if (hasSeaTrip) total += (toMGA(120) * (adults + children));
+        total += roundMGA(total * 0.05);
 
-        // Format
-        const formattedTotal = formatMGA(total);
+        const formattedTotal = formatAr(total);
         document.getElementById('total-price-display').textContent = formattedTotal;
         document.getElementById('summary-nights').textContent = nights + (nights > 1 ? ' nuits' : ' nuit');
         document.getElementById('summary-guests').textContent = adults + (adults > 1 ? ' adultes' : ' adulte') + (children > 0 ? (', ' + children + ' enfant' + (children > 1 ? 's' : '')) : '');
@@ -66,7 +64,6 @@
         };
       };
 
-      // Simulation submission trigger
       window.simulateBooking = function() {
         const arrivalInput = document.getElementById('date-arrival');
         const departureInput = document.getElementById('date-departure');
@@ -102,7 +99,6 @@
         }, 300);
       };
 
-      // Contact form submission
       window.sendContactMessage = function() {
         const form = document.getElementById('contact-form');
         if (!form.reportValidity()) return;
@@ -118,7 +114,6 @@
       const contactFeedback = document.getElementById('contact-form-feedback');
       contactForm?.addEventListener('input', () => contactFeedback?.classList.add('hidden'));
 
-      // Tabs
       const bookingTab = document.getElementById('tab-btn-booking');
       const contactTab = document.getElementById('tab-btn-contact');
       const bookingBox = document.getElementById('booking-container');
@@ -141,7 +136,6 @@
       bookingTab.addEventListener('click', () => window.switchTab('booking'));
       contactTab.addEventListener('click', () => window.switchTab('contact'));
 
-      // FAQ Accordion functionality
       window.toggleFaq = function(button) {
         const card = button.closest('.faq-card');
         const isOpen = card.getAttribute('data-open') === 'true';
@@ -164,7 +158,6 @@
         }
       };
 
-      // Initial run
       const today = new Date();
       const arrival = new Date(today);
       arrival.setDate(today.getDate() + 30);

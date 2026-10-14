@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- full page loads re-run each page's exported Stitch scripts. */
 export default function Logo({ light = false }: { light?: boolean }) {
   return (
     <a href="/" className="flex items-center gap-3 shrink-0" aria-label="Hôtel Baie d'Or — accueil">

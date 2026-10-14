@@ -7,7 +7,6 @@ export type PageMeta = { title: string; bodyClass: string; formsPlugin: boolean 
 const META: Record<string, PageMeta> = pagesMeta;
 const CONTENT_DIR = path.join(process.cwd(), "content", "pages");
 
-/** Routes served by app/[slug]; "index" is "/" and "404" is the not-found page. */
 export const ROUTE_SLUGS = Object.keys(META).filter((slug) => slug !== "index" && slug !== "404");
 
 export function getPageMeta(slug: string): PageMeta | undefined {

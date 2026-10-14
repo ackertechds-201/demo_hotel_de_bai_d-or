@@ -1,10 +1,7 @@
 <main class="w-full pt-28 bg-pale-vanilla min-h-screen"><div class="flex flex-col w-full">
-<!-- 404 SECTION: ARCHITECTURAL SANCTUARY -->
 
-<!-- LEGAL & REGULATORY FRAMEWORK HUB -->
 <section class="w-full bg-surface-container-low px-gutter lg:px-margin-desktop py-space-3xl mt-space-xl">
 <div class="max-w-[1280px] mx-auto flex flex-col gap-space-2xl">
-<!-- Section Header & Pill Switcher -->
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
 <div class="flex flex-col gap-space-xs max-w-2xl">
 <div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-pale-vanilla text-primary font-label-md w-fit shadow-sm">
@@ -18,7 +15,6 @@
             Consultez en toute clarté l'encadrement juridique, les engagements de protection des données et le statut d'expérimentation du domaine Hôtel Baie d'Or.
           </p>
 </div>
-<!-- Pill Nav Filter (Simulated interactive tab pills) -->
 <div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-pale-vanilla shadow-sm self-start md:self-auto" id="legal-tab-container">
 <button class="legal-tab-btn px-space-md py-2 rounded-full font-label-md bg-espresso-dark text-pale-vanilla shadow-sm transition-all" id="tab-mentions" onclick="switchLegalTab('mentions')" type="button">
             Mentions Légales
@@ -34,7 +30,6 @@
           </button>
 </div>
 </div>
-<!-- Selected legal detail appears before the information cards. -->
 <div class="p-space-xl rounded-xl bg-pale-vanilla shadow-sm" id="tab-content-panel">
 <div class="legal-panel flex flex-col gap-space-md" id="panel-mentions">
 <div class="flex items-center gap-space-sm">
@@ -43,6 +38,9 @@
 </div>
 <p class="font-body-md text-secondary leading-relaxed">
             Hôtel Baie d'Or est un concept hôtelier fictif présenté par ce site de démonstration. Les chambres, services, tarifs, disponibilités, témoignages et itinéraires sont illustratifs et ne constituent pas une offre réelle. Les formulaires valident uniquement l’interface : aucune réservation réelle n’est créée, aucun message n’est envoyé et aucun paiement n’est effectué.
+          </p>
+<p class="font-body-md text-secondary leading-relaxed">
+            Tous les chiffres précis, performances et engagements environnementaux présentés dans la maquette sont des exemples illustratifs non vérifiés, sauf indication accompagnée d’une source contrôlable. Ils ne décrivent pas des mesures ou engagements réels.
           </p>
 </div>
 <div class="legal-panel hidden flex-col gap-space-md" id="panel-confidentialite">
@@ -73,9 +71,7 @@
           </p>
 </div>
 </div>
-<!-- Tri-Card Bento Architecture for Legal Content -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Card 1: Mentions & Editeur -->
 <div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
 <div class="flex flex-col gap-space-md">
 <div class="w-12 h-12 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary">
@@ -109,7 +105,6 @@
 <span class="text-primary font-bold">Aucune déclarée</span>
 </div>
 </div>
-<!-- Card 2: Statut du Projet -->
 <div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
 <div class="flex flex-col gap-space-md">
 <div class="w-12 h-12 rounded-full bg-secondary-container/60 flex items-center justify-center text-secondary">
@@ -135,7 +130,6 @@
 <span class="text-primary font-bold">À vérifier</span>
 </div>
 </div>
-<!-- Card 3: Hébergement & Propriété Intellectuelle -->
 <div class="rounded-xl p-space-xl bg-pale-vanilla flex flex-col justify-between shadow-md relative group hover:-translate-y-1 transition-transform duration-300">
 <div class="flex flex-col gap-space-md">
 <div class="w-12 h-12 rounded-full bg-sun-gold/20 flex items-center justify-center text-primary">
@@ -166,7 +160,6 @@
 </div>
 </div>
 </div>
-<!-- Interactive Accordion: Cadre Réglementaire -->
 <div class="flex flex-col gap-space-md pt-space-lg" id="faq-section">
 <div class="flex flex-col gap-space-xs">
 <span class="font-label-md uppercase tracking-wider text-outline">Éclaircissements immédats</span>
@@ -175,7 +168,6 @@
           </h3>
 </div>
 <div class="flex flex-col gap-space-sm w-full">
-<!-- Accordion Item 1 -->
 <div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-1')">
 <div class="flex items-center justify-between">
 <span class="font-headline-sm text-espresso-dark">
@@ -189,7 +181,6 @@
               Non. Hôtel Baie d'Or est un concept fictif. Les tarifs et disponibilités sont indicatifs, les formulaires ne transmettent aucune demande et aucun séjour réel n’est confirmé. Consultez un établissement réel pour organiser un voyage.
             </div>
 </div>
-<!-- Accordion Item 2 -->
 <div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-2')">
 <div class="flex items-center justify-between">
 <span class="font-headline-sm text-espresso-dark">
@@ -203,7 +194,6 @@
               Aucun outil d’analyse ou pixel publicitaire n’a été trouvé dans le code examiné. Les formulaires ne transmettent pas leurs valeurs. Les polices et images sont chargées depuis des fournisseurs externes, et les journaux du service d’hébergement ne sont pas vérifiés par cette maquette.
             </div>
 </div>
-<!-- Accordion Item 3 -->
 <div class="rounded-xl bg-pale-vanilla p-space-lg shadow-sm cursor-pointer transition-all hover:bg-surface-container-lowest" onclick="toggleAccordion('faq-3')">
 <div class="flex items-center justify-between">
 <span class="font-headline-sm text-espresso-dark">
@@ -219,7 +209,6 @@
 </div>
 </div>
 </div>
-<!-- Eco-Responsible Digital Architecture Banner -->
 <div class="rounded-xl bg-gradient-to-r from-espresso-dark to-[#2c1d14] text-pale-vanilla p-space-xl lg:p-space-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
 <div class="flex items-center gap-space-lg">
 <div class="w-16 h-16 rounded-full bg-sun-gold/20 flex items-center justify-center shrink-0 text-sun-gold">
@@ -229,7 +218,7 @@
 <span class="font-label-md uppercase tracking-widest text-sun-gold">Engagement Numérique Bas-Carbone</span>
 <h4 class="font-headline-sm text-pale-vanilla">Conception Éco-Responsable &amp; Respect de l'Écosystème</h4>
 <p class="font-body-sm text-secondary-fixed-dim max-w-xl">
-              Cette interface émet moins de 0.18g de CO₂ par page consultée grâce à une optimisation fine des flux SVG, l'absence de scripts lourds superflus et un hébergement alimenté aux énergies douces.
+              À titre d’illustration, la maquette évoque une empreinte inférieure à 0,18 g de CO₂ par page consultée. Cette estimation n’a pas été mesurée ni vérifiée et ne constitue pas une mesure de l’empreinte de ce site. L’énergie des serveurs et le mix énergétique de l’hébergeur ne sont pas vérifiés. Les choix de conception évoqués illustrent une intention, pas un engagement certifié.
             </p>
 </div>
 </div>

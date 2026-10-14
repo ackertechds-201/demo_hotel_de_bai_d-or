@@ -1,7 +1,5 @@
-// Micro-interaction : animation au survol doux des métriques
   document.addEventListener('DOMContentLoaded', () => {
     const metricCards = document.querySelectorAll('#manifeste, section');
-    // Observer léger pour transition naturelle
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

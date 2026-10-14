@@ -1,8 +1,3 @@
-/**
- * Shared behaviours layered on top of the exported pages: mobile navigation,
- * booking form calculations and validations (no reservation is submitted), and
- * deep links into the contact and legal tabs.
- */
 
 type Calculation = { total: string; suiteName: string; nights: number };
 
@@ -11,6 +6,8 @@ declare global {
     switchTab?: (tab: string) => void;
     switchLegalTab?: (tab: string) => void;
     updateCalculation?: () => Calculation;
+    toggleHomeFaq?: (button: HTMLElement) => void;
+    toggleFaq?: (button: HTMLElement) => void;
   }
 }
 
@@ -50,14 +47,11 @@ function initImageFallbacks() {
     image.src = imageFallbackFor(image.getAttribute("data-alt") || image.alt || "");
   };
 
-  // Keep working photos as-is; swap only external images that fail to load.
   document.addEventListener("error", (event) => {
     const image = event.target;
     if (image instanceof HTMLImageElement) recoverImage(image);
   }, true);
 
-  // React hydrates after the browser has started loading page images. Recover
-  // images that already failed before this shared handler was installed.
   $all<HTMLImageElement>("img").forEach((image) => {
     if (!image.hasAttribute("alt")) {
       image.alt = image.getAttribute("data-alt")?.trim() || "Illustration de la maquette Hôtel Baie d'Or";
@@ -65,8 +59,6 @@ function initImageFallbacks() {
     if (image.complete && image.naturalWidth === 0) recoverImage(image);
   });
 
-  // Defer CSS backgrounds until they approach the viewport. Unlike <img>,
-  // CSS backgrounds have no native loading="lazy" support.
   const backgrounds = $all<HTMLElement>("[data-lazy-background]");
   const loadBackground = (element: HTMLElement) => {
     if (element.dataset.backgroundLoading) return;
@@ -117,24 +109,63 @@ function isoOffset(days: number) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
+const popoverTriggers = new WeakMap<HTMLElement, HTMLElement>();
+
+function popoverAnchor(popover: HTMLElement) {
+  return popoverTriggers.get(popover) || (popover.id === "booking-dates-popover" ? $("#booking-dates-trigger") : null);
+}
+
 function placeBookingPopover(popover: HTMLElement, anchor: HTMLElement) {
+  popoverTriggers.set(popover, anchor);
+  if (popover.parentElement !== document.body) document.body.append(popover);
   const margin = 8;
-  popover.style.maxHeight = "";
+  const gap = 8;
   const bounds = anchor.getBoundingClientRect();
-  const popoverBounds = popover.getBoundingClientRect();
-  const spaceBelow = window.innerHeight - bounds.bottom - margin;
-  const spaceAbove = bounds.top - margin;
-  const openAbove = spaceBelow < popoverBounds.height && spaceAbove > spaceBelow;
+  const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
+  const viewportWidth = window.innerWidth;
+  const isCalendar = popover.classList.contains("booking-calendar");
+  const preferredWidth = isCalendar ? Math.min(320, viewportWidth - margin * 2) : Math.min(Math.max(bounds.width, 225), viewportWidth - margin * 2);
+
+  popover.style.position = "fixed";
+  popover.style.zIndex = "80";
+  popover.style.visibility = "hidden";
+  popover.style.right = "auto";
+  popover.style.bottom = "auto";
+  popover.style.width = `${preferredWidth}px`;
+  popover.style.maxWidth = `${viewportWidth - margin * 2}px`;
+  popover.style.maxHeight = "none";
+  popover.style.top = "0";
+  popover.style.left = "0";
+
+  const naturalHeight = popover.getBoundingClientRect().height;
+  const spaceBelow = Math.max(0, window.innerHeight - bounds.bottom - gap - margin);
+  const spaceAbove = Math.max(0, bounds.top - Math.max(headerBottom, 0) - gap);
+  const openAbove = naturalHeight > spaceBelow && spaceAbove > spaceBelow;
+  const available = Math.max(96, openAbove ? spaceAbove : spaceBelow);
   popover.classList.toggle("opens-up", openAbove);
-  popover.classList.remove("align-right");
-  const safeLeft = Math.max(margin, Math.min(bounds.left, window.innerWidth - popoverBounds.width - margin));
-  const offsetParent = popover.offsetParent;
-  if (offsetParent instanceof HTMLElement) {
-    popover.style.left = `${safeLeft - offsetParent.getBoundingClientRect().left - offsetParent.clientLeft}px`;
-    popover.style.right = "auto";
+  popover.style.maxHeight = `${Math.min(naturalHeight, available)}px`;
+
+  const height = Math.min(naturalHeight, available);
+  let left = bounds.left;
+  if (left + preferredWidth > viewportWidth - margin) left = viewportWidth - margin - preferredWidth;
+  left = Math.max(margin, left);
+
+  popover.style.left = `${left}px`;
+  if (openAbove) {
+    popover.style.top = `${Math.max(margin, bounds.top - gap - height)}px`;
+  } else {
+    popover.style.top = `${bounds.bottom + gap}px`;
   }
-  const availableHeight = (openAbove ? spaceAbove : spaceBelow) - margin;
-  popover.style.maxHeight = `${Math.max(96, availableHeight)}px`;
+  popover.style.visibility = "";
+}
+
+function closeBookingPopovers(except?: HTMLElement) {
+  $all<HTMLElement>(".booking-select-menu:not(.hidden), .booking-calendar:not(.hidden)").forEach((popover) => {
+    if (popover === except) return;
+    popover.classList.add("hidden");
+    const anchor = popoverAnchor(popover);
+    if (anchor instanceof HTMLElement) anchor.setAttribute("aria-expanded", "false");
+  });
 }
 
 const goTo = (href: string, delay = 0) => setTimeout(() => (window.location.href = href), delay);
@@ -180,13 +211,14 @@ function initSharedFormControls() {
       item.disabled = option.disabled;
       item.setAttribute("role", "option");
       item.setAttribute("aria-selected", String(option.selected));
-      item.addEventListener("click", () => {
+      item.addEventListener("click", (event) => {
+        event.stopPropagation();
         select.selectedIndex = index;
         select.dispatchEvent(new Event("input", { bubbles: true }));
         select.dispatchEvent(new Event("change", { bubbles: true }));
         menu.classList.add("hidden");
         trigger.setAttribute("aria-expanded", "false");
-        trigger.focus();
+        trigger.focus({ preventScroll: true });
       });
       menu.append(item);
       return item;
@@ -195,25 +227,25 @@ function initSharedFormControls() {
       menu.querySelectorAll("[aria-selected='true']").forEach((el) => el.setAttribute("aria-selected", "false"));
       options[select.selectedIndex]?.setAttribute("aria-selected", "true");
     });
-    trigger.addEventListener("click", () => {
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
       const opening = menu.classList.contains("hidden");
-      document.querySelectorAll(".booking-select-menu, .booking-calendar").forEach((el) => el.classList.add("hidden"));
-      const expanded = document.querySelectorAll(".booking-select-trigger[aria-expanded='true']");
-      expanded.forEach((el) => el.setAttribute("aria-expanded", "false"));
+      closeBookingPopovers(menu);
       menu.classList.toggle("hidden", !opening);
       trigger.setAttribute("aria-expanded", String(opening));
       if (opening) {
         placeBookingPopover(menu, trigger);
-        options[select.selectedIndex]?.focus();
+        options[select.selectedIndex]?.focus({ preventScroll: true });
       }
     });
     trigger.addEventListener("keydown", (event) => {
       if (["ArrowDown", "Enter", " "].includes(event.key)) {
         event.preventDefault();
+        closeBookingPopovers(menu);
         menu.classList.remove("hidden");
         trigger.setAttribute("aria-expanded", "true");
         placeBookingPopover(menu, trigger);
-        options[select.selectedIndex]?.focus();
+        options[select.selectedIndex]?.focus({ preventScroll: true });
       }
     });
     menu.addEventListener("keydown", (event) => {
@@ -221,10 +253,10 @@ function initSharedFormControls() {
       if (event.key === "Escape") {
         menu.classList.add("hidden");
         trigger.setAttribute("aria-expanded", "false");
-        trigger.focus();
+        trigger.focus({ preventScroll: true });
       } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
-        options[(current + (event.key === "ArrowDown" ? 1 : options.length - 1)) % options.length]?.focus();
+        options[(current + (event.key === "ArrowDown" ? 1 : options.length - 1)) % options.length]?.focus({ preventScroll: true });
       }
     });
     host.append(trigger, menu);
@@ -288,7 +320,8 @@ function initSharedFormControls() {
         if (input.min && iso < input.min) button.disabled = true;
         if (input.max && iso > input.max) button.disabled = true;
         if (iso === input.value) button.classList.add("is-selected");
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
           input.value = iso;
           input.dispatchEvent(new Event("input", { bubbles: true }));
           input.dispatchEvent(new Event("change", { bubbles: true }));
@@ -302,8 +335,15 @@ function initSharedFormControls() {
     renderCalendar();
     input.addEventListener("input", syncValue);
     input.addEventListener("change", syncValue);
-    trigger.addEventListener("click", () => {
-      document.querySelectorAll(".booking-select-menu, .booking-calendar").forEach((el) => el.classList.add("hidden"));
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const opening = calendar.classList.contains("hidden");
+      closeBookingPopovers(calendar);
+      if (!opening) {
+        calendar.classList.add("hidden");
+        trigger.setAttribute("aria-expanded", "false");
+        return;
+      }
       view = input.value ? new Date(`${input.value}T12:00:00`) : new Date();
       view = new Date(view.getFullYear(), view.getMonth(), 1);
       renderCalendar();
@@ -312,7 +352,8 @@ function initSharedFormControls() {
       trigger.setAttribute("aria-expanded", "true");
     });
     calendar.querySelectorAll<HTMLButtonElement>("[data-calendar-shift]").forEach((button) =>
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
         view = new Date(view.getFullYear(), view.getMonth() + Number(button.dataset.calendarShift), 1);
         renderCalendar();
       }),
@@ -321,7 +362,7 @@ function initSharedFormControls() {
       if (event.key === "Escape") {
         calendar.classList.add("hidden");
         trigger.setAttribute("aria-expanded", "false");
-        trigger.focus();
+        trigger.focus({ preventScroll: true });
       }
     });
     host.append(trigger, calendar);
@@ -342,25 +383,73 @@ function initSharedFormControls() {
 
   document.addEventListener("click", (event) => {
     const target = event.target as Element;
-    if (target.closest(".booking-select-host, .site-date-host, #booking-dates-trigger, #booking-dates-popover")) return;
-    document.querySelectorAll(".booking-select-menu, .booking-calendar").forEach((el) => el.classList.add("hidden"));
-    document.querySelectorAll(".booking-select-trigger[aria-expanded='true'], .site-date-trigger[aria-expanded='true']").forEach((el) => el.setAttribute("aria-expanded", "false"));
-    $("#booking-dates-trigger")?.setAttribute("aria-expanded", "false");
+    if (target.closest(".booking-select-host, .site-date-host, .booking-select-menu, .booking-calendar, #booking-dates-trigger, #booking-dates-popover")) return;
+    closeBookingPopovers();
   });
 
   const repositionOpenPopovers = () => {
     document.querySelectorAll<HTMLElement>(".booking-select-menu:not(.hidden), .booking-calendar:not(.hidden)").forEach((popover) => {
-      const anchor = popover.previousElementSibling;
+      const anchor = popoverAnchor(popover);
       if (anchor instanceof HTMLElement) placeBookingPopover(popover, anchor);
     });
   };
   window.addEventListener("resize", repositionOpenPopovers);
-  window.addEventListener("scroll", repositionOpenPopovers, { passive: true });
+  window.addEventListener("scroll", repositionOpenPopovers, { capture: true, passive: true });
 }
 
 function initHome() {
-  const forms = $all<HTMLFormElement>("form");
-  forms[0]?.addEventListener("submit", (event) => {
+  window.toggleHomeFaq = function (button: HTMLElement) {
+    const card = button.closest<HTMLElement>(".faq-card");
+    if (!card) return;
+    const container = card.closest<HTMLElement>("#resort-faq") || document.getElementById("resort-faq");
+    const wasOpen = card.getAttribute("data-open") === "true";
+
+    if (container) {
+      container.querySelectorAll<HTMLElement>(".faq-card").forEach((otherCard) => {
+        if (otherCard !== card) {
+          otherCard.setAttribute("data-open", "false");
+          const otherBtn = otherCard.querySelector<HTMLButtonElement>(".faq-btn");
+          const otherContent = otherCard.querySelector<HTMLElement>(".faq-content");
+          const otherIcon = otherCard.querySelector<HTMLElement>(".faq-icon");
+          const otherSpan = otherIcon?.querySelector<HTMLElement>(".material-symbols-outlined");
+
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+          if (otherContent) otherContent.classList.add("hidden");
+          if (otherIcon) {
+            otherIcon.className =
+              "faq-icon w-8 h-8 rounded-full bg-soft-sand border border-warm-border text-espresso-dark flex items-center justify-center flex-shrink-0 transition-colors";
+          }
+          if (otherSpan) otherSpan.textContent = "expand_more";
+        }
+      });
+    }
+
+    const content = card.querySelector<HTMLElement>(".faq-content");
+    const icon = card.querySelector<HTMLElement>(".faq-icon");
+    const iconSpan = icon?.querySelector<HTMLElement>(".material-symbols-outlined");
+
+    if (wasOpen) {
+      card.setAttribute("data-open", "false");
+      button.setAttribute("aria-expanded", "false");
+      if (content) content.classList.add("hidden");
+      if (icon) {
+        icon.className =
+          "faq-icon w-8 h-8 rounded-full bg-soft-sand border border-warm-border text-espresso-dark flex items-center justify-center flex-shrink-0 transition-colors";
+      }
+      if (iconSpan) iconSpan.textContent = "expand_more";
+    } else {
+      card.setAttribute("data-open", "true");
+      button.setAttribute("aria-expanded", "true");
+      if (content) content.classList.remove("hidden");
+      if (icon) {
+        icon.className =
+          "faq-icon w-8 h-8 rounded-full bg-espresso-dark text-[#FFFBF2] flex items-center justify-center flex-shrink-0 transition-colors";
+      }
+      if (iconSpan) iconSpan.textContent = "expand_less";
+    }
+  };
+
+  $<HTMLFormElement>("#reservation form")?.addEventListener("submit", (event) => {
     event.preventDefault();
     const arrival = $<HTMLInputElement>("#booking-arrival")?.value || "";
     const departure = $<HTMLInputElement>("#booking-departure")?.value || "";
@@ -377,7 +466,13 @@ function initHome() {
     });
     goTo(`/chambres?${params.toString()}`);
   });
-  forms[1]?.addEventListener("submit", () => goTo("/reservation"));
+  $all<HTMLFormElement>("form").forEach((form) => {
+    if (form.closest("#reservation")) return;
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      goTo("/reservation");
+    });
+  });
   const dateTrigger = $<HTMLButtonElement>("#booking-dates-trigger");
   const datePopover = $<HTMLDivElement>("#booking-dates-popover");
   const arrivalInput = $<HTMLInputElement>("#booking-arrival");
@@ -418,7 +513,8 @@ function initHome() {
         if (value < iso(today)) button.disabled = true;
         if (value === start || value === end) button.classList.add("is-selected");
         else if (value > start && value < end) button.classList.add("is-in-range");
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
           if (!selectingDeparture || value <= start) {
             start = value;
             end = "";
@@ -438,16 +534,18 @@ function initHome() {
     };
     syncDates();
     renderCalendar();
-    dateTrigger.addEventListener("click", () => {
-      document.querySelectorAll(".booking-select-menu").forEach((el) => el.classList.add("hidden"));
+    dateTrigger.addEventListener("click", (event) => {
+      event.stopPropagation();
       const opening = datePopover.classList.contains("hidden");
+      closeBookingPopovers(datePopover);
       datePopover.classList.toggle("hidden", !opening);
       dateTrigger.setAttribute("aria-expanded", String(opening));
-      if (opening) placeBookingPopover(datePopover, dateTrigger);
       renderCalendar();
+      if (opening) placeBookingPopover(datePopover, dateTrigger);
     });
     datePopover.querySelectorAll<HTMLButtonElement>("[data-calendar-shift]").forEach((button) =>
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
         view = new Date(view.getFullYear(), view.getMonth() + Number(button.dataset.calendarShift), 1);
         renderCalendar();
       }),
@@ -456,13 +554,8 @@ function initHome() {
       if (event.key === "Escape") {
         datePopover.classList.add("hidden");
         dateTrigger.setAttribute("aria-expanded", "false");
-        dateTrigger.focus();
+        dateTrigger.focus({ preventScroll: true });
       }
-    });
-    document.addEventListener("click", (event) => {
-      if ((event.target as Element).closest("#booking-dates-trigger, #booking-dates-popover")) return;
-      datePopover.classList.add("hidden");
-      dateTrigger.setAttribute("aria-expanded", "false");
     });
   }
 
@@ -659,7 +752,6 @@ function initShare() {
       try {
         await navigator.share(data);
       } catch {
-        /* user dismissed the share sheet */
       }
       return;
     }

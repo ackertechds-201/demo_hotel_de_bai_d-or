@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-html-link-for-pages -- full page loads re-run each page's exported Stitch scripts. */
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";

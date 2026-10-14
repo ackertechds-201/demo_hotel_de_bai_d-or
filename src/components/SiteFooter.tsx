@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- full page loads re-run each page's exported Stitch scripts. */
 import Logo from "./Logo";
 import { LEGAL_LINKS, NAV_LINKS } from "./nav";
 

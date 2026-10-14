@@ -1,5 +1,4 @@
 (function initSuiteDetailInteractions() {
-    // --- Dynamic Total Price Calculation ---
     const checkinInput = document.getElementById('input-checkin');
     const checkoutInput = document.getElementById('input-checkout');
     const guestCountEl = document.getElementById('guest-count');
@@ -17,7 +16,10 @@
     
     const PRICE_PER_NIGHT = 320;
     const DISPLAY_MGA_PER_EUR = 5085 / 25;
-    const formatMGA = (amountInEuros) => `${(Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100).toLocaleString('fr-FR')} Ar`;
+    const toMGA = (amountInEuros) => Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100;
+    const roundMGA = (amountInMGA) => Math.round(amountInMGA / 100) * 100;
+    const formatAr = (amountInMGA) => `${amountInMGA.toLocaleString('fr-FR')} Ar`;
+    const formatMGA = (amountInEuros) => formatAr(toMGA(amountInEuros));
     let guestCount = 2;
 
     if (checkinInput && checkoutInput) {
@@ -58,31 +60,31 @@
 
     function updateBreakdown() {
       const nights = calculateNights();
-      const subtotal = nights * PRICE_PER_NIGHT;
-      const taxes = Math.round(subtotal * 0.05);
+      const subtotal = nights * toMGA(PRICE_PER_NIGHT);
 
       let extrasTotal = 0;
       extraCheckboxes.forEach(cb => {
         if (cb.checked) {
-          extrasTotal += parseInt(cb.getAttribute('data-price') || '0', 10);
+          extrasTotal += toMGA(parseInt(cb.getAttribute('data-price') || '0', 10));
         }
       });
+      const taxes = roundMGA((subtotal + extrasTotal) * 0.05);
 
       if (labelNightsEl) labelNightsEl.textContent = `${formatMGA(PRICE_PER_NIGHT)} x ${nights} nuit${nights > 1 ? 's' : ''}`;
-      if (priceSubtotalEl) priceSubtotalEl.textContent = formatMGA(subtotal);
-      if (priceTaxesEl) priceTaxesEl.textContent = formatMGA(taxes);
+      if (priceSubtotalEl) priceSubtotalEl.textContent = formatAr(subtotal);
+      if (priceTaxesEl) priceTaxesEl.textContent = formatAr(taxes);
 
       if (extrasTotal > 0) {
         if (extrasRowEl) extrasRowEl.classList.remove('hidden');
         if (extrasRowEl) extrasRowEl.classList.add('flex');
-        if (priceExtrasEl) priceExtrasEl.textContent = `+${formatMGA(extrasTotal)}`;
+        if (priceExtrasEl) priceExtrasEl.textContent = `+${formatAr(extrasTotal)}`;
       } else {
         if (extrasRowEl) extrasRowEl.classList.add('hidden');
         if (extrasRowEl) extrasRowEl.classList.remove('flex');
       }
 
       const total = subtotal + taxes + extrasTotal;
-      if (priceTotalEl) priceTotalEl.textContent = formatMGA(total);
+      if (priceTotalEl) priceTotalEl.textContent = formatAr(total);
     }
 
     if (checkinInput && checkoutInput) {
@@ -116,7 +118,6 @@
       });
     }
 
-    // --- Interactive Modal for Photo Gallery ---
     const openGalleryBtn = document.getElementById('open-gallery-modal');
     const closeGalleryBtn = document.getElementById('close-gallery-modal');
     const galleryModal = document.getElementById('gallery-modal');
@@ -144,7 +145,6 @@
       });
     }
 
-    // --- Favorite Toggle Micro-interaction ---
     const btnFavorite = document.getElementById('btn-favorite');
     const favIcon = document.getElementById('fav-icon');
     let isFav = false;
@@ -165,7 +165,6 @@
       });
     }
 
-    // --- Simulation Toast Trigger ---
     const simulateBtn = document.getElementById('btn-simulate-booking');
     if (simulateBtn) {
       simulateBtn.addEventListener('click', () => {
@@ -192,6 +191,5 @@
       });
     }
     
-    // Initial run
     updateBreakdown();
   })();

@@ -1,4 +1,3 @@
-// Filter Pill Controller
   function filterCategory(cat) {
     const cards = document.querySelectorAll('.exp-card');
     const pills = document.querySelectorAll('.pill-btn');
@@ -21,7 +20,6 @@
     });
   }
 
-  // Quick navigation to booking with prefill
   function prefillBooking(expName) {
     const select = document.getElementById('exp-select');
     if (select) {
@@ -39,7 +37,6 @@
     }
   }
 
-  // Handle simulation form submit
   function handleExperienceSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('experience-simulation-form');
@@ -73,7 +70,6 @@
     experienceDate.addEventListener('change', () => experienceDate.setCustomValidity(''));
   }
 
-  // Testimonial Carousel Controller
   let currentSlide = 0;
   const totalSlides = 3;
 

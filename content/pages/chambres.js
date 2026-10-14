@@ -1,6 +1,8 @@
 (function() {
       const DISPLAY_MGA_PER_EUR = 5085 / 25;
       const formatMGA = (amountInEuros) => `${(Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100).toLocaleString('fr-FR')} Ar`;
+      const toMGA = (amountInEuros) => Math.round(amountInEuros * DISPLAY_MGA_PER_EUR / 100) * 100;
+      const formatAr = (amountInMGA) => `${amountInMGA.toLocaleString('fr-FR')} Ar`;
       const categoryButtons = document.querySelectorAll('.filter-category-btn');
       const viewSelect = document.getElementById('filter-view');
       const capacitySelect = document.getElementById('filter-capacity');
@@ -55,7 +57,6 @@
           return matchCat && matchView && matchCap && matchStay;
         });
 
-        // Sorting logic
         if (sortVal === 'asc') {
           visibleCards.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
         } else if (sortVal === 'desc') {
@@ -64,7 +65,6 @@
           visibleCards.sort((a, b) => parseInt(b.dataset.surface) - parseInt(a.dataset.surface));
         }
 
-        // Reorder and show/hide
         cards.forEach(card => card.style.display = 'none');
 
         visibleCards.forEach(card => {
@@ -129,7 +129,6 @@
       resetBtn.addEventListener('click', resetAll);
       if (resetEmptyBtn) resetEmptyBtn.addEventListener('click', resetAll);
 
-      // Apply the choices passed from the home-page search to the visible filters.
       const categories = requiredCategories();
       const uniqueCategories = [...new Set(categories)];
       if (uniqueCategories.length === 1) currentCategory = uniqueCategories[0];
@@ -146,7 +145,6 @@
       if (requestedCapacity !== 'all') capacitySelect.value = requestedCapacity;
       if (requestedStay || requestedLodging || requestedGuests) applyFilters();
 
-      // Simulation Modal Logic
       const modal = document.getElementById('booking-modal');
       const closeModalBtn = document.getElementById('close-modal-btn');
       const simButtons = document.querySelectorAll('.simulate-book-btn');
@@ -185,7 +183,7 @@
         const end = new Date(`${dateInputs[1].value}T12:00:00`);
         const nights = Math.max(1, Math.round((end.getTime() - start.getTime()) / 86400000));
         const price = Number(modal.dataset.pricePerNight || 300);
-        modalTotalPrice.textContent = `${formatMGA(price * nights)} (séjour ${nights} nuit${nights > 1 ? 's' : ''})`;
+        modalTotalPrice.textContent = `${formatAr(toMGA(price) * nights)} (séjour ${nights} nuit${nights > 1 ? 's' : ''})`;
       };
       dateInputs[0]?.addEventListener('change', () => {
         dateInputs[0].setCustomValidity('');

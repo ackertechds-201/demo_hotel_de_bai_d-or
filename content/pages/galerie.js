@@ -52,8 +52,6 @@
     });
   });
 
-  // This export contains seven photographs and no hidden second page of images.
-  // Hide the old progressive-load control when there is nothing left to reveal.
   if (loadMore) {
     const hiddenItems = items.filter((item) => item.hidden || getComputedStyle(item).display === 'none');
     if (hiddenItems.length === 0) loadMore.hidden = true;
