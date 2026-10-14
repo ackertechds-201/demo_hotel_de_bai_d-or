@@ -368,7 +368,13 @@ function initHome() {
       $<HTMLButtonElement>("#booking-dates-trigger")?.click();
       return;
     }
-    const params = new URLSearchParams({ arrival, departure });
+    const params = new URLSearchParams({
+      arrival,
+      departure,
+      stay: $<HTMLSelectElement>("#booking-stay")?.value || "tout-inclus",
+      lodging: $<HTMLSelectElement>("#booking-lodging")?.value || "toutes",
+      guests: $<HTMLSelectElement>("#booking-guests")?.value || "2-adultes",
+    });
     goTo(`/chambres?${params.toString()}`);
   });
   forms[1]?.addEventListener("submit", () => goTo("/reservation"));
@@ -496,17 +502,23 @@ function initRooms(params: URLSearchParams) {
         if (!roomId) return;
         const roomTitle = card.querySelector("h2")?.textContent?.trim() || "Hébergement";
         const image = card.querySelector<HTMLImageElement>("img");
+        const displayedPrice = card.querySelector(".font-headline-sm")?.textContent?.trim() || "Tarif sur demande";
+        const amenities = Array.from(card.querySelectorAll<HTMLElement>(".flex.flex-wrap.items-center > span"))
+          .map((item) => {
+            const copy = item.cloneNode(true) as HTMLElement;
+            copy.querySelectorAll(".material-symbols-outlined").forEach((icon) => icon.remove());
+            return copy.textContent?.trim() || "";
+          })
+          .filter((item) => item && item !== "•");
         const roomData = {
           title: roomTitle,
-          price: card.querySelector(".font-headline-sm")?.textContent?.trim() || "Tarif sur demande",
+          price: displayedPrice.replace(/\s*\/\s*nuitée$/i, ""),
           area: card.querySelector(".flex.items-baseline.justify-between > span:last-child")?.textContent?.trim() || "",
           location: card.querySelector("h2 + p")?.textContent?.trim() || "Diego-Suarez • Madagascar",
           description: card.querySelector(".line-clamp-2")?.textContent?.trim() || "",
           image: image?.currentSrc || image?.src || "",
           imageAlt: image?.alt || roomTitle,
-          amenities: Array.from(card.querySelectorAll(".flex.flex-wrap.items-center > span"))
-            .map((item) => item.textContent?.trim() || "")
-            .filter((item) => item && item !== "•"),
+          amenities,
         };
         const detailParams = new URLSearchParams({
           room: roomId,
@@ -561,13 +573,24 @@ function renderRoomDetail(roomId: string, params: URLSearchParams) {
   } catch {
     amenities = [];
   }
+  const roomIds = new Set(["alize", "emeraude", "sakalava", "ramena", "nosylonjo", "penthouse"]);
+  let safeImage = "";
+  try {
+    const imageUrl = new URL(params.get("image") || "", window.location.origin);
+    if (imageUrl.protocol === "https:" && ["lh3.googleusercontent.com", "images.unsplash.com"].includes(imageUrl.hostname)) {
+      safeImage = imageUrl.href;
+    }
+  } catch {
+    safeImage = "";
+  }
+  if (!roomIds.has(roomId)) return;
   const room: RoomDetail = {
     title: params.get("title") || "Hébergement",
     price: params.get("price") || "Tarif indicatif",
     area: params.get("area") || "",
     location: params.get("location") || "Diego-Suarez • Madagascar",
     description: params.get("description") || "",
-    image: params.get("image") || "",
+    image: safeImage,
     imageAlt: params.get("imageAlt") || "Hébergement de démonstration",
     amenities: amenities.filter((item) => typeof item === "string").slice(0, 8),
   };

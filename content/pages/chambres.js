@@ -11,24 +11,48 @@
       const resetBtn = document.getElementById('reset-filters');
       const resetEmptyBtn = document.getElementById('reset-empty-btn');
       const grid = document.getElementById('rooms-grid');
+      const searchParams = new URLSearchParams(window.location.search);
+      let requestedStay = ['tout-inclus', 'nuitee', 'lune-miel', 'villa-privee'].includes(searchParams.get('stay')) ? searchParams.get('stay') : '';
+      let requestedLodging = ['toutes', 'deluxe', 'suite-ocean', 'villa-privee'].includes(searchParams.get('lodging')) ? searchParams.get('lodging') : '';
+      let requestedGuests = ({ '1-adulte': 1, '2-adultes': 2, 'famille-4': 4, 'groupe': 6 })[searchParams.get('guests')] || 0;
 
       let currentCategory = 'all';
+
+      function requiredCategories() {
+        const categories = [];
+        if (requestedLodging === 'deluxe') categories.push('lagoon');
+        if (requestedLodging === 'villa-privee' || requestedStay === 'villa-privee') categories.push('villa');
+        if (requestedStay === 'lune-miel') categories.push('lagoon');
+        return categories;
+      }
+
+      function capacityLimit(value) {
+        if (value === 'family') return 6;
+        return Number.parseInt(value, 10) || 0;
+      }
 
       function applyFilters() {
         const viewVal = viewSelect.value;
         const capVal = capacitySelect.value;
         const sortVal = sortSelect.value;
+        const categoryConstraints = requiredCategories();
+        const minimumGuests = Math.max(requestedGuests, capacityLimit(capVal));
+        const requestedView = requestedLodging === 'suite-ocean' ? 'mer' : '';
 
         let visibleCards = cards.filter(card => {
           const cat = card.getAttribute('data-category');
           const v = card.getAttribute('data-view');
           const c = card.getAttribute('data-capacity');
 
-          const matchCat = (currentCategory === 'all' || cat === currentCategory);
-          const matchView = (viewVal === 'all' || v === viewVal);
-          const matchCap = (capVal === 'all' || c === capVal);
+          const matchCat = (currentCategory === 'all' || cat === currentCategory) && categoryConstraints.every(category => cat === category);
+          const matchView = (viewVal === 'all' || v === viewVal) && (!requestedView || v === requestedView);
+          const roomCapacity = c === 'family' ? 8 : Number.parseInt(c, 10) || 0;
+          const matchCap = roomCapacity >= minimumGuests;
+          const matchStay = !requestedStay || requestedStay === 'tout-inclus' || requestedStay === 'nuitee' ||
+            (requestedStay === 'lune-miel' && cat === 'lagoon') ||
+            (requestedStay === 'villa-privee' && cat === 'villa');
 
-          return matchCat && matchView && matchCap;
+          return matchCat && matchView && matchCap && matchStay;
         });
 
         // Sorting logic
@@ -79,6 +103,12 @@
       sortSelect.addEventListener('change', applyFilters);
 
       function resetAll() {
+        requestedStay = '';
+        requestedLodging = '';
+        requestedGuests = 0;
+        const cleanUrl = new URL(window.location.href);
+        ['stay', 'lodging', 'guests'].forEach(key => cleanUrl.searchParams.delete(key));
+        window.history.replaceState({}, '', cleanUrl);
         currentCategory = 'all';
         categoryButtons.forEach((b, idx) => {
           if (idx === 0) {
@@ -98,6 +128,23 @@
 
       resetBtn.addEventListener('click', resetAll);
       if (resetEmptyBtn) resetEmptyBtn.addEventListener('click', resetAll);
+
+      // Apply the choices passed from the home-page search to the visible filters.
+      const categories = requiredCategories();
+      const uniqueCategories = [...new Set(categories)];
+      if (uniqueCategories.length === 1) currentCategory = uniqueCategories[0];
+      categoryButtons.forEach(button => {
+        const selected = button.getAttribute('data-category') === currentCategory;
+        button.classList.toggle('bg-sun-gold', selected);
+        button.classList.toggle('text-espresso-dark', selected);
+        button.classList.toggle('font-semibold', selected);
+        button.classList.toggle('bg-surface-container-low', !selected);
+        button.classList.toggle('text-on-surface-variant', !selected);
+      });
+      if (requestedLodging === 'suite-ocean') viewSelect.value = 'mer';
+      const requestedCapacity = requestedGuests >= 6 ? 'family' : requestedGuests >= 4 ? '4' : requestedGuests >= 2 ? '2' : 'all';
+      if (requestedCapacity !== 'all') capacitySelect.value = requestedCapacity;
+      if (requestedStay || requestedLodging || requestedGuests) applyFilters();
 
       // Simulation Modal Logic
       const modal = document.getElementById('booking-modal');
