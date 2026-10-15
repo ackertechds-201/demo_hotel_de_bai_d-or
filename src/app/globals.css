@@ -20,6 +20,36 @@
   }
 }
 
+/* ===== RESPONSIVE — MOBILE FIXES ===== */
+
+/* Scale down large headlines on small screens */
+@media (max-width: 639px) {
+  .text-headline-xl {
+    font-size: clamp(1.6rem, 6vw, 2.75rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .text-display-lg {
+    font-size: clamp(1.75rem, 7.5vw, 3.5rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .text-headline-lg {
+    font-size: clamp(1.4rem, 5.5vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Prevent inline badges / breadcrumbs from overflowing */
+  .inline-flex {
+    max-width: 100%;
+  }
+
+  /* Search bars: stack buttons below input on very small screens */
+  .booking-select-trigger {
+    font-size: 13px;
+  }
+}
+
 
 
 .stitch-no-forms select {
